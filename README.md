@@ -1,7 +1,6 @@
 Udi Cohen's blog
 ==================
 
-## Config
 Install Jekyll
 https://jekyllrb.com/docs/
 
