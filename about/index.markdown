@@ -11,7 +11,7 @@ wordpress_id: 2
 <img src="/assets/images/about/me.jpg" alt="pic" class="about-pic" align="right"/>
 Hi, I'm Udi and I love building things.
 
-I'm a software engineer, a father and a master of fixing things that aren't really broken. I work at Snap on some of our most critical Android infrastructures, where I regularly practice my optimization skills, as well as my patience. I've been developing on Android since 2.2 (Froyo), but my passion for mobile started in the J2ME/Symbian days.
+I'm a software engineer, a father and a master of fixing things that aren't really broken. I work at Snapchat on some of our most critical Android infrastructures, where I regularly practice my optimization skills, as well as my patience. I've been developing on Android since 2.2 (Froyo), but my passion for mobile started in the J2ME/Symbian days.
 
 I like to create elaborate technical solutions to solve inconveniences in my life. My side projects range from automated scripts to designing electrical circuits, depending on the "problem". I created this blog to share some of the interesting stuff I've been working on, challenges I faced and lessons I learned and hope will benefit others. 
 
