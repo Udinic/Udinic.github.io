@@ -1,0 +1,377 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Dress up your PreferenceActivity</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>Dress up your PreferenceActivity </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   August 
+	   17th,
+	   
+	   2011
+	 </span>
+	  <div class="article_body">
+	  <p>Does your Android app support themes?</p>
+
+<p>Even if the answer is “No”, lots of apps are built using colors other than the default black. For instance, using a white background for all the screens. In that case, you’re getting yourself into a journey of properties changing, widgets extending and XML modifying. BUT, it’s not as difficult as you might think! Sure, there’s a need to extend a UI component once in a while, just because it doesn’t have a “setBackgroundColor()” or something like that, but besides that - it’s mostly just XML attributes needed to be adjusted.</p>
+
+<p>I had the chance to write that kind of app, and I ran into quite a lot of issues in the process, and luckily for you - I’m here to share! I’ll start talking about the PreferenceActivity, and if there will be requests - I’ll add more posts on that subject.</p>
+
+<!--break-->
+
+<p>If you’ll try to add a PreferenceActivity to your app, you’ll see that the default background is black. The PreferenceActivity contains a ListView for all the properties inside. We can just get the list from the activity, and change it’s background color. That’s how we’ll do it:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UdinicPreferenceActivity</span> <span class="kd">extends</span> <span class="nc">PreferenceActivity</span>
+<span class="o">{</span>
+    <span class="cm">/** Called when the activity is first created. */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">addPreferencesFromResource</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">xml</span><span class="o">.</span><span class="na">udinic_pref</span><span class="o">);</span>
+
+        <span class="c1">// Setting the list's background to be white</span>
+        <span class="n">findViewById</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">list</span><span class="o">).</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>The background has indeed been changed. BUT, the preferences’ categories still have black background, as you can see in this screen-shot:</p>
+
+<p><a href="/assets/images/2011-08-17-dress-up-your-preferenceactivity/1.png"><img src="/assets/images/2011-08-17-dress-up-your-preferenceactivity/1.png?w=180" alt="" /></a></p>
+
+<p>A thorough review of its XML attributes, reveals that the PreferenceCategory doesn’t have an attributes for the background color. After thinking a little, I decided to override the onCreateView(), which comes from the Preference object (as our PreferenceCategory). This function gets called in order to create the preference’s View object, that’s why it’s important to call the super before anything we’re trying to do here. The new PreferenceCategory class should be used in the preference xml, instead of the default one. This is the complete customized PreferenceCategory that I’ve created to solve this issue:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UdinicPreferenceCategory</span> <span class="kd">extends</span> <span class="nc">PreferenceCategory</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="nf">UdinicPreferenceCategory</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nf">UdinicPreferenceCategory</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">AttributeSet</span> <span class="n">attrs</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nf">UdinicPreferenceCategory</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">AttributeSet</span> <span class="n">attrs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyle</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="n">defStyle</span><span class="o">);</span>
+	<span class="o">}</span>
+
+    <span class="cm">/**
+     * We catch the view after its creation, and before the activity will use it, in order to make our changes
+     * @param parent
+     * @return
+     */</span>
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="nc">View</span> <span class="nf">onCreateView</span><span class="o">(</span><span class="nc">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// And it's just a TextView!</span>
+		<span class="nc">TextView</span> <span class="n">categoryTitle</span> <span class="o">=</span>  <span class="o">(</span><span class="nc">TextView</span><span class="o">)</span><span class="kd">super</span><span class="o">.</span><span class="na">onCreateView</span><span class="o">(</span><span class="n">parent</span><span class="o">);</span>
+		<span class="n">categoryTitle</span><span class="o">.</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+		<span class="n">categoryTitle</span><span class="o">.</span><span class="na">setTextColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">RED</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">categoryTitle</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>We are changing the background and also the text color, making the activity more…festive. This is the result:</p>
+
+<p><a href="/assets/images/2011-08-17-dress-up-your-preferenceactivity/2.png"><img src="/assets/images/2011-08-17-dress-up-your-preferenceactivity/2.png?w=180" alt="" /></a></p>
+
+<p>And now you have a pretty and customized PreferenceActivity! I’m afraid I wasn’t completely honest with you, the Properties in the screenshots are also customized (The default text color is white, how else could you see it on top a white background?!), but I used the same technique as for the PreferenceCategory. The full source code is in my <a href="https://github.com/Udinic/SmallExamples">github repository</a>.</p>
+
+<p>Please comment me if you want to learn more about customizing your application’s colors, and there are more issues about that. For instance, in this app - try to scroll through the Preference list, and see a problem that needs to be solved :)</p>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#Preferences-ref">
+					Preferences</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#Themes-ref">
+					Themes</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+		
+		<ul class="tag_box list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#Android-ref">
+					Android
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#customize-ref">
+					customize
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#theme-ref">
+					theme
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+
+	<div align="center" class="author-container">
+		<figure class="author-img-post">
+			<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a" class="img-circle author-image" />			
+		</figure>
+        <h4 class="section-title">Written by Udi Cohen</h4>
+	</div>
+	<div class="share-container">					
+      <section class="share" align="center">
+        <p class="section-title">Share this post:</p>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Dress up your PreferenceActivity&via=udinic"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" 
+           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm reddit"
+           onclick="window.open('http://www.reddit.com/submit?url='+window.location.href+'&title=Dress up your PreferenceActivity', 'reddit-share', 'width=580,height=530');return false;">
+          <i class="fa fa-reddit fa-lg"></i>
+          Reddit
+        </a>
+      </section>
+
+    </div>
+
+    <!-- <div class="clearfix"></div> -->
+
+	<!-- <hr> -->
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'udinic-blog';
+    var disqus_identifier = '/2011/08/17/dress-up-your-preferenceactivity/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	</div>
+	
+
+
+
+
+
+
+
+
+</article>
+<div class="clearfix"></div>
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+

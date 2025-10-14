@@ -1,0 +1,658 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Android app to the Challenge</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>Android app to the Challenge </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   March 
+	   3rd,
+	     
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p>A week ago I gave a talk about Android performance, presenting some old and should-be-known-to-all-developers methods, aside to new tools introduced in Jellybean. The talk was recorded and here’s the video:</p>
+
+<iframe width="560" height="420" allowfullscreen="allowfullscreen" src="http://www.youtube.com/embed/f-C9BJtkfbU?color=white&amp;theme=light"> </iframe>
+
+<p>The slides are <a href="http://www.slideshare.net/udini1/android-app-to-the-challenge">here</a>.</p>
+
+<p>I know that performance optimization tends to be pushed aside when developing a project, especially if you’re in a start-up company and all you do is pretty much “run” with the product.</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/performance2.jpg"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/performance2.jpg" alt="performance" /></a></p>
+
+<p>On this post I’ll <strong>give you the tools</strong> **and knowledge **to easily do a performance review and solve common issues in your app, rising it up to the challenge of smooth running.</p>
+
+<p>Let’s start:</p>
+
+<!--break-->
+
+<h2 id="overdraw">Overdraw</h2>
+
+<p>Overdraw is a simple concept to understand and since Android 4.2 – it’s easy to detect.</p>
+
+<p>Overdraw: drawing something on top of something else.
+If you draw a pink background and a button on top of it – you get an overdraw. That is because each pixel on the area of the button is drawn twice. Once in pink, when you draw the background, and another time in the button’s color when you draw the button. You cannot avoid overdraw completely. Overdraw up to 2x (=3 layers) on the whole screen is considered to be OK and depends on the GPU’s ability to draw all those pixels on the screen and still do that in 16ms per frame (thus achieving 60fps).</p>
+
+<h3 id="how-to-detect">How to detect?</h3>
+
+<p>If you have Android 4.2 installed on your device, you can use the “Show GPU overdraws” under the <em>Developer options</em>. I wrote a small app to illustrate overdraw on my <a href="https://github.com/Udinic/SmallExamples/tree/master/PerformanceDemo"><em>Performance Demo</em></a>. The layout I created has a background color in white, on its upper half it has another layout with a white background and so on for this layout. The result - white screen, but with the “Show GPU overdraws” enabled we can see what really happens:</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb.png" alt="image" /></a></p>
+
+<p>The blue color is 1x overdraw – every pixel got drawn twice in this area. The green color is 2x, light red is 3x and overdraw of 4x is on the stronger red color.</p>
+
+<p>As a rule of thumb, you should have only up to small light red areas. If you get some 4x overdraws – you should probably consider reconstructing your layout hierarchy.</p>
+
+<h3 id="how-to-fix">How to fix?</h3>
+
+<p>Well..it really depends on how your layout is built. You can go through your layout’s hierarchy and see for yourself if you can reconstruct it differently, eliminating some overdraws.</p>
+
+<p>One popular optimization is removing the window background. There’s a default background for every Android app, so if your main layout has it’s own opaque background – there’s no need to draw the default one as well. That’s why on the image from <em>Performance Demo</em> you can see that the bottom half of the screen has 1x overdraw, even though we have only one layer of white background.</p>
+
+<p>The solution is simply removing the background by setting the <strong>android:windowBackground</strong> attribute to @null on your theme, or calling <strong>getWindow().setBackgroundDrawable(null)</strong> on the Activity’s onCreate callback.</p>
+
+<p>Another interesting way is to use <a href="http://developer.android.com/tools/help/gltracer.html">Tracer for OpenGL</a> that comes with the SDK and can be run from the <a href="http://developer.android.com/tools/help/monitor.html">Device Monitor</a>. Since everything is ultimately translated to OpenGL commands, this tool will show you how your screen is drawn, step-by-step, component-by-component. Here’s an example of how it looks:</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image1.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb1.png" alt="image" /></a></p>
+
+<p>This is an example of running the tool on <a href="https://play.google.com/store/apps/details?id=com.anydo">Any.DO</a>’s main layout.</p>
+
+<p>The tree on the left is the layout hierarchy and the OpenGL commands used to draw every component in it. The blue marked lines are the one that let you see the preview on the right, the image that got drawn up to this moment.</p>
+
+<p>Going down the tree, you can spot 2 steps where the image on the right is the same, making you think if drawing the last component was really necessary. You can also spot components that got drawn but then got covered by another component, or “Overdraw”.</p>
+
+<p>This tool requires you to connect a phone with JellyBean to your computer. The process is pretty heavy, but only a few frames are required in order to detect problems. You can read more about the process in the <a href="http://developer.android.com/tools/help/gltracer.html">Official Android Blog</a>.</p>
+
+<p>Here are some screenshots that proves nobody is saint:</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image2.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb2.png" alt="image" /></a>       <a href="/assets/images/2013-03-03-android-app-to-the-challenge/image3.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb3.png" alt="image" /></a></p>
+
+<h2 id="detect-ui-glitches">Detect UI Glitches</h2>
+
+<p>If you’re using your app and it feels “un-smooth” but then again you’re not sure if it’s just your imagination - you can profile the GPU rendering of the last ~2 seconds to see if there are any glitches there.</p>
+
+<p>For that, you need to first enable the “Profile GPU rendering” on your JellyBean device’s <em>Developer options</em>. After that you can use your app and whenever you want to get the profiling information, use the following adb command:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">adb shell dumpsys gfxinfo com.your_package_name</code></pre></figure>
+
+<p>You’ll get a lot of info about the memory usage of the graphics, the display lists that used to draw this screen and the time, in milliseconds, it took the GPU to render every frame, divided to 3 phases:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Draw    Process Execute
+1.56    1.89    1.16
+1.46    2.01    0.85
+1.59    2.17    0.89
+1.19    1.83    0.85
+0.82    1.13    0.58
+0.49    0.82    0.43
+2.08    2.35    1.13
+0.98    3.51    0.92
+0.58    1.19    0.49
+0.40    0.76    0.37
+1.10    2.59    0.98
+0.98    1.92    0.82
+1.07    2.01    0.82
+...</code></pre></figure>
+
+<p>The <strong>Draw</strong> part is the time it took to generate the Display Lists by running the onDraw() methods of the components.
+The <strong>Process</strong> part is the time it took the renderer to execute the display lists. More views = more time.
+The <strong>Execute</strong> part is the time it took to actually send the frame to the compositor. That’s when the back buffer is swapping with the front buffer to actually show the frame you just built.</p>
+
+<p>The Draw+Process+Execute should be &lt;= 16 ms in order to run at 60fps. It’s easier to see that if you copy that table into a spreadsheet and create a stacked columns graph. Here’s a graph that I took from Any.DO:</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image4.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb4.png" alt="image" /></a></p>
+
+<p>The X coordinate is the frame number, the Y coordinate is the time in milliseconds it took to render the frame.</p>
+
+<p>On those 2 seconds, taken from our new Any.DO Moment feature, I ran 2 hardware accelerated animations sequentially. We can see they both ran smoothly by the fact that all the frames took &lt; 16ms to render.
+Another interesting observation is that the frames on each animation, frames 1-55 and 80-128 don’t have much time spent on <strong>Draw.</strong> It makes a lot of sense after understanding how <a href="http://developer.android.com/guide/topics/graphics/hardware-accel.html">Hardware Acceleration</a> works. On these frames the onDraw() is only called when the view is invalidated, which is avoided by the use of <a href="https://groups.google.com/forum/?fromgroups=#!topic/android-platform/ubOczma-AYk">Display Lists</a> and hardware layers on the animated component. I highly recommend understanding the way hardware acceleration works for better understanding how your app views are rendered on the screen.</p>
+
+<h3 id="systrace">Systrace</h3>
+
+<p>Systrace is a great tool to get the execution times for your process and other system processes. It can be started from the DDMS and outputs a cool HTML that allows you to navigate the time line of all the processes that ran at that time.</p>
+
+<p>Since Systrace is a powerful tool that requires experience to identify problems, I won’t elaborate on it here, but you’re welcome to read more about it on the <a href="http://developer.android.com/tools/help/systrace.html">Android site</a>.</p>
+
+<h3 id="hierarchy-viewer">Hierarchy Viewer</h3>
+
+<p>That’s a must-have tool for anyone who writes any layout on Android. Embedded in the <a href="http://developer.android.com/tools/help/monitor.html">Device Monitor</a>, this tool shows the views tree of the currently presented layout on the device, and lets you analyze the time consumption for each component, and compare it to the other components. There are also good non-performance related information there, such as the components’ properties and the layout’s preview, allowing you to see where each component is positioned on the screen.</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image5.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb5.png" alt="image" /></a></p>
+
+<h2 id="method-profiling-with-traceview">Method Profiling with Traceview</h2>
+
+<p>Traceview is such an important tool, that I expect from any good Android developer to know how to use it. You kick it from DDMS (“Start method profiling” button) or from code using the <a href="http://developer.android.com/reference/android/os/Debug.html">Debug</a> class, and after stopping it you’ll get a list of all the methods that ran in that period of time.</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image6.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb6.png" alt="image" /></a></p>
+
+<p>The important parts are the percentage of the time consumed by each method. <em>Inclusive %</em> means the running time percentage for this method AND its child functions. The <em>Exclusive %</em> means the same but only for the function itself, without its child functions. You can easily drill down on each function, and see which of its child functions took most of the running time, as demonstrated here:</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image7.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb7.png" alt="image" /></a>:</p>
+
+<p>On the picture above we can easily see that the <em>onClick()</em> method on the <em>Main</em> class took 99% percent of the running time, and its child function, <em>findDivisors2()</em>, was the heaviest inside it. We found the problem! now we can go to the function’s algorithm and try to make it to work faster.</p>
+
+<p>The sample code for this experiment is on the <a href="https://github.com/Udinic/SmallExamples/tree/master/PerformanceDemo">Performance Demo</a> project.</p>
+
+<p>But what will happen if your code seems to run just fine, but the Garbage Collection seems to take a lot of CPU time? This can be seen on Traceview by seeing something like this:</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image8.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb8.png" alt="image" /></a></p>
+
+<p>or from Logcat by seeing too much of this:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">D/dalvikvm<span class="o">(</span>13488<span class="o">)</span>: GC_CONCURRENT freed 458K, 5% free 10497K/10988K, paused 3ms+3ms, total 40ms
+D/dalvikvm<span class="o">(</span>13488<span class="o">)</span>: GC_CONCURRENT freed 352K, 4% free 10671K/11060K, paused 3ms+2ms, total 39ms
+D/dalvikvm<span class="o">(</span>13488<span class="o">)</span>: GC_CONCURRENT freed 554K, 6% free 10729K/11324K, paused 5ms+4ms, total 46ms
+D/dalvikvm<span class="o">(</span>13488<span class="o">)</span>: GC_CONCURRENT freed 547K, 6% free 10810K/11404K, paused 4ms+3ms, total 39ms
+D/dalvikvm<span class="o">(</span>11408<span class="o">)</span>: GC_CONCURRENT freed 1441K, 11% free 12659K/14180K, paused 4ms+7ms, total 66ms
+D/dalvikvm<span class="o">(</span>11408<span class="o">)</span>: WAIT_FOR_CONCURRENT_GC blocked 37ms
+D/dalvikvm<span class="o">(</span>11408<span class="o">)</span>: GC_FOR_ALLOC freed 1256K, 12% free 12503K/14180K, paused 56ms, total 56ms
+D/dalvikvm<span class="o">(</span>11408<span class="o">)</span>: GC_CONCURRENT freed 1009K, 10% free 12788K/14180K, paused 9ms+6ms, total 70ms</code></pre></figure>
+
+<p>This means that our GC is working too hard on cleaning, which could indicate you allocate too many objects for it to handle quickly.</p>
+
+<h2 id="helping-out-the-gc">Helping out the GC</h2>
+
+<p>How do we know what objects we create too much of? Where should we even begin looking? Let’s get familiar with some useful tools:</p>
+
+<h3 id="allocation-tracker">Allocation Tracker</h3>
+
+<p>The Allocation Tracker comes with DDMS and it’s simple and very powerful:</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image9.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb9.png" alt="image" /></a></p>
+
+<p>After you start tracking the allocation, using the “Start Tracking” button, you can get the currently allocated object at any time by clicking the “Get Allocations” button. The list of allocated object will be loaded with sweet info like allocation size, and a stacktrace for the location where each object was allocated, giving you the power to catch that punk who’s creating all those String[] objects.</p>
+
+<h3 id="eclipse-mat">Eclipse MAT</h3>
+
+<p>The Eclipse Memory Analyzer Tool is a tool which gets an HPROF file, and analyze it.</p>
+
+<p>HPROF is a standard for presenting heap memory snapshot from the JVM. You can dump an HPROF file from within the DDMS, or by code. The problem is, There aren’t any good HPROF analyzers for the <strong>Dalvik</strong> VM heap dumps (which is the one we just got from the DDMS). Alternatively, <strong>J2SE</strong>, the standard Java for desktops and servers, has been here for a longer period and has great tools to analyze its HPROF dumps. Luckily for us, the Android gods sent us the hprof_-conv_ (bundled in the Android SDK) which converts that alien dump to something J2SE analyzers can read. So, after dumping the heap info using the code or DDMS using this button:</p>
+
+<p><img src="http://geeks.any.do/wp-content/uploads/2011/10/5.jpg" alt="" /></p>
+
+<p>We’ll use the <em>hprof-conv</em> tool to convert from Android’s HPROF file, to a standard HPROF file. After that, we’ll open the file in <a href="http://www.eclipse.org/mat/">Eclipse MAT</a>, and we can get some cool reports like this:</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image10.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb10.png" alt="image" /></a></p>
+
+<p>We can see all the data in different views:
+<strong>Histogram view</strong> allow us to see all the classes and how many objects each one has. That why it’s easy to see if the GC got overdosed by a particularly class.</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image11.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb11.png" alt="image" /></a></p>
+
+<p><strong>Dominator tree</strong> is showing who has reference to who. It’s also called the keep-alive-tree since the dominating object is the reason all its descendants are not cleaned by the GC.</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image12.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image_thumb12.png" alt="image" /></a></p>
+
+<p>You can also run queries on the data and search for objects that has some properties (e.g. String objects that has the same string in it).</p>
+
+<h3 id="bitmaps-allocation-tips">Bitmaps allocation tips</h3>
+
+<p>Since bitmaps are the cause for many memory issues, I decided to bring up a few tips of my own specifically for that:</p>
+
+<ol>
+  <li>
+    <p><strong>inJustDecodeBounds</strong> – This option can be set on the BitmapFactory in order to load just the meta data, like the bitmap’s dimensions. This is useful if you don’t know the size of the bitmap and might need to scale it down to fit your ImageView. This way you avoid allocating a big bitmap just to scale it down later.</p>
+  </li>
+  <li>
+    <p><strong>inBitmap</strong> – Another attribute that can be set on the BitmapFactory.Options, allowing you to pass an already allocated bitmap to reuse when decoding a new bitmap. There are some restrictions when doing that, so you better read a little before using it.</p>
+  </li>
+  <li>
+    <p><strong>inSampeSize</strong> – This option, when passed a value &gt; 1, will get the bitmap decoder to output a smaller bitmap by the factor of the value you set. It’s good for previews and thumbnails. This is done more efficiently than allocating a bitmap and scaling it down.</p>
+  </li>
+</ol>
+
+<h2 id="hardware-acceleration">Hardware Acceleration</h2>
+
+<p>I can write an entire post just about this, but I think it’s better for you all to <a href="http://developer.android.com/guide/topics/graphics/hardware-accel.html">read about it</a> and <a href="https://developers.google.com/events/io/2012/sessions/gooio2012/109/">watch some talks</a> about it, to fully understand how it works.</p>
+
+<p>When using hardware acceleration, you can use layers to accelerate your animations.</p>
+
+<p>A layer is a texture of the animated component, performing the animation on it will be more efficient because the animation framework doesn’t redraw the component every frame, it only animate the layer we created. Think of it as taking a bitmap of your component and move/fade it instead of doing that to all the views in the component we animate.</p>
+
+<p>You can use layers in software or in hardware. When you’ll use a hardware layer, the texture will be saved inside the GPU, causing all the manipulations on it (move, fade, rotate etc.) run very efficiently. Here’s an example of how to do this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">mCurrentPanel</span><span class="o">.</span><span class="na">setLayerType</span><span class="o">(</span><span class="nc">View</span><span class="o">.</span><span class="na">LAYER_TYPE_HARDWARE</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="nc">ObjectAnimator</span> <span class="n">animator</span> <span class="o">=</span> <span class="nc">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">mCurrentPanel</span><span class="o">,</span> <span class="s">"translationY"</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+<span class="n">animator</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">Animator</span><span class="o">.</span><span class="na">AnimatorListener</span><span class="o">()</span> <span class="o">{</span>
+			<span class="o">...</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnimationEnd</span><span class="o">(</span><span class="nc">Animator</span> <span class="n">animation</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">mCurrentPanel</span><span class="o">.</span><span class="na">setLayerType</span><span class="o">(</span><span class="nc">View</span><span class="o">.</span><span class="na">LAYER_TYPE_NONE</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+                    <span class="o">}</span>
+<span class="o">});</span>
+<span class="n">animator</span><span class="o">.</span><span class="na">start</span><span class="o">()</span></code></pre></figure>
+
+<p>We set the layer type for our component, <em>mCurrentPanel</em>, and we add a listener to the end of the animation, to remove that layer. The layer needs to be removed in the end because the GPU’s memory is limited, so cleaning is required.</p>
+
+<p><a href="/assets/images/2013-03-03-android-app-to-the-challenge/image13.png"><img src="/assets/images/2013-03-03-android-app-to-the-challenge/image13.png" alt="image" /></a></p>
+
+<h2 id="want-more">Want more?</h2>
+
+<p>All the code that I used to demonstrate the performance issues is on my <a href="https://github.com/Udinic/SmallExamples">GitHub’s SmallExamples repository</a>.</p>
+
+<p>Here are some links to more information on this subject:</p>
+
+<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=Q8m9sHdyXnE">Google I/O 2012: For Butter or Worse: Smoothing Out Performance in Android UIs</a> – great talk about Hardware acceleration and pretty much all the tools I mentioned here.</p>
+
+<p><a href="http://www.curious-creature.org/2012/12/01/android-performance-case-study/">Android performance case study</a> – a blog post about a step-by-step process it took Google framework developer, Romain Guy, to find performance issues on his favorite (and mine) twitter client.</p>
+
+<p><a href="http://www.youtube.com/watch?v=c4znvD-7VDA">Google I/O 2010: Writing zippy Android apps</a> – a pretty old talk, but it has cool demonstrations for common performance issues.</p>
+
+<p><a href="http://www.youtube.com/watch?v=_CruQY55HOk&amp;feature=youtu.be">Google I/O 2011: Memory management for Android Apps</a> – a good talk about memory management and how to find problems using Eclipse MAT</p>
+
+<p><a href="http://android-developers.blogspot.co.il/2011/03/memory-analysis-for-android.html">Memory Analysis for Android Applications</a> – a blog post by one of the Android engineers.</p>
+
+<h2 id="in-conclusion">In conclusion</h2>
+
+<p>Measure –&gt; Profile –&gt; optimize –&gt; Measure again.</p>
+
+<p>Simple as that.</p>
+
+<p>If you have performance tips of your own – please write them in the comments to this post.</p>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#Android-ref">
+					Android</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#Animation-ref">
+					Animation</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#Performance-ref">
+					Performance</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+		
+		<ul class="tag_box list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#Android-ref">
+					Android
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#DDMS-ref">
+					DDMS
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#display list-ref">
+					display list
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Eclipse MAT-ref">
+					Eclipse MAT
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#garbage collection-ref">
+					garbage collection
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#gfxinfo-ref">
+					gfxinfo
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#gpu-ref">
+					gpu
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#hierarchy viewer-ref">
+					hierarchy viewer
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Jellybean-ref">
+					Jellybean
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#memory leak-ref">
+					memory leak
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#ondraw-ref">
+					ondraw
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#overdraw-ref">
+					overdraw
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#performance-ref">
+					performance
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#performance optimization-ref">
+					performance optimization
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#rendering-ref">
+					rendering
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#systrace-ref">
+					systrace
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#tracer for opengl-ref">
+					tracer for opengl
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#traceview-ref">
+					traceview
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+
+	<div align="center" class="author-container">
+		<figure class="author-img-post">
+			<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a" class="img-circle author-image" />			
+		</figure>
+        <h4 class="section-title">Written by Udi Cohen</h4>
+	</div>
+	<div class="share-container">					
+      <section class="share" align="center">
+        <p class="section-title">Share this post:</p>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Android app to the Challenge&via=udinic"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" 
+           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm reddit"
+           onclick="window.open('http://www.reddit.com/submit?url='+window.location.href+'&title=Android app to the Challenge', 'reddit-share', 'width=580,height=530');return false;">
+          <i class="fa fa-reddit fa-lg"></i>
+          Reddit
+        </a>
+      </section>
+
+    </div>
+
+    <!-- <div class="clearfix"></div> -->
+
+	<!-- <hr> -->
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'udinic-blog';
+    var disqus_identifier = '/2013/03/03/android-app-to-the-challenge/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	</div>
+	
+
+
+
+
+
+
+
+
+</article>
+<div class="clearfix"></div>
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+

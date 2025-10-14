@@ -1,0 +1,568 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>A Festivus for the REST of us!</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>A Festivus for the REST of us! </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   July 
+	   30th,
+	   
+	   2012
+	 </span>
+	  <div class="article_body">
+	  <p>Quite recently, we added a sync feature to Any.DO. The users can sync all their tasks to Any.DO’s server, allowing them to access their tasks from our Android, iOS and Chrome clients.</p>
+
+<p>Our data structure is a classic fit to <a href="http://stackoverflow.com/questions/671118/what-exactly-is-restful-programming">REST API</a> architecture. After getting our server ready, it was now the time to teach the Android client how to “talk the talk”. I didn’t want to use simple HTTP requests, constructed to use our REST API. I wanted to use some library to make my life easy, and my code readable. I also didn’t want to reinvent the wheel, so I did my research. I found some good and simple libraries for Android, as <a href="http://beders.github.com/Resty/Resty/Overview.html">Resty</a>, but then I found a more elegant solution for that – RestAdapter in <a href="https://github.com/square/retrofit">Retrofit</a> by Square.</p>
+
+<!--break-->
+
+<p>Using RestAdapter, I can easily create a Java API to represent my REST API.  The HTTP request is done in a background thread, and the result is returned as a callback. No need to open my own thread for the network operation, everything is done for me! Here’s an example for a simple service:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TaskService</span> <span class="o">{</span>
+	<span class="nd">@GET</span><span class="o">(</span><span class="s">"tasks/{taskId}/friends"</span><span class="o">)</span>
+	<span class="kt">void</span> <span class="nf">getFriends</span><span class="o">(</span><span class="nd">@Named</span><span class="o">(</span><span class="s">"taskId"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">,</span> <span class="nc">Callback</span> <span class="n">callback</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>This is an example for getting all the friends in a shared task. I declare an interface for my API with the name of the service I’m providing, and for each API call I declare a method. For each method I set the HTTP request type (GET/PUT/POST/DELETE) and the REST API URL. The URL in this case is <strong>tasks//friends</strong>. The taskId is the first parameter in the method, and matching it with the parameter <strong>{taskId}</strong> in the URL is done using the “@Named” annotation. The Callback is called when the API call has returned, with the object I’m requesting. The object is constructed from a JSON string (other type handlers, as XMLs, can be added), and the parsing is done by the library all by itself, the developer doesn’t have to deal with JSON parsing at all, he sends an object, and gets an object!</p>
+
+<p>This library was built for general Java use, and it’s using Google’s <a href="http://code.google.com/p/google-guice/">Guice</a> to set objects in the code. In Android we can use <a href="http://code.google.com/p/roboguice/wiki/SimpleExample">RoboGuice</a> to get this done. Now, to use our interface, I need to declare it as one of my data members on my class, and use the @Inject annotation, get it all “Guiced” up with some magic implementation (we’ll get to that later).</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Inject</span>
+<span class="nc">TaskService</span> <span class="n">mTaskService</span><span class="o">;</span></code></pre></figure>
+
+<p>Later on, I just call the method I want for any specific use</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">mTaskService</span><span class="o">.</span><span class="na">getFriends</span><span class="o">(</span><span class="s">"543"</span><span class="o">,</span> <span class="n">callback</span><span class="o">);</span></code></pre></figure>
+
+<p>The callback is an interface I need to implement, telling what I need to do in case of a server error (HTTP response &gt; 500) or client error ( &gt; 400) or in case of a success, where I get the object I requested. A typical call will be:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">        <span class="n">mTaskService</span><span class="o">.</span><span class="na">getFriends</span><span class="o">(</span><span class="s">"543"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Callback</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">call</span><span class="o">(</span><span class="nc">Friends</span> <span class="n">myFriends</span><span class="o">,</span> <span class="kt">int</span> <span class="n">statusCode</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// YEY! Success! No I can do stuff with the list of my task friends</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sessionExpired</span><span class="o">()</span> <span class="o">{</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">networkError</span><span class="o">()</span> <span class="o">{</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clientError</span><span class="o">(</span><span class="nc">Friends</span> <span class="n">myFriends</span><span class="o">,</span> <span class="kt">int</span> <span class="n">statusCode</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">serverError</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">,</span> <span class="kt">int</span> <span class="n">statusCode</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">unexpectedError</span><span class="o">(</span><span class="nc">Throwable</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">}</span>
+        <span class="o">});</span></code></pre></figure>
+
+<p>This is cool, since I don’t even have to compare HTTP status codes, I get a clean callback for each case.</p>
+
+<p>HOWEVER,</p>
+
+<p>If I want to call several API calls, one after another, from a background thread, it’ll <strong>get messy</strong>. For example, the tasks sync algorithm: getting all the categories, and all the tasks, merge with local changes and then update the server. We have at least 4 network calls. Since this entire routine runs in a background thread, there’s no use for the callback system, I don’t care if each call will block the thread, It’s not blocking the user’s UI. I also have to wait for each command to finish, before executing the next one. Let’s see how it looks like:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">        <span class="n">mTaskService</span><span class="o">.</span><span class="na">getCategories</span><span class="o">(...,</span> <span class="k">new</span> <span class="nc">Callback</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">call</span><span class="o">(</span><span class="nc">Categories</span><span class="o">,</span> <span class="kt">int</span> <span class="n">statusCode</span><span class="o">)</span> <span class="o">{</span>
+
+                 <span class="n">mTaskService</span><span class="o">.</span><span class="na">getTasks</span><span class="o">(...,</span> <span class="k">new</span> <span class="nc">Callback</span><span class="o">()</span> <span class="o">{</span>
+                       	<span class="nd">@Override</span>
+                       	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">call</span><span class="o">(</span><span class="nc">Categories</span><span class="o">,</span> <span class="kt">int</span> <span class="n">statusCode</span><span class="o">)</span> <span class="o">{</span>
+
+								<span class="n">mergeStuff</span><span class="o">();</span>
+								<span class="n">mTaskService</span><span class="o">.</span><span class="na">updateCategoiries</span><span class="o">(</span><span class="nc">Categories</span><span class="o">,</span> <span class="o">....)</span> <span class="o">{</span>
+
+								<span class="o">....</span>
+
+								<span class="o">}</span>
+               	<span class="o">}</span>
+            <span class="o">}</span>
+		<span class="o">...</span>
+        <span class="o">});</span></code></pre></figure>
+
+<p>Pretty cumbersome, right?</p>
+
+<p>That’s why I decided to solve this problem by allowing to run it, including the network call, in the current thread. It’s up to the developer to decide whether he wants his API call to run asynchronously, or to be blocking. His intention will be declared in his method declaration. As an example, let’s take the “<em>getFriends()</em>” method, and create a blocking version of it:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TasksService</span> <span class="o">{</span>
+	<span class="nd">@GET</span><span class="o">(</span><span class="s">"tasks/{taskId}/friends"</span><span class="o">)</span>
+	<span class="kt">void</span> <span class="nf">getFriends</span><span class="o">(</span><span class="nd">@Named</span><span class="o">(</span><span class="s">"taskId"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">,</span> <span class="nc">Callback</span> <span class="n">callback</span><span class="o">);</span>
+
+	<span class="nd">@GET</span><span class="o">(</span><span class="s">"tasks/{taskId}/friends"</span><span class="o">)</span>
+	<span class="nc">Friends</span> <span class="nf">getFriendsBlocking</span><span class="o">(</span><span class="nd">@Named</span><span class="o">(</span><span class="s">"taskId"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>The synchronous method returns the object we seek for, the Friends object, and does not receive any Callback. All that looks great, but how to make it work in the existing library?</p>
+
+<p><img src="http://t.qkme.me/356wcq.jpg" alt="We need to go deeper" /></p>
+
+<p>Before I could explain the modifications I did to the library, I need to explain how it works. Since Square did a pretty good job making the code well generic, I’ll simplify the code a little to make it easier to explain.</p>
+
+<p>Remember the “magic implementation” for the API’s Java interface we created? Since we’re declaring an interface with no implementing class – how does it know what to do? For that, we’ll get a close encounter with one of Java’s magical creatures – <strong><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/reflect/Proxy.html">Proxy</a></strong>. The Proxy class is basically a runtime implementation for interfaces. When we declare a Proxy, we set the interface(s) we want to implement and an InvocationHandler class, to bring this interface into life. Let’s see how it looks:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">TaskService</span>  <span class="n">taskService</span> <span class="o">=</span> <span class="nc">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span><span class="nc">TaskService</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">(),</span>
+								<span class="k">new</span> <span class="nc">Class</span><span class="o">[]{</span><span class="nc">TaskService</span><span class="o">.</span><span class="na">class</span><span class="o">},</span>
+								<span class="n">handler</span><span class="o">);</span></code></pre></figure>
+
+<p>We took our own TaskService interface from before, and created a Proxy for it using the <em>newProxyInstance</em> static method. We pass the ClassLoader and the Interface class itself. The handler is the last and most important argument here. Let’s take a look at the handler’s implementation:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">  <span class="kd">private</span> <span class="kd">class</span> <span class="nc">RestHandler</span> <span class="kd">implements</span> <span class="nc">InvocationHandler</span> <span class="o">{</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="nc">Object</span> <span class="n">proxy</span><span class="o">,</span> <span class="kd">final</span> <span class="nc">Method</span> <span class="n">method</span><span class="o">,</span> <span class="kd">final</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+      <span class="nc">String</span> <span class="n">url</span> <span class="o">=</span>
+
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="c1">// Build the request and headers.</span>
+        <span class="kd">final</span> <span class="nc">HttpUriRequest</span> <span class="n">request</span> <span class="o">=</span>
+
+        <span class="c1">// Get the last arg, will determine if we have a callback or not</span>
+        <span class="kd">final</span> <span class="nc">Object</span> <span class="n">lastArg</span> <span class="o">=</span> <span class="o">(</span><span class="n">args</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)?</span> <span class="kc">null</span> <span class="o">:</span> <span class="n">args</span><span class="o">[</span><span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+
+        <span class="c1">// Going the Async way</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">lastArg</span> <span class="k">instanceof</span> <span class="nc">Callback</span><span class="o">&lt;?&gt;)</span> <span class="o">{</span>
+                <span class="n">backgroundInvoke</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">finalUrl</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="o">(</span><span class="nc">Callback</span><span class="o">&lt;?&gt;)</span><span class="n">lastArg</span><span class="o">);</span>
+        <span class="c1">// The last arg is not a Callback - we do the request on the current thread</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="nf">foregroundInvoke</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">finalUrl</span><span class="o">,</span> <span class="n">finalStartTime</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Throwable</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">&lt;</span> <span class="nc">Trigger</span> <span class="n">some</span> <span class="n">alarm</span> <span class="n">or</span> <span class="n">something</span> <span class="o">&gt;</span>
+      <span class="o">}</span>
+
+      <span class="c1">// Methods should return void.</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span></code></pre></figure>
+
+<p>The InvocationHandler is implementing a single method – <em>invoke</em>(). It provides us the method we called on the interface (e.g. “getFriends”) and the arguments we passed to that method (e.g. “taskId” and the Callback object). We build the Http URI request using that data:</p>
+
+<ul>
+  <li>
+    <p>method – We access its annotations to get the HTTP method (GET/POST…) and the REST URI (e.g. “tasks/{taskId}/friends”)</p>
+  </li>
+  <li>
+    <p>args – Containing the parameters/objects to send with the request, as taskId itself.</p>
+  </li>
+</ul>
+
+<p>The HTTP URI Request builder’s job is making this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">mTaskService</span><span class="o">.</span><span class="na">getFriends</span><span class="o">(</span><span class="s">"4354"</span><span class="o">,</span> <span class="n">callback</span><span class="o">);</span></code></pre></figure>
+
+<p>into an appropriate HTTP request as “<strong>http:///tasks/4354/friends</strong>”.</p>
+
+<p>Hooray!</p>
+
+<iframe width="560" height="420" allowfullscreen="allowfullscreen" src="http://www.youtube.com/embed/fYi-99klXAs?color=white&amp;theme=light"> </iframe>
+
+<p>(That’s what <a href="http://en.wikipedia.org/wiki/Festivus">Festivus</a> is all about…)</p>
+
+<p>The next few lines is where I added my code, to support running the request on the foreground. I check if the last argument is a Callback object. if not – I run the request on the foreground. Simple as that. Notice that I return the value I get from <em>foregroundInvoke()</em>, because that’ll be the object I’ll return for calling this method, in this case – a “Friends” object. Other methods are using callbacks, that’s why they return nothing.</p>
+
+<p>All of this looks so nice, but what about error handling?</p>
+
+<p>We want to believe the world is safe – peace in the middle east and HTTP status code in the 200 area. Unfortunately, things are more complex. Errors will always be around and we need to take care of them. What should we do in case the taskId wasn’t found? The server will return 404, but since we have no Callback object, we need to give some feedback to the program using this adapter. In this case – we’ll throw an Exception.</p>
+
+<p>I built a ResponseNotOkException, to be thrown when we get a status code not in the 200-299 zone. Let’s review the foregroundInvoke():</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">    <span class="kd">private</span> <span class="nc">Object</span> <span class="nf">foregroundInvoke</span><span class="o">(</span><span class="nc">HttpUriRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">Method</span> <span class="n">method</span><span class="o">,</span> <span class="nc">String</span> <span class="n">url</span><span class="o">,</span> <span class="nc">String</span> <span class="n">startTime</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Throwable</span> <span class="o">{</span>
+        <span class="nc">HttpResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">httpClientProvider</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">statusCode</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getStatusLine</span><span class="o">().</span><span class="na">getStatusCode</span><span class="o">();</span>
+        <span class="nc">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getEntity</span><span class="o">();</span>
+
+        <span class="c1">// If we got an OK response and non-empty entity - let parse it!</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">statusCode</span> <span class="o">&gt;=</span> <span class="mi">200</span> <span class="o">&amp;&amp;</span> <span class="n">statusCode</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">entity</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">String</span> <span class="n">bodyString</span> <span class="o">=</span> <span class="nc">EntityUtils</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">entity</span><span class="o">,</span> <span class="s">"UTF-8"</span><span class="o">);</span>
+
+                <span class="c1">// If the return type is not void,</span>
+                <span class="c1">// parse the body with the Gson parser, The return type of the method is the object here</span>
+                <span class="k">if</span> <span class="o">(!</span><span class="n">method</span><span class="o">.</span><span class="na">getReturnType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="kt">void</span><span class="o">.</span><span class="na">class</span><span class="o">))</span> <span class="o">{</span>
+                     <span class="k">return</span> <span class="n">gson</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">bodyString</span><span class="o">,</span> <span class="n">method</span><span class="o">.</span><span class="na">getReturnType</span><span class="o">());</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="nc">ResponseNotOKException</span> <span class="n">exception</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ResponseNotOKException</span><span class="o">(</span><span class="n">statusCode</span><span class="o">);</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">entity</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                 <span class="nc">String</span> <span class="n">dataString</span> <span class="o">=</span> <span class="nc">EntityUtils</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">entity</span><span class="o">);</span>
+                 <span class="n">exception</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ResponseNotOKException</span><span class="o">(</span><span class="n">statusCode</span><span class="o">,</span> <span class="n">dataString</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="k">throw</span> <span class="n">exception</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span></code></pre></figure>
+
+<p>In this method, we parse the response from the server, which is in a JSON format, and create an object from its JSON representation. Notice the object type is taken from the Method’s return type attribute, that’s another use in the Method object we got in the <strong>invoke</strong>() method presented earlier. In case the status code is not in the “OK range”, we create a ResponseNotOkException, and optionally fill it with data from the server (could help the client get more info on the problem). To get our code compatible with Exceptions being thrown at him, we need to declare it in our interface’s method. The Final interface will look like:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TasksService</span> <span class="o">{</span>
+	<span class="nd">@GET</span><span class="o">(</span><span class="s">"tasks/{taskId}/friends"</span><span class="o">)</span>
+	<span class="kt">void</span> <span class="nf">getFriends</span><span class="o">(</span><span class="nd">@Named</span><span class="o">(</span><span class="s">"taskId"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">,</span> <span class="nc">Callback</span> <span class="n">callback</span><span class="o">);</span>
+
+	<span class="nd">@GET</span><span class="o">(</span><span class="s">"tasks/{taskId}/friends"</span><span class="o">)</span>
+	<span class="nc">Friends</span> <span class="nf">getFriendsBlocking</span><span class="o">(</span><span class="nd">@Named</span><span class="o">(</span><span class="s">"taskId"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ResponseNotOkException</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>A usage example will be</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">Friends</span> <span class="n">myTaskFriends</span> <span class="o">=</span> <span class="n">mTaskService</span><span class="o">.</span><span class="na">getFriendsBlocking</span><span class="o">(</span><span class="s">"23232"</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="nc">Friend</span> <span class="n">currFriend</span> <span class="o">:</span> <span class="n">myTaskFriends</span><span class="o">)</span> <span class="o">{</span>
+	<span class="n">currFriend</span><span class="o">.</span><span class="na">email</span><span class="o">(</span><span class="s">"When will you finish this task?"</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Phew.. That was quite a journey.
+Now we know more about how to use Proxies and manipulate them to solve our problems. The code I presented here was reduced and simplified. To see the full source code, you can access it here:</p>
+
+<p><a href="https://github.com/Udinic/retrofit">https://github.com/Udinic/retrofit</a></p>
+
+<p>Hopefully it’ll get approved by square, and added to the main repository.</p>
+
+<p>If you want to learn more about the Retrofit library from Square, you can check out this talk by 2 of their top Java/Android developers <a href="http://www.infoq.com/presentations/Android-Squared">here</a>.</p>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#Android-ref">
+					Android</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#Java-ref">
+					Java</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#Libraries-ref">
+					Libraries</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+		
+		<ul class="tag_box list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#Android-ref">
+					Android
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Guice-ref">
+					Guice
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Proxy-ref">
+					Proxy
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#REST-ref">
+					REST
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#REST API-ref">
+					REST API
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Retrofit-ref">
+					Retrofit
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Roboguice-ref">
+					Roboguice
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#square-ref">
+					square
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+
+	<div align="center" class="author-container">
+		<figure class="author-img-post">
+			<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a" class="img-circle author-image" />			
+		</figure>
+        <h4 class="section-title">Written by Udi Cohen</h4>
+	</div>
+	<div class="share-container">					
+      <section class="share" align="center">
+        <p class="section-title">Share this post:</p>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=A Festivus for the REST of us!&via=udinic"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" 
+           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm reddit"
+           onclick="window.open('http://www.reddit.com/submit?url='+window.location.href+'&title=A Festivus for the REST of us!', 'reddit-share', 'width=580,height=530');return false;">
+          <i class="fa fa-reddit fa-lg"></i>
+          Reddit
+        </a>
+      </section>
+
+    </div>
+
+    <!-- <div class="clearfix"></div> -->
+
+	<!-- <hr> -->
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'udinic-blog';
+    var disqus_identifier = '/2012/07/30/a-festivus-for-the-rest-of-us/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	</div>
+	
+
+
+
+
+
+
+
+
+</article>
+<div class="clearfix"></div>
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+

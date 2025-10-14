@@ -1,0 +1,1621 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Speed up your app</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>Speed up your app </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   September 
+	   15th,
+	   
+	   2015
+	 </span>
+	  <div class="article_body">
+	  <p>A few weeks ago, I gave a talk about Android Performance Optimization, at Droidcon NYC.</p>
+
+<p>I invested a lot of time in this presentation, since I wanted to show real examples for performance issues, and how to identify them with the available tools. I had to cut down about a half of my slides because I didn’t have enough time to show everything. In this post, I’ll summarize everything I was talking about, and show examples I didn’t have time to go over.</p>
+
+<p>The talk was recorded and you can watch it here:</p>
+<div class="embed-container">
+  <iframe src="https://www.youtube.com/embed/v3DlGOQAIbw" width="700" height="480" frameborder="0" allowfullscreen="">
+  </iframe>
+</div>
+
+<p>The slides are also available:</p>
+
+<div style="width: 70%">
+<script async="" class="speakerdeck-embed" data-id="596740dd42254419935aa604d098f2d3" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+</div>
+
+<p>Now, Let’s go over some of the important things I was talking about, hopefully I can give a deeper explanation for everything, starting with the basic rules I follow when I work on optimizations:</p>
+
+<!--break-->
+
+<h2 id="my-rules">My Rules</h2>
+
+<p>Everytime I approach a performance problem, or looking for performance problems, I follow these rules:</p>
+
+<ul>
+  <li>
+    <p><strong>Always Measure</strong> - Optimizing with your eyes is never a good idea. After looking at the same animation for a few times, you’ll start imagining it’s running faster. Numbers don’t lie. Use the tools we’ll go over soon, and measure how your app performs a few times before and after you make your change.</p>
+  </li>
+  <li>
+    <p><strong>Use slow devices</strong> - If you really want to expose all the weak spots, slower devices will help you more. Newer and stronger devices might not get too excited about performance issues you may have, but not all your users use the latest and greatest.</p>
+  </li>
+  <li>
+    <p><strong>Trade-offs</strong> - Performance optimization is all about trade-offs. You optimize one thing - it comes on the expense of another. In many cases, that other thing can be your time spent finding and fixing it, but it can also be the quality of your bitmaps or the amount of data you should store in a specific data structure. Prepare yourself to make sacrifices.</p>
+  </li>
+</ul>
+
+<h2 id="systrace">Systrace</h2>
+
+<p>Systrace is one of the greatest tools that you probably don’t use. That’s because developers weren’t sure what to do with the information it provides.</p>
+
+<p>Systrace shows us an overview of what’s currently running on the phone. This tool reminds us that the phone we hold in our hands, is actually is a powerful computer that can do many things at the same time. In one of the latest SDK tools updates, this tool was improved with generated insights from the data, helping us to find problems. Let’s see how a trace file looks like:</p>
+
+<p><a href="/assets/images/speed-up-your-app/systrace-overview.png"><img src="/assets/images/speed-up-your-app/systrace-overview.png" alt="img" /></a></p>
+
+<p>You can generate a trace file using the Android Device Monitor tool, or using command line. You can find more info <a href="http://developer.android.com/tools/help/systrace.html">here</a>.</p>
+
+<p>On the video, I explained the different sections. The interesting parts are the Alerts and the Frames, showing you insights the tool has generated based on the data it collected. Let’s look at a trace I took, and select one of the alerts on the top:</p>
+
+<p><a href="/assets/images/speed-up-your-app/systrace-alert.png"><img src="/assets/images/speed-up-your-app/systrace-alert.png" alt="img" /></a></p>
+
+<p>The alert states that there was a long View#draw() call. We get a description, links to the documentation and even video links for relevant talks on that subject. Looking at the Frames row below, we see an indication for every frame that was rendered, and it’s colored green, yellow and red to indicate a performance issue while rendering that frame. Let’s select one of these red frames:</p>
+
+<p><a href="/assets/images/speed-up-your-app/systrace-frame.png"><img src="/assets/images/speed-up-your-app/systrace-frame.png" alt="img" /></a></p>
+
+<p>On the bottom, we’ll see all the relevant alerts for that frame. We see there were 3 of those, one of them is the one we saw earlier. Let’s zoom-in that frame and expand the “Inflation during ListView recycling” alert on the bottom:</p>
+
+<p><a href="/assets/images/speed-up-your-app/systrace-frame-zoomin.png"><img src="/assets/images/speed-up-your-app/systrace-frame-zoomin.png" alt="img" /></a></p>
+
+<p>We see the amount of time it took for this part, 32ms, which puts the frame’s rendering time way over the 16ms boundary, a requirement to achieve 60fps. There’s more timing information for each of the items in the ListView for that frame - about 6ms was spent per item, and we have 5 of these. The description helps us understand the problem, and even provides a solution. On the graph at the top, we see a visualization of everything, we can even zoom-in on the “inflate” slice to see what views took longer to inflate in the layout.</p>
+
+<p>Another example of a slow rendered frame:</p>
+
+<p><a href="/assets/images/speed-up-your-app/systrace-2-frame.png"><img src="/assets/images/speed-up-your-app/systrace-2-frame.png" alt="img" /></a></p>
+
+<p>After selecting a frame, we can press the ‘m’ key to highlight it and see how long that part took. Looking at the top, we see it took over 19ms to render that frame. Expanding the only alert for that frame, shows us there was a “Scheduling delay”.</p>
+
+<p>A Scheduling delay means that the thread, processing that specific slice, was not scheduled on the CPU for a long time. Therefore, it took longer for this thread to complete. Selecting the longest slice in the frame shows more specific information:</p>
+
+<p><a href="/assets/images/speed-up-your-app/systrace-2-slice.png"><img src="/assets/images/speed-up-your-app/systrace-2-slice.png" alt="img" /></a></p>
+
+<p>The <strong>Wall duration</strong> is the time passed from the moment that slice started until finished. It’s called “Wall duration”, because it’s like looking at a wall clock since the thread has started.</p>
+
+<p>The <strong>CPU duration</strong> is the actual time the CPU spent processing that slice.</p>
+
+<p>It’s noticeable that there’s a wide difference between these durations. While it took 18ms to complete this slice, the CPU spent only 4ms working on it. That’s a little strange, so now will be a good time to look up and see what the CPU was doing this entire time:</p>
+
+<p><a href="/assets/images/speed-up-your-app/systrace-2-cpu.png"><img src="/assets/images/speed-up-your-app/systrace-2-cpu.png" alt="img" /></a></p>
+
+<p>All 4 cores were pretty busy.</p>
+
+<p>Selecting one the threads shows us where it was originated from, an app called <strong>com.udinic.keepbusyapp</strong>. In this case, a different app was causing the CPU to work harder, denying it from dedicating some energy to our app.</p>
+
+<p>While this specific scenario is usually temporary, since other apps don’t often hog the CPU in the background (..right?), these threads could come from a different process on your app, or even from the main process. Since Systrace is an overview tool, there’s a limit to how deep we can get. To find what’s keeping our CPU busy in our app, we’ll use another tool called Traceview.</p>
+
+<h2 id="traceview">Traceview</h2>
+
+<p>Traceview is a profiling tool, showing how long it took for each method to run. Let’s see how a trace file looks like:</p>
+
+<p><a href="/assets/images/speed-up-your-app/traceview-overview.png"><img src="/assets/images/speed-up-your-app/traceview-overview.png" alt="img" /></a></p>
+
+<p>The tool can be started from the Android Device Monitor and from code. More information is available <a href="http://developer.android.com/tools/debugging/debugging-tracing.html">here</a>.</p>
+
+<p>Let’s go over the different columns:</p>
+
+<ul>
+  <li><strong>Name</strong> - The name of the method, along with a color to identify it on the graph above.</li>
+  <li><strong>Inclusive CPU Time</strong> - The time it took the CPU to process that method and its children (i.e. all the methods it called).</li>
+  <li><strong>Exclusive CPU Time</strong> - The time it took the CPU to process that method alone.</li>
+  <li><strong>Inclusive / Exclusive Real Time</strong> - The time that has passed from the moment the method started until completed. Same as “Wall duration” on Systrace.</li>
+  <li><strong>Calls+Recursion</strong> - How many times this method was called, and the amount of recursive calls too.</li>
+  <li><strong>CPU/Real time per Call</strong> - The CPU/Real time it took per call to this method, on average. The other time fields are showing the aggregated time of all calls to a method.</li>
+</ul>
+
+<p>I opened an app that had hard time scrolling smoothly. I started the trace, scrolled a little and stopped the trace. I found the getView() method and expanded it, here’s what I saw:</p>
+
+<p><a href="/assets/images/speed-up-your-app/traceview-getview.png"><img src="/assets/images/speed-up-your-app/traceview-getview.png" alt="img" /></a></p>
+
+<p>This method was called 12 times, the CPU spent ~3ms for each call, but the real time it took for each call to finish is 162ms! Definitely a problem..</p>
+
+<p>Looking at the children of this method, we can see how the overall time splits between the different methods. The Thread.join() took ~98% of the inclusive real time. This method is used when we want to wait for another thread to finish. One of the other children is Thread.start(), which gets me to assume that the getView() method is starting a thread and waiting for it to finish.</p>
+
+<p>But where is that thread?</p>
+
+<p>We can’t see what that thread was doing as a child of getView(), since getView() is not doing that work directly . To look for it, I searched for a Thread.run() method, which is the method being invoked when spawning a new thread. I followed it until I reached the culprit:</p>
+
+<p><a href="/assets/images/speed-up-your-app/traceview-thread.png"><img src="/assets/images/speed-up-your-app/traceview-thread.png" alt="img" /></a></p>
+
+<p>I found that the BgService.doWork() method took ~14ms per call, and we have about 40 of these! There’s a chance each getView() calls it more than once, and explains why each getView() call takes such a long time. This method was keeping the CPU busy for a long time. Looking at the Exclusive CPU time, we see that it used 80% of the CPU time in the entire trace! Sorting by the Exclusive CPU time is also a great way to find the busiest methods in the trace, it’s possible they contribute to the performance issue you’re experiencing.</p>
+
+<p>Following time critical methods, such as getView(), View#onDraw() and others, will help us find the reasons why our app is acting slow. But sometimes, there’s something else keeping the CPU busy, taking away precious CPU cycles, that could be spent on rendering our UI more smoothly. The Garbage Collector is running occasionally, clearing out unused objects, and usually don’t have a strong impact on the app running in the foreground. If the GC is running too often, it could slow down our app, and it’s possible that we are to blame..</p>
+
+<h2 id="memory-profiling">Memory Profiling</h2>
+
+<p>Android Studio was improved a lot lately, with more and more tools to help us find and analyze performace issues. The Memory tab on the Android window, will show us the amount of data being allocated on the heap over time. That’s how it looks like:</p>
+
+<p><a href="/assets/images/speed-up-your-app/mem-graph.png"><img src="/assets/images/speed-up-your-app/mem-graph.png" alt="img" /></a></p>
+
+<p>Wherever we see little drops in the graph, a GC event has occurred, removing unused objects and freeing space on the heap.</p>
+
+<p>There are 2 tools available on the left side of the graph: Heap dump and Allocation Tracker.</p>
+
+<h3 id="heap-dump">Heap dump</h3>
+
+<p>In order to investigate what’s currently allocated in our heap, we can use the heap dump button on the left. This will take a snapshot of what’s currently allocated in the heap, and will show it in a special report screen inside Android Studio:</p>
+
+<p><a href="/assets/images/speed-up-your-app/heap-overview.png"><img src="/assets/images/speed-up-your-app/heap-overview.png" alt="img" /></a></p>
+
+<p>On the left, we see a histogram of the instances in the heap, grouped by their class name. For each one, there’s the amount of objects allocated, the size of these instances (Shallow size) and the size these objects are retaining in memory. The latter tells us how much memory could be free if these instances will get freed. This view gives us an important glimpse to our app’s memory footprint, helping us identify large data structures and objects relations. This information could help us build more efficient data structures, untying object connections to reduce the retained memory and ultimately - reducing the memory footprint as much as possible.</p>
+
+<p>Looking at the histogram, we see that the MemoryActivity has 39 instances, which seems odd for an activity. Picking one of its instances on the right, will reveal all the references for this instance in the Reference Tree at the bottom.</p>
+
+<p><a href="/assets/images/speed-up-your-app/heap-reftree.png"><img src="/assets/images/speed-up-your-app/heap-reftree.png" alt="img" /></a></p>
+
+<p>One of them is part of an array inside an on object of ListenersManager. Looking at the other instances of the activity will reveal that all of them are retained by this object. This explains why the only object of this class is retaining so much memory:</p>
+
+<p><a href="/assets/images/speed-up-your-app/heap-retained.png"><img src="/assets/images/speed-up-your-app/heap-retained.png" alt="img" /></a></p>
+
+<p>This situations is notoriously called “Memory Leak”, since the activities were clearly destroyed and that unused memory cannot be garbage collected due to that reference. We can avoid situations like this, by making sure our objects are not being referenced by other objects that outlive it. In this situation, the ListenersManager does not need to keep that reference after the activity was destroyed. A solution will be to remove that reference when the activity is about to be destroyed, in the onDestory() callback method.</p>
+
+<p>Memory leaks and other large objects are occupying large space in the heap, reducing the available memory and causing many GC events to try and free more space. These GC events will keep the CPU busy, causing performance degradation of our app. If the amount of available memory isn’t sufficient for the app, and the heap cannot grow any bigger, a more dramatic result will happen - OutOfMemoryException, leading to an app crash.</p>
+
+<p>A more advanced tool is the Eclipse Memory Analyzer Tool (Eclipse MAT):</p>
+
+<p><a href="/assets/images/speed-up-your-app/eclipse-mat.png"><img src="/assets/images/speed-up-your-app/eclipse-mat.png" alt="img" /></a></p>
+
+<p>This tool can do everything Android Studio can, and also identify potential memory leaks and provide more advanced instances searching, such as searching for all the Bitmap instances that are larger than 2 MB, or all the <a href="http://kohlerm.blogspot.com/2009/04/analyzing-memory-usage-off-your-android.html">empty Rect objects</a>.</p>
+
+<p>Another great tool is a library called <a href="https://corner.squareup.com/2015/05/leak-canary.html">LeakCanary</a>, which tracks your objects and make sure they aren’t leaked. If so - you’ll get a notification to let you know what happened and where.</p>
+
+<p><a href="/assets/images/speed-up-your-app/leakcanary.png"><img src="/assets/images/speed-up-your-app/leakcanary.png" alt="img" /></a></p>
+
+<h3 id="allocation-tracker">Allocation Tracker</h3>
+
+<p>The Allocation Tracker is started/stopped using one of the other buttons to the left of the memory graph. It will generate a report of all the instances being allocated at that period of time, grouped by class:</p>
+
+<p><a href="/assets/images/speed-up-your-app/alloc-class.png"><img src="/assets/images/speed-up-your-app/alloc-class.png" alt="img" /></a></p>
+
+<p>or by method:</p>
+
+<p><a href="/assets/images/speed-up-your-app/alloc-method.png"><img src="/assets/images/speed-up-your-app/alloc-method.png" alt="img" /></a></p>
+
+<p>There’s also a nice visualization, showing us the biggest allocated instances.</p>
+
+<p>Using this information, we can find time-critical methods that allocate too much memory and could trigger many GC events. We can also find many short-living instances for the same class, where we can consider using an <a href="https://en.wikipedia.org/wiki/Object_pool_pattern">Object pool</a> to reduce the amount of allocations.</p>
+
+<h3 id="general-memory-tips">General memory tips</h3>
+
+<p>Here are some quick tips/guidelines I use when I’m writing code:</p>
+
+<ul>
+  <li>
+    <p><strong>Enums</strong> are already a hot subject when discussing performance. There’s a <a href="https://youtu.be/Hzs6OBcvNQE">Video</a> about it, showing the size enums spend, and a <a href="https://plus.google.com/+JakeWharton/posts/bTtjuFia5wm">discussion</a> about that video and some potential misleading information it has. Do enums take more space than regular constants? Definitely. Is that bad? not necessarily. If you’re writing a library and need a strong type safety, that could justify using it over other solutions, such as <a href="https://developer.android.com/reference/android/support/annotation/IntDef.html">@IntDef</a>. If you just have a bunch of constants that can be grouped together - it may not be wise to use an Enum for that purpose. As always, there’s a trade-off that you need to consider when making this decision.</p>
+  </li>
+  <li>
+    <p><strong>Auto-boxing</strong> - auto-boxing is the automatic conversion from primitive types to their object representation (e.g. int -&gt; Integer). Every time a primitive type is being “boxed” to an object representation, a new object is created (shocking, I know). If we have many of these - the GC will run more frequently. It’s easy not to notice the amount of auto-boxing that happens, because it’s automatically done for us when assigning a primitive to an object. As a solution, try to be consistent with these types. If you use primitives throughout your app, try to avoid getting them auto-boxed for no real reason. You can use the memory profiling tools to find many objects representing a primitive type. You can also use Traceview and look for Integer.valueOf(), Long.valueOf() etc.</p>
+  </li>
+  <li>
+    <p><strong>HashMap vs ArrayMap / Sparse*Array</strong> - In a related manner to the auto-boxing issue, using HashMaps requires us to use objects as keys. If we use the primitive “int” type in the app, and it’s getting auto-boxed to Integer when interacting with a HashMap, we could probably just use SparseIntArray. In case we still need keys that are objects, we can use the ArrayMap class. It’s very similar to HashMap, but it <a href="https://www.youtube.com/watch?v=ORgucLTtTDI">works differently under the hood</a>, making it more memory efficient, with a cost of being slower. Both alternatives have a smaller memory footprint than HashMap, but the time it takes to retrieve the items or allocate more space is a little higher than HashMap. Unless you have 1000+ or entries, there’s almost no difference in the runtime, making them a viable option for your mapping purposes.</p>
+  </li>
+  <li>
+    <p><strong>Context Awareness</strong> - As seen earlier, it’s relatively easy to leak your activities’ memory. You may wouldn’t be surprised to learn that activities are the most common memory leak in Android(!). They are also very expensive to leak, since they hold all the view hierarchy of their UI, which could take a lot of space on its own. Many operations in the platform require a Context object, and an Activity is usually what you send. Make sure to understand what happens to that Activity. If a reference to it is cached, and that object lives longer than your Activity, without clearing that reference, you got yourself a memory leak.</p>
+  </li>
+  <li>
+    <p><strong>Avoid non-static inner classes</strong> - When creating a non-static inner class, and instantiating it, you create an implicit reference to the outer class. If the inner class’s instance is needed for longer period of time than the outer class, the outer class will still be retained in memory, even though it’s not needed anymore. For example, creating a non-static class that extends AsyncTask inside an Activity class, then proceeding to start that async task and while it’s running - killing the activity. That async task will keep that activity alive for as long as it runs. The solution - just don’t do it, declare a <strong>static</strong> inner class if needed.</p>
+  </li>
+</ul>
+
+<h2 id="gpu-profiling">GPU Profiling</h2>
+
+<p>A new addition to Android Studio 1.4, is a tool to profile GPU rendering.</p>
+
+<p>Under the Android window, go to the GPU tab, and you’ll see a graph showing the time it took to render each frame on your screen:</p>
+
+<p><a href="/assets/images/speed-up-your-app/gpu-overview.png"><img src="/assets/images/speed-up-your-app/gpu-overview.png" alt="img" /></a></p>
+
+<p>Each bar on the graph represents one frame being rendered, and the colors represents the different phases in the process:</p>
+
+<ul>
+  <li>
+    <p><strong>Draw (blue)</strong> - Represents the View#onDraw() method. That part builds/updates the DisplayList objects, being converted later to OpenGL commands the GPU can understand. High values can be due to complex views, requiring more time to build their display lists, or many views being invalidated at a short period of time.</p>
+  </li>
+  <li>
+    <p><strong>Prepare (purple)</strong> - In Lollipop, another thread was added to help the UI Thread render the UI faster. That thread is called RenderThread. It’s responsible for converting the display lists to OpenGL commands and sending them to the GPU. While that is happening, the UI thread can move on to start processing the next frame. The time it takes for the UI thread to pass all the resources to the RenderThread, is being in this step. If we have a lot of resources to pass on, such as many/heavy display lists, this step could take longer.</p>
+  </li>
+  <li>
+    <p><strong>Process (red)</strong> - Executing the display lists to create OpenGL commands. This step could take longer if there are many/complex display lists to execute, because many views needs to be redrawn. A view can be redrawn due to an invalidation or if it’s revealed by moving an overlapping view.</p>
+  </li>
+  <li>
+    <p><strong>Execute (yellow)</strong> - Sending the OpenGL commands to the GPU. That part is a blocking call, since the CPU is sending a buffer with these commands to the GPU, expecting to get back a clean buffer for the next frame. The amount of buffers is limited, and if the GPU is too busy - the CPU will find itself waiting for one to get freed first. Therefore, if we see high values for this step, it probably means the GPU was busy drawing our UI, which could be too complex to be drawn at a shorter time.</p>
+  </li>
+</ul>
+
+<p>In Marshmallow, more colors were added to indicate more steps, such as Measure/Layout, input handling and others:</p>
+
+<p><a href="/assets/images/speed-up-your-app/gpu-colors-marsh.png"><img src="/assets/images/speed-up-your-app/gpu-colors-marsh.png" alt="img" /></a></p>
+
+<p>EDIT 09/29/2015: John Reck, a framework engineer in Google, <a href="https://plus.google.com/+AlexLockwood/posts/Yj23fFY7Eon">has added</a> this information about some of the new colors:</p>
+
+<blockquote>
+  <p>The exact definition of “animation” is everything that’s registered with Choreographer as CALLBACK_ANIMATION. This includes Choreographer#postFrameCallback and View#postOnAnimation which are what’s used by view.animate(), ObjectAnimator, Transitions, etc… And yup, it’s the same thing systrace labels as “animation”.</p>
+
+  <p>“misc” is the delay between the vsync’s timestamp and the current timestamp when it was received. If you’ve ever seen logs from Choreographer about “Missed vsync by <em>blabla</em> ms skipping <em>blabla</em> frames”, that now shows up as “misc”. This is the difference between INTENDED_VSYNC and VSYNC in the framestats dump (https://developer.android.com/preview/testing/performance.html#timing-info)</p>
+</blockquote>
+
+<p>But before using this feature, you need to enable GPU rendering first, from the developer options:</p>
+
+<p><a href="/assets/images/speed-up-your-app/gpu-settings2.png"><img src="/assets/images/speed-up-your-app/gpu-settings2.png" alt="img" /></a></p>
+
+<p>This will allow the tool to use ADB commands to get all the information it needs, and so are we (!), using:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">adb shell dumpsys gfxinfo &lt;PACKAGE_NAME&gt;</code></pre></figure>
+
+<p>we can receive all that data and create the graph ourselves. The command will print other useful information, such as the number of views in the hierarchy, size of all the display lists and more. In Marshmallow, we’ll get even more stats.</p>
+
+<p><a href="/assets/images/speed-up-your-app/gpu-adb.png"><img src="/assets/images/speed-up-your-app/gpu-adb.png" alt="img" /></a></p>
+
+<p>If we have automated UI testing for our app, we can make our build server run this command after certain interactions (list scroll, heavy animation etc.) and see if there’s a change in the values, such as “Janky Frames”, over time. This could help identify a performance degrade after some commits were pushed, allowing us time to address the problem before the app hits production. We can get even more precise rendering information, when using the “framestats” keyword, as explained <a href="https://developer.android.com/preview/testing/performance.html">here</a>.</p>
+
+<p>But that’s not the only way to see this graph!</p>
+
+<p>As seen in the “Profile GPU Rendering” developer option, there’s also an option to see the graph “On screen as bars”. Enabling that, will show the graph for each window on our screen, along with a green line to indicate the 16ms threshold.</p>
+
+<p><a href="/assets/images/speed-up-your-app/gpu-onscreen.png"><img src="/assets/images/speed-up-your-app/gpu-onscreen.png" alt="img" /></a></p>
+
+<p>On the right example, we can see that some frames crossed the green line, which means it took longer than 16ms to render them. Since the blue color seems to be dominating these bars, we understand there were many and/or complex views to draw. In that scenario, I scrolled over the newsfeed list, which supports different types of views. Some of the views are being invalidated and some are also more complex to render than others. It’s possible that the reason some frames cross that threshold, is because there was a complex view to render at the time.</p>
+
+<h2 id="hierarchy-viewer">Hierarchy Viewer</h2>
+
+<p>I love this tool, and it saddens me that many aren’t using it at all!</p>
+
+<p>Using the Hierarchy Viewer, we can get performance stats, see the complete view hierarchy on the screen and have access to all the views’ properties. You can also dump the theme’s data, see all the values used for each style attribute, but that’s available only when running Hierarchy Viewer as a standalone, not from Android Monitor. I use this tool when I design my layouts and when I want to optimize them.</p>
+
+<p><a href="/assets/images/speed-up-your-app/hierview-overview.png"><img src="/assets/images/speed-up-your-app/hierview-overview.png" alt="img" /></a></p>
+
+<p>At the center, we see a tree representing the view hierarchy. The view hierarchy can be wide, but if it’s too deep (~10 levels), this may cost us with expensive layout/measurement phases. Every time a view is being measured, in View#onMeasure(), or when it’s positioning all its child views, in View#onLayout(), these commands propagate to the child views, which do the same. Some layouts will do each step twice, such as RelativeLayout and some LinearLayout configurations, and if they are nested - the number of passes increases exponentially.</p>
+
+<p>At the bottom-right, we see a “blueprint” of our layout, marking where each view is positioned. We can select a view here, or in the tree, and see all its properties on the left. When designing a layout, I sometimes not sure why a certain view ended up where it is. Using this tool, I can track it on the tree, select it and see where it is in the preview window. I can design interesting animations by looking the final measurements of the views on the screen, and use that information to move things around accurately. I can find lost views that were overlapped by other views unintentionally, and much more.</p>
+
+<p><a href="/assets/images/speed-up-your-app/hierview-colors.png"><img src="/assets/images/speed-up-your-app/hierview-colors.png" alt="img" /></a></p>
+
+<p>For each view we have the time it took to measure/layout/draw it and all its child views. Colors indicate how this view performed in compare to the other views in the tree, a great way to find the weakest link. Since we also see a preview of that view, we can go over the tree and follow the steps created it, finding redundant steps that we could remove. One of those things, that has a great impact on performance, is called Overdraw.</p>
+
+<h2 id="overdraw">Overdraw</h2>
+
+<p>As seen in the GPU Profiling section - the Execute phase, represented by the yellow color on the graph, could take longer to complete if the GPU has many things to draw on the screen, increasing the time it takes to draw each frame. Overdraw occurs when we draw something on top of something else, say a yellow button on a red background. The GPU needs to draw the red background first and later the yellow button on top of that, making overdraws inevitable. If we have too many layers of overdraw, it will cause the GPU to work harder and be farther from the 16ms goal.</p>
+
+<p><a href="/assets/images/speed-up-your-app/overdraw-gif.gif"><img src="/assets/images/speed-up-your-app/overdraw-gif.gif" alt="img" /></a></p>
+
+<p>Using the “Debug GPU Overdraw” setting in the Developer Options, all overdraws will be colored to indicate the severity of the overdraw at that area. Having 1x/2x overdraw is fine, even some small light-red areas are not bad, but if we see too much red on the screen - we might have a problem. Let’s see couple of examples:</p>
+
+<p><a href="/assets/images/speed-up-your-app/overdraw-examples.png"><img src="/assets/images/speed-up-your-app/overdraw-examples.png" alt="img" /></a></p>
+
+<p>On the left example, there’s a list drawn in green, which usually is fine, but there’s an overlay on the top that makes it red, and that’s starting to become a problem. On the right example, the entire list is light red. In both cases, there’s an opaque list that has 2x/3x overdraw. These overdraws could happen if there’s a full screen background color to the window holding your Activity/Fragment, the list view and each list view item. We can solve such problem by setting a background color for only one of them.</p>
+
+<p>Note: the default theme declares a full screen background color to your window. If you have an activity with an opaque layout that covers the entire screen, you could remove the window background to remove one layer of overdraw. This can be done in the theme or in code, by calling getWindow().setBackgroundDrawable(null) inside onCreate().</p>
+
+<p>Using Hierarchy Viewer, you can export all the layers of your hierarchy to a PSD file, to open in Photoshop. Investigating the different layers in Photoshop, will reveal all the overdraws in the layout. Use this information to remove redundant overdraws, and don’t settle on the green, go for the blue!</p>
+
+<h2 id="alpha">Alpha</h2>
+
+<p>Using transparency could have performance implications, and to understand why - let’s see what happens when setting an alpha value to a view. Consider the following layout:</p>
+
+<p><a href="/assets/images/speed-up-your-app/alpha-before.png"><img src="/assets/images/speed-up-your-app/alpha-before.png" alt="img" /></a></p>
+
+<p>We see a layout that holds 3 ImageViews that overlap each other. In the direct/naive implementation, setting an alpha, using setAlpha(), will cause the command to propagate to all the child views, the ImageViews in this case. Later, these ImageViews will be drawn with that alpha value to the frame buffer. The result:</p>
+
+<p><a href="/assets/images/speed-up-your-app/alpha-direct.png"><img src="/assets/images/speed-up-your-app/alpha-direct.png" alt="img" /></a></p>
+
+<p>That’s not what we want to see.</p>
+
+<p>Since each ImageView was drawn with an alpha value, all the overlapping images blend together. Luckily, the OS has a solution to this problem. The layout will be copied to an off-screen buffer, the alpha will be applied to that buffer as a whole and the result will be copied to the frame buffer. The result:</p>
+
+<p><a href="/assets/images/speed-up-your-app/alpha-complex.png"><img src="/assets/images/speed-up-your-app/alpha-complex.png" alt="img" /></a></p>
+
+<p>But..we payed a price for that.</p>
+
+<p>Drawing the view on an off-screen buffer, before drawing it on the frame buffer, is virtually adding another <strong>undetected</strong> overdraw layer. The OS doesn’t know when exactly to use this approach or the direct approach shown earlier, so the default is to always do the complex one. But there are still ways to set alpha and avoid the complexity the off-screen buffer adds:</p>
+
+<ul>
+  <li>TextViews - Use <strong>setTextColor()</strong> instead of setAlpha(). Using the alpha channel for the text color, will cause the text to be drawn directly using it.</li>
+  <li>ImageView - Use <strong>setImageAlpha()</strong> instead of setAlpha(). Same reason as for the TextView.</li>
+  <li>Custom Views - If your custom view doesn’t support overlapping views, this complex behavior is irrelevant to us. There’s no way our child views will blend together, as seen in the example above. By overriding the <strong>hasOverlappingRendering()</strong> method to return false, we’re signaling the OS to take the direct/naive path with our view. There’s also an option to manually handle what happens when setting an alpha, by overriding the <strong>onSetAlpha()</strong> method to return true.</li>
+</ul>
+
+<h2 id="hardware-acceleration">Hardware Acceleration</h2>
+
+<p>When Hardware Acceleration was introduced in Honeycomb, we got a <a href="http://developer.android.com/guide/topics/graphics/hardware-accel.html">new drawing model</a> to render our app to the screen. It introduced the DisplayList structures, which records the view’s drawing commands for faster rendering. But there’s another great feature that developers sometimes miss or don’t use properly - The View layers.</p>
+
+<p>Using a View layer, we can render the View into an off-screen buffer (as seen earlier, when applying an Alpha channel) and manipulate it as we like. This feature is mainly great for animations, because we can animate complex Views quicker. Without layers, animating a View will invalidate it after changing the animated property (e.g. x coordinate, scale, alpha value etc.). For complex views, this invalidation propagates to all the child views, and they in turn will redraw themselves, a costly operation. Using a View layer, backed by Hardware, a texture is created in the GPU for our view. There are several operations we can apply on that texture without invalidating it, such as x/y position, rotation, alpha and more. All that means, that we can animate a complex view on our screen without invalidating it at all during the animation! This will make the animation much smoother. Here’s a code example how to do this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Using the Object animator</span>
+<span class="n">view</span><span class="o">.</span><span class="na">setLayerType</span><span class="o">(</span><span class="nc">View</span><span class="o">.</span><span class="na">LAYER_TYPE_HARDWARE</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="nc">ObjectAnimator</span> <span class="n">objectAnimator</span> <span class="o">=</span> <span class="nc">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">view</span><span class="o">,</span> <span class="nc">View</span><span class="o">.</span><span class="na">TRANSLATION_X</span><span class="o">,</span> <span class="mi">20</span><span class="n">f</span><span class="o">);</span>
+<span class="n">objectAnimator</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">AnimatorListenerAdapter</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnimationEnd</span><span class="o">(</span><span class="nc">Animator</span> <span class="n">animation</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">view</span><span class="o">.</span><span class="na">setLayerType</span><span class="o">(</span><span class="nc">View</span><span class="o">.</span><span class="na">LAYER_TYPE_NONE</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+<span class="n">objectAnimator</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+<span class="c1">// Using the Property animator</span>
+<span class="n">view</span><span class="o">.</span><span class="na">animate</span><span class="o">().</span><span class="na">translationX</span><span class="o">(</span><span class="mi">20</span><span class="n">f</span><span class="o">).</span><span class="na">withLayer</span><span class="o">().</span><span class="na">start</span><span class="o">();</span></code></pre></figure>
+
+<p>Simple, right?</p>
+
+<p>Yes, but there are a few things to remember when using hardware layers:</p>
+
+<ul>
+  <li>
+    <p><strong>Clean up</strong> after your view - hardware layers consume space on a limited memory component, your GPU. Try and use them only for the time they needed, like an animation, and clean them up afterwards. In the ObjectAnimator example above, I applied a listener to remove the layer when the animation ends. On the Property animator example, I used the withLayers() method, which automatically creates the layer at the beginning and removes it when the animation ends.</p>
+  </li>
+  <li>
+    <p>If you <strong>change your View</strong> after applying a hardware layer, it will invalidate the hardware layer and will render the view to that off-screen buffer all over again. That will happen when changing a property that’s not optimized for hardware layers (for now, these are optimized: rotation, scale, x/y, translation, pivot and alpha). For example, if you’re animating a View, backed by hardware layer, by moving it across the screen while updating the View’s background color as it moves, it will result with constant updating of the hardware layer. Updating the hardware layer has an overhead that could make using it not worthwhile</p>
+  </li>
+</ul>
+
+<p>For the second problem, there’s a way to visualize these hardware layer updates. Using the Developer Options, we can enable the “Show hardware layers updates”.</p>
+
+<p><a href="/assets/images/speed-up-your-app/hwl-devoptions2.png"><img src="/assets/images/speed-up-your-app/hwl-devoptions2.png" alt="img" /></a></p>
+
+<p>When enabled, the View is being flashed with a green color as it updates its hardware layer. I used it a while ago, when I had a ViewPager that didn’t scroll as smooth as I expected. After enabling this developer option, I went ahead and scroll the ViewPager, and this is what I saw:</p>
+
+<p><a href="/assets/images/speed-up-your-app/hwl-calproblem.gif"><img src="/assets/images/speed-up-your-app/hwl-calproblem.gif" alt="img" /></a></p>
+
+<p>Both pages were green for the entire scroll!</p>
+
+<p>That means that there’s a hardware layer created for them, and the pages are also invalidated as we scroll the ViewPager. I did update the pages as I scroll them, using a parallax effect on the background and gradually animating the items in the page. What I didn’t do, is create a hardware layer for the ViewPager’s pages. After reading the ViewPager’s source code, I found that when the user starts scrolling, a hardware layer is created for both pages and removed after the scrolling stops.</p>
+
+<p>While it makes complete sense to create hardware layers to the pages as we scroll, it was bad for me. Usually, these pages aren’t changing as we scroll the ViewPager, and since they can be pretty complex - hardware layers help rendering them much quicker. In the app I was working on, that wasn’t the case and I had to remove these hardware layer, using a <a href="http://blog.udinic.com/2013/09/16/viewpager-and-hardware-acceleration">small hack that I wrote</a>.</p>
+
+<p>Hardware layers are not a silver bullet. It’s important to understand how they work and use them properly, or you can find yourself with a bigger problem.</p>
+
+<h2 id="diy">DIY</h2>
+
+<p>In preparation for all the examples I showed here, I wrote a lot of code to simulate these situations. You can find everything in this <a href="https://github.com/Udinic/PerformanceDemo">Github repository</a>, and also on <a href="https://play.google.com/store/apps/details?id=com.udinic.perfdemo">Google Play</a>. I splitted different scenarios to different activities, and tried to document them as much as possible to help understand what kind of problems you can find using that Activity. Read the Activities’ javadoc, open the tools and play with app.</p>
+
+<h2 id="more-info">More info</h2>
+
+<p>As the Android OS evolves, so are the ways you can optimize your apps. New tools are being introduced with the Android SDK, and new features are added to the OS (such as the hardware layers). It’s important to stay up-to-date and examine the trade-offs before choosing to change something.</p>
+
+<p>There’s a great YouTube playlist, called <a href="https://www.youtube.com/playlist?list=PLOU2XLYxmsIKEOXh5TwZEv89aofHzNCiu">Android Performance Patterns</a>, with many short videos from Google, explaining different subjects related to performance. You can find comparisons between different data structures (HashMap vs ArrayMap), Bitmaps optimizations and even how to optimize your network requests. I highly recommend watching all of them.</p>
+
+<p>Join the <a href="https://plus.google.com/communities/116342551728637785407">Android Performance Patterns Google+ community</a> and talk about performance with others, including Googlers, to share ideas, articles and questions.</p>
+
+<p>More interesting links:</p>
+
+<ul>
+  <li>
+    <p>Learn how the <a href="http://source.android.com/devices/graphics/architecture.html">Graphics Architecture in Android</a> works. It has everything you need to know about how Android renders your UI, explaining the different system components, such as SurfaceFlinger, and how they all talk to each other. It’s long, but worth it.</p>
+  </li>
+  <li>
+    <p>A <a href="https://www.youtube.com/watch?v=Q8m9sHdyXnE">talk from Google IO 2012</a>, showing how the drawing model works and how/why we get a jank when our UI renders.</p>
+  </li>
+  <li>
+    <p>An <a href="https://www.parleys.com/tutorial/part-2-android-performance-workshop">Android Performance Workshop talk</a>, from Devoxx 2013, showing some of the optimizations that were made in Android 4.4 to the drawing model, and demoing the different tools to optimize performance (Systrace, Overdraw etc.).</p>
+  </li>
+  <li>
+    <p>Great post about <a href="https://medium.com/google-developers/the-truth-about-preventative-optimizations-ccebadfd3eb5">Preventative Optimizations</a>, and why they are different than Premature Optimizations. Many developers don’t optimize parts of their code, because they think the impact is not noticeable. One thing to keep in mind, is that everything add up to become a <a href="https://plus.google.com/105051985738280261832/posts/YDykw2hstUu">bigger problem</a>. If you have an opportunity to optimize a small part, that may seem negligible, don’t rule it out.</p>
+  </li>
+  <li>
+    <p><a href="https://www.youtube.com/watch?v=_CruQY55HOk">Memory managment in Android</a> - an old video from Google IO 2011, that’s still relevant. It showcases how Android manages the memory of our apps, and how to use tools such as Eclipse MAT to find problems.</p>
+  </li>
+  <li>
+    <p><a href="http://www.curious-creature.com/docs/android-performance-case-study-1.html">Case study</a> done by Google Engineer, Romain Guy, to optimize a popular twitter client. In this case study, Romain shows how he found performance issues in the app and what he recommends on doing to fix them. There’s a <a href="http://www.curious-creature.com/2015/03/25/android-performance-case-study-follow-up/">follow-up post</a>, showing other issues for the same app, after it was redesigned.</p>
+  </li>
+</ul>
+
+<p>I hope you now have enough information, and more confidence, to start optimizing your apps today!</p>
+
+<p>Start a trace, or enable some of the relevant Developer Options, and just go from there. You’re welcome to share some of the things you’ve found in the comments or in the Android Performance Patterns Google+ community.</p>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#android-ref">
+					android</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#performance-ref">
+					performance</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+		
+		<ul class="tag_box list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#android-ref">
+					android
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#androiddev-ref">
+					androiddev
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#perfmatters-ref">
+					perfmatters
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#droidcon-ref">
+					droidcon
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#droidconnyc 2015-ref">
+					droidconnyc 2015
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#trade-offs-ref">
+					trade-offs
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#systrace-ref">
+					systrace
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#UI thread-ref">
+					UI thread
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#RenderThread-ref">
+					RenderThread
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Long View#draw()-ref">
+					Long View#draw()
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Slice-ref">
+					Slice
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Inflation during ListView recycling-ref">
+					Inflation during ListView recycling
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Scheduling delay-ref">
+					Scheduling delay
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#16ms-ref">
+					16ms
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#60 fps-ref">
+					60 fps
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#cpu duration-ref">
+					cpu duration
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#wall duration-ref">
+					wall duration
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#traceview-ref">
+					traceview
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#inclusive cpu time-ref">
+					inclusive cpu time
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#exclusive cpu time-ref">
+					exclusive cpu time
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#inclusive real time-ref">
+					inclusive real time
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#exclusive real time-ref">
+					exclusive real time
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#real time / call-ref">
+					real time / call
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#cpu cycles-ref">
+					cpu cycles
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#cpu time slice-ref">
+					cpu time slice
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Memory Profiling-ref">
+					Memory Profiling
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#GC event-ref">
+					GC event
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Garbage Collection-ref">
+					Garbage Collection
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Garbage Collector-ref">
+					Garbage Collector
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Heap dump-ref">
+					Heap dump
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#hprof-ref">
+					hprof
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#histogram-ref">
+					histogram
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#reference tree-ref">
+					reference tree
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#memory footprint-ref">
+					memory footprint
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#retained size-ref">
+					retained size
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#shallow size-ref">
+					shallow size
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#heap count-ref">
+					heap count
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#memory leak-ref">
+					memory leak
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#OutOfMemoryException-ref">
+					OutOfMemoryException
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#OOM Exception-ref">
+					OOM Exception
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Eclipse MAT-ref">
+					Eclipse MAT
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Eclipse Memory Analyzer Tool-ref">
+					Eclipse Memory Analyzer Tool
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Merge shortest paths to GC roots-ref">
+					Merge shortest paths to GC roots
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#LeakCanary-ref">
+					LeakCanary
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Allocation Tracker-ref">
+					Allocation Tracker
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#object pool-ref">
+					object pool
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#enums-ref">
+					enums
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#autoboxing-ref">
+					autoboxing
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#auto-box-ref">
+					auto-box
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#hashmap-ref">
+					hashmap
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#arraymap-ref">
+					arraymap
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#SparseIntArray-ref">
+					SparseIntArray
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#SparseLongArray-ref">
+					SparseLongArray
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#non-static inner class-ref">
+					non-static inner class
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#GPU profiling-ref">
+					GPU profiling
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Android Studio 1.4-ref">
+					Android Studio 1.4
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Draw-ref">
+					Draw
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Prepare-ref">
+					Prepare
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Process-ref">
+					Process
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Execute-ref">
+					Execute
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#OpenGL-ref">
+					OpenGL
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#DisplayList-ref">
+					DisplayList
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#display lists-ref">
+					display lists
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Measure pass-ref">
+					Measure pass
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Layout pass-ref">
+					Layout pass
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#VSync delay-ref">
+					VSync delay
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Input Handling-ref">
+					Input Handling
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Command Issue-ref">
+					Command Issue
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Swap Buffers-ref">
+					Swap Buffers
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Profile GPU rendering-ref">
+					Profile GPU rendering
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#adb shell dumpsys gfxinfo-ref">
+					adb shell dumpsys gfxinfo
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Marshmallow-ref">
+					Marshmallow
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Janky frames-ref">
+					Janky frames
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#90th percentile-ref">
+					90th percentile
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#95th percentile-ref">
+					95th percentile
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#99th percentile-ref">
+					99th percentile
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Number of missed Vsync-ref">
+					Number of missed Vsync
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Number high input latency-ref">
+					Number high input latency
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Number slow UI thread-ref">
+					Number slow UI thread
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Number slow bitmap uploads-ref">
+					Number slow bitmap uploads
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Number slow draw-ref">
+					Number slow draw
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#framestats-ref">
+					framestats
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#On screen as bars-ref">
+					On screen as bars
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#complex view-ref">
+					complex view
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Hierarchy Viewer-ref">
+					Hierarchy Viewer
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Android Monitor-ref">
+					Android Monitor
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#View Hierarchy-ref">
+					View Hierarchy
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#onMeasure-ref">
+					onMeasure
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#onLayout-ref">
+					onLayout
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#RelativeLayout-ref">
+					RelativeLayout
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#LinearLayout-ref">
+					LinearLayout
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#positioning-ref">
+					positioning
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Overdraw-ref">
+					Overdraw
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Debug GPU overdraw-ref">
+					Debug GPU overdraw
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#setBackgroundDrawable-ref">
+					setBackgroundDrawable
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Photoshop-ref">
+					Photoshop
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#PSD-ref">
+					PSD
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Alpha-ref">
+					Alpha
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Transparency-ref">
+					Transparency
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#setAlpha-ref">
+					setAlpha
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#off-screen buffer-ref">
+					off-screen buffer
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#setTextColor-ref">
+					setTextColor
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#setImageAlpha-ref">
+					setImageAlpha
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#hasOverlappingRendering-ref">
+					hasOverlappingRendering
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#onSetAlpha-ref">
+					onSetAlpha
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Hardware Layer-ref">
+					Hardware Layer
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Drawing model-ref">
+					Drawing model
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#view layer-ref">
+					view layer
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#hardware acceleration-ref">
+					hardware acceleration
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#texture-ref">
+					texture
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#animation-ref">
+					animation
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#setLayerType-ref">
+					setLayerType
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#LAYER_TYPE_HARDWARE-ref">
+					LAYER_TYPE_HARDWARE
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#LAYER_TYPE_NONE-ref">
+					LAYER_TYPE_NONE
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#withLayer-ref">
+					withLayer
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#rotation-ref">
+					rotation
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#scale-ref">
+					scale
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#translation-ref">
+					translation
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#translationx-ref">
+					translationx
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#translationy-ref">
+					translationy
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#pivot-ref">
+					pivot
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Show hardware layers updates-ref">
+					Show hardware layers updates
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#ViewPager-ref">
+					ViewPager
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Page scroll-ref">
+					Page scroll
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#onPageScrollStateChanged-ref">
+					onPageScrollStateChanged
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Android Performance Patterns-ref">
+					Android Performance Patterns
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Graphics Architecture-ref">
+					Graphics Architecture
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Devoxx-ref">
+					Devoxx
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Google IO-ref">
+					Google IO
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Preventative Optimizations-ref">
+					Preventative Optimizations
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Premature Optimizations-ref">
+					Premature Optimizations
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#case study-ref">
+					case study
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Romain Guy-ref">
+					Romain Guy
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+
+	<div align="center" class="author-container">
+		<figure class="author-img-post">
+			<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a" class="img-circle author-image" />			
+		</figure>
+        <h4 class="section-title">Written by Udi Cohen</h4>
+	</div>
+	<div class="share-container">					
+      <section class="share" align="center">
+        <p class="section-title">Share this post:</p>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Speed up your app&via=udinic"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" 
+           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm reddit"
+           onclick="window.open('http://www.reddit.com/submit?url='+window.location.href+'&title=Speed up your app', 'reddit-share', 'width=580,height=530');return false;">
+          <i class="fa fa-reddit fa-lg"></i>
+          Reddit
+        </a>
+      </section>
+
+    </div>
+
+    <!-- <div class="clearfix"></div> -->
+
+	<!-- <hr> -->
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'udinic-blog';
+    var disqus_identifier = '/2015/09/15/speed-up-your-app/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	</div>
+	
+
+
+
+
+
+
+
+
+</article>
+<div class="clearfix"></div>
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+

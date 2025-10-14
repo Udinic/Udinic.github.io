@@ -1,0 +1,884 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Udi Cohen's blog</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>Udi Cohen's blog </h1>
+</div>
+
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    January
+    4th,
+    
+    2012
+  </span>
+
+  <h2>
+    <a href="/2012/01/04/problem-solving-using-the-android-source-code/">Problem solving using the Android source code</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>On one of my latest posts, I’ve showed how to download the Android source code, even if you work on Windows (The official instructions are for Linux to Mac). You can check that post <a href="http://udinic.wordpress.com/category/android/aosp/">here</a>. Having the Android source code can be useful not just to find bugs in the operation system, which I bet you do on your spare time, but can also help understand problems in your own code. To demonstrate, here’s a nice story about a problem I had while developing some layout, and found the problem using the Android source code:</p>
+
+<p>I didn’t intend to make any complex layout, just a simple LinearLayout with 3 buttons. I wanted the buttons to be even by size, take all the space they can have and center the text inside of them. Sounds simple, right? I wrote the following layout:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;LinearLayout</span> <span class="na">android:layout_height=</span><span class="s">"70dip"</span>
+ <span class="na">android:layout_width=</span><span class="s">"fill_parent"</span>
+ <span class="na">android:background=</span><span class="s">"#ffffff"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;Button</span>
+ <span class="na">android:layout_width=</span><span class="s">"0dip"</span>
+ <span class="na">android:layout_height=</span><span class="s">"70dip"</span>
+ <span class="na">android:gravity=</span><span class="s">"center"</span>
+ <span class="na">android:layout_weight=</span><span class="s">"1"</span>
+ <span class="na">android:textSize=</span><span class="s">"15sp"</span>
+ <span class="na">android:text=</span><span class="s">"Udinic"</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;Button</span>
+ <span class="na">android:layout_width=</span><span class="s">"0dip"</span>
+ <span class="na">android:layout_height=</span><span class="s">"70dip"</span>
+ <span class="na">android:gravity=</span><span class="s">"center"</span>
+ <span class="na">android:layout_weight=</span><span class="s">"1"</span>
+ <span class="na">android:textSize=</span><span class="s">"15sp"</span>
+ <span class="na">android:text=</span><span class="s">"Udinic with a long text"</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;Button</span>
+ <span class="na">android:layout_width=</span><span class="s">"0dip"</span>
+ <span class="na">android:layout_height=</span><span class="s">"70dip"</span>
+ <span class="na">android:gravity=</span><span class="s">"center"</span>
+ <span class="na">android:layout_weight=</span><span class="s">"1"</span>
+ <span class="na">android:textSize=</span><span class="s">"15sp"</span>
+ <span class="na">android:text=</span><span class="s">"Chopi"</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;/LinearLayout&gt;</span></code></pre></figure>
+
+<p>When I ran the code, that’s what I got:</p>
+
+<p><a href="/assets/images/2012-01-04-problem-solving-using-the-android-source-code/1.png"><img src="/assets/images/2012-01-04-problem-solving-using-the-android-source-code/1.png" alt="" /></a></p>
+
+<p>That’s odd…I gave the buttons the same height as the layout, why the hell the middle one got this gap above it?? Changing the layout_height to “fill_parent” to each of them will solve the problem on this example, but in my case it didn’t (I had a little more complex layout :)). Since it seems like it should be as it is in my head, I’ve decided to get to the bottom of this.</p>
+
+<p>My first step was to check what arguments the <a href="http://developer.android.com/reference/android/view/View.html#onLayout(boolean, int, int, int, int)">onLayout()</a> gets. This method is basically in charge of assigning the views’ positions on the layout. Since we have a position problem, it’ll be square one for us. I’ve created a subclass to Button and override the onLayout() method.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onLayout</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">changed</span><span class="o">,</span> <span class="kt">int</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span> <span class="n">top</span><span class="o">,</span> <span class="kt">int</span> <span class="n">right</span><span class="o">,</span> <span class="kt">int</span> <span class="n">bottom</span><span class="o">)</span> <span class="o">{</span>
+ <span class="kd">super</span><span class="o">.</span><span class="na">onLayout</span><span class="o">(</span><span class="n">changed</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">top</span><span class="o">,</span> <span class="n">right</span><span class="o">,</span> <span class="n">bottom</span><span class="o">);</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>I started debugging, not before adding a breakpoint on that method. A peek on the arguments showed me that the “top” argument is the bad boy here. It’s got a 9 instead of a plain 0, which causing this gap on top of the button. Using IntelliJ and the Android source code, I could get up the Call Stack for this method, and found the following code in the LinearLayout’s source:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">....</span>
+<span class="k">switch</span> <span class="o">(</span><span class="n">gravity</span> <span class="o">&amp;</span> <span class="nc">Gravity</span><span class="o">.</span><span class="na">VERTICAL_GRAVITY_MASK</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nc">Gravity</span><span class="o">.</span><span class="na">TOP</span><span class="o">:</span>
+      <span class="n">childTop</span> <span class="o">=</span> <span class="n">paddingTop</span> <span class="o">+</span> <span class="n">lp</span><span class="o">.</span><span class="na">topMargin</span><span class="o">;</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">childBaseline</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+         <span class="n">childTop</span> <span class="o">+=</span> <span class="n">maxAscent</span><span class="o">[</span><span class="no">INDEX_TOP</span><span class="o">]</span> <span class="o">-</span> <span class="n">childBaseline</span><span class="o">;</span>
+      <span class="o">}</span>
+ <span class="o">....</span></code></pre></figure>
+
+<p>The “childTop”, later to be know as just “top”, is getting its value from the childBaseline, which is calculated on the TextView class, and “Button” is extending it:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getBaseline</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mLayout</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">getBaseline</span><span class="o">();</span>
+    <span class="o">}</span>
+
+   <span class="kt">int</span> <span class="n">voffset</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">((</span><span class="n">mGravity</span> <span class="o">&amp;</span> <span class="nc">Gravity</span><span class="o">.</span><span class="na">VERTICAL_GRAVITY_MASK</span><span class="o">)</span> <span class="o">!=</span> <span class="nc">Gravity</span><span class="o">.</span><span class="na">TOP</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">voffset</span> <span class="o">=</span> <span class="n">getVerticalOffset</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+
+   <span class="k">return</span> <span class="nf">getExtendedPaddingTop</span><span class="o">()</span> <span class="o">+</span> <span class="n">voffset</span> <span class="o">+</span> <span class="n">mLayout</span><span class="o">.</span><span class="na">getLineBaseline</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>Only the mLayout.getLineBaseline(0) was held responsible for the evil gap, and after exploring it a bit got me to realize that this is the baseline for the layout, in charge of making all the text in all the TextView/Buttons under it to be aligned to the same horizontal line! After looking closely at my phone, I could see that the text is really aligned to the same baseline (and in the real case, it wasn’t as obvious as on this example). This might be great for other applications of buttons inside a layout, but not for my case. Apparently the layout’s “baselineAligned” flag is always “true” unless told otherwise, which is kind of confusing if you’ll ask me. Adding the android:baselineAligned=”false” to the layout got rid of the problem:</p>
+
+<p><a href="/assets/images/2012-01-04-problem-solving-using-the-android-source-code/2.png"><img src="/assets/images/2012-01-04-problem-solving-using-the-android-source-code/2.png" alt="" /></a></p>
+
+<p>This experience can show you how you can, pretty easily, find problems in your code just by having the operation system’s code. Maybe a clearer behavior of the LinearLayout could be better, but sadly every framework, no matter how great it is, got its dark side.</p>
+
+<p>Download the source code, attach it to your IDE, it’ll probably come in handy in the future.</p>
+
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    December
+    29th,
+    
+    2011
+  </span>
+
+  <h2>
+    <a href="/2011/12/29/the-widgets-strikes-back/">The widgets strikes back</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>We’re getting LOTS of feedback about Any.DO. The users write us some kind words about the app, maybe report about a problem they were having and mostly suggesting very useful features we could add for future versions. Of course, some feature requests aren’t that reasonable (Klingon translation? Really??). The most requested features were widgets related: black theme, more sizes, option to scroll over the tasks’ list etc. I gathered all those requests and got me a 3 day trip to Wigeteria-Lane.</p>
+
+<p>One of the widgets is having a ticker to present today’s tasks. The ticker uses a recurring alert to update the current showing task. The reason I’m using alert and not the onUpdate() method. is that the onUpdate can be called in intervals of minimum 30 mins. which is way too long to wait between tasks! I start the alert on the onEnabled() and cancel it on the onDisabled(). They are called when the <strong>first instance</strong> of that widget was added to the screen, and when the** last instance** was removed from the screen, respectively. But one day I’ve noticed the log messages from the widget are running, even though it’s not currently placed on my home screen!</p>
+
+<p>I couldn’t find the cause for the problem and I didn’t see anything in my code that could lead to such behavior. Luckily, I always work with my Logcat window open (you’ll never know when a hidden exception will pop up), and then it happened again!</p>
+
+<p>I’m using CyanogenMod on my device, which has the ADW Launcher built in. When I was about to add the widget to my home screen, I got the “Widget span config” dialog, allowing me to choose myself the size I want to grant the widget (it’s a feature belongs to the launcher itself) and then I’ve clicked the <strong>back button</strong>. On my log I could see the onEnabled() <strong>do</strong> gets called, and when I clicked on the back button I saw that the onDisabled() was <strong>not called</strong> at all! The alert was running and gave log messages for each cycle, though the widget was not added to the home screen. Trying to add an instance of the widget and removing it didn’t cause the onDisabled() to be called, and even restarting the device didn’t make the widget disappear from the background. I’ve decided to take a side-trip to see what’s wrong with the ADW Launcher.</p>
+
+<p>Have I mentioned I love open-source projects? Well, I do. The ADW Launcher is <a href="http://code.google.com/p/adw-launcher-android/">open-sourced</a> - few minutes later I found myself looking at its code on my IntelliJ. The shortest way to find the code for that problematic dialog, is to search its title. That’s the code for this dialog’s OK button:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">alertDialog</span><span class="o">.</span><span class="na">setButton</span><span class="o">(</span><span class="nc">DialogInterface</span><span class="o">.</span><span class="na">BUTTON_POSITIVE</span><span class="o">,</span> <span class="n">getResources</span><span class="o">().</span><span class="na">getString</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">ok</span><span class="o">),</span>
+ <span class="k">new</span> <span class="nc">DialogInterface</span><span class="o">.</span><span class="na">OnClickListener</span><span class="o">()</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="nc">DialogInterface</span> <span class="n">dialog</span><span class="o">,</span> <span class="kt">int</span> <span class="n">which</span><span class="o">)</span> <span class="o">{</span>
+         <span class="n">spans</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">ncols</span><span class="o">.</span><span class="na">getCurrent</span><span class="o">();</span>
+         <span class="n">spans</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="n">nrows</span><span class="o">.</span><span class="na">getCurrent</span><span class="o">();</span>
+         <span class="n">realAddWidget</span><span class="o">(</span><span class="n">appWidgetInfo</span><span class="o">,</span><span class="n">cInfo</span><span class="o">,</span><span class="n">spans</span><span class="o">,</span><span class="n">appWidgetId</span><span class="o">,</span><span class="n">insertAtFirst</span><span class="o">);</span>
+     <span class="o">}</span>
+ <span class="o">});</span></code></pre></figure>
+
+<p>The realAddWidget() is in charge of the actual inflation of the widget, but if there’s not enough room at the home screen, the onDisabled() <strong>do</strong> gets called. We can see it on the code:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(!</span><span class="n">findSlot</span><span class="o">(</span><span class="n">cellInfo</span><span class="o">,</span> <span class="n">xy</span><span class="o">,</span> <span class="n">spans</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">spans</span><span class="o">[</span><span class="mi">1</span><span class="o">]))</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">appWidgetId</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="n">mAppWidgetHost</span><span class="o">.</span><span class="na">deleteAppWidgetId</span><span class="o">(</span><span class="n">appWidgetId</span><span class="o">);</span>
+        <span class="k">return</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>The deleteAppWidgetId() is calling the onDisabled() method eventually. Using the mAppWidgetHost.deleteAppWidgetId() I was able to track down the function in charge of adding the widget - mAppWidgetHost.allocateAppWidgetId() and after some looking around, I found out that it gets called right after selecting the widget from the list, before the span config dialog shows. Which means, if anything goes wrong after that - we need to call the mAppWidgetHost.deleteAppWidgetId() to remove the added widget. The case where there’s no space left on the screen is already handled, but what about canceling the “Widget span config” dialog? It’s called <strong>after</strong> the allocation of the widget. I got back to the code creating that dialog, and saw there’s no handling for the case where the dialog is canceled. That’s the cause of the problem! Mission accomplished.</p>
+
+<p>In order to fix that, all needed to be done is to add an OnCancelListener to the dialog, with a call to the   mAppWidgetHost.deleteAppWidgetId() and that’s it! I’ve submitted an <a href="http://code.google.com/p/adw-launcher-android/issues/detail?id=368">Issue </a>on the project’s page, hopefully this will be fixed for future versions.</p>
+
+<p>After that enlightening adventure, I got back to work on the widgets. The results can be seen on the version we published yesterday on the Android Market, go and <a href="https://market.android.com/details?id=com.anydo">get it</a>! And don’t forget to send us feedback, we’re open-minded (even about the Klingon thing).</p>
+
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    December
+    8th,
+    
+    2011
+  </span>
+
+  <h2>
+    <a href="/2011/12/08/progressive-problem/">Progressive Problem</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>On my last post I was talking about the integration of ACRA, error reporting library, which sends us crash reports from the users of <a href="https://market.android.com/details?id=com.anydo">Any.DO</a>. We’ve got some very interesting errors from the users, some exceptions were a matter of minutes to resolve, and others took more time, as the one I’m about to share here.</p>
+
+<p>One of the most repeatable exceptions was an IllegalArgumentException. The stack trace was something like this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalArgumentException</span><span class="o">:</span> <span class="nc">View</span> <span class="n">not</span> <span class="n">attached</span> <span class="n">to</span> <span class="n">window</span> <span class="n">manager</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">WindowManagerImpl</span><span class="o">.</span><span class="na">findViewLocked</span><span class="o">(</span><span class="nc">WindowManagerImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">355</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">WindowManagerImpl</span><span class="o">.</span><span class="na">removeView</span><span class="o">(</span><span class="nc">WindowManagerImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">200</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">Window</span><span class="n">$LocalWindowManager</span><span class="o">.</span><span class="na">removeView</span><span class="o">(</span><span class="nc">Window</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">432</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">Dialog</span><span class="o">.</span><span class="na">dismissDialog</span><span class="o">(</span><span class="nc">Dialog</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">278</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">Dialog</span><span class="o">.</span><span class="na">access</span><span class="err">$</span><span class="mo">000</span><span class="o">(</span><span class="nc">Dialog</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">71</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">Dialog</span><span class="err">$</span><span class="mi">1</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">Dialog</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">111</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">handleCallback</span><span class="o">(</span><span class="nc">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">587</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">dispatchMessage</span><span class="o">(</span><span class="nc">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">92</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Looper</span><span class="o">.</span><span class="na">loop</span><span class="o">(</span><span class="nc">Looper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">123</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">ActivityThread</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="nc">ActivityThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">4627</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invokeNative</span><span class="o">(</span><span class="nc">Native</span> <span class="nc">Method</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="nc">Method</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">521</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="n">$MethodAndArgsCaller</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">876</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="nc">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">634</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">dalvik</span><span class="o">.</span><span class="na">system</span><span class="o">.</span><span class="na">NativeStart</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="nc">Native</span> <span class="nc">Method</span><span class="o">)</span></code></pre></figure>
+
+<table>
+  <tbody>
+    <tr>
+      <td>It’s easy to see that the cause of it is a dismissed dialog, which its window doesn’t belong to the current Window Manager. In a nutshell, the Window Manager is a service, designated to create all the drawing surfaces on which your application (and all other applications) draw their components. I won’t elaborate on this subject on this post, maybe on a future one; in the mean time, you can Google it for more information. But why is that happening? The <strong>common</strong> reason for that is the notorious <a href="http://stackoverflow.com/questions/1111980/how-to-handle-screen-orientation-change-when-progress-dialog-and-background-thre">orientation problem</a>. We couldn’t come across that issue, because we simply applied the magic attribute of __android:configChanges=”keyboardHidden</td>
+      <td>orientation”__ to almost all of our Activities. Without this configuration, the default behavior for all the activities is to be destroyed and recreated whenever the user bend his arm by 90 degrees.  This configuration is doing what I believe should be the default behavior - leaving the activity be. Actually it means that you, the developer, takes responsibility to handle those orientation changes, so it’s actually suppose to generate more work by declaring that. In fact, for inexperienced developers it can cause more harm than good, as on that demonic orientation problem. But, again, this is not the issue here.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After lots of playing around, I’ve managed to reproduce the problem on my device. That’s how I did it:</p>
+
+<ul>
+  <li>
+    <p>Go to some activity other than the main</p>
+  </li>
+  <li>
+    <p>Created <a href="http://developer.android.com/reference/android/os/AsyncTask.html">AsyncTask </a>that <strong>starts</strong> and <strong>dismisses</strong> a progress dialog, and <strong>sleeps</strong> for 5 seconds in between</p>
+  </li>
+  <li>
+    <p>While the AsyncTask was taking a nap, I’ve pressed on the** HOME** <strong>button</strong></p>
+  </li>
+  <li>
+    <p>When the home screen appeared, I quickly pressed on the** app’s shortcut**</p>
+  </li>
+  <li>
+    <p>BOOM!</p>
+  </li>
+</ul>
+
+<p>Why is that? Well, The AsyncTask was created on one of the sub-activities of the app, let’s call it Activity B, and the main activity will be A. When it was time to dismiss the dialog, I’ve already pressed the HOME key and Activity B was no longer visible (HOME key -&gt; Home screen). This is <strong>not</strong> suppose to be an issue, because the activity remains on the memory until killed by an over-excited Task Killer app or by the operation system, if it needs to clear some memory. The <strong>problem</strong> is that I’ve also pressed on the app’s home screen shortcut, and it has the flag “Intent.FLAG_ACTIVITY_CLEAR_TOP”, which practically saying that it’ll kill all the other activities on the task’s activities stack. You can read more about that stack, and how it operates, here: <a href="http://developer.android.com/guide/topics/fundamentals/tasks-and-back-stack.html">http://developer.android.com/guide/topics/fundamentals/tasks-and-back-stack.html</a>. Since I’ve killed Activity B (with all its dialog), and the app’s shortcut is starting activity A, the AsyncTask was trying to dismiss a a dialog that’s no longer exists! We get an IllegalArgumentException. Hooray! Now what?</p>
+
+<p>On a this <a href="http://blog.doityourselfandroid.com/2010/11/14/handling-progress-dialogs-and-screen-orientation-changes/">very comprehensive post</a> about the orientation problem, there’s a nice solution for that issue, but not entirely for my problem. That solution transfers the AsyncTask between the destroyed activity and the created one when screen orientation changes. Since I’m just killing the activity, I want the activity to ignore any dismissing command for dead dialogs! I’ve decided to build a solution on top of my progress dialog and activities, allowing me to start a progress dialog on any activity, and let this whole thing be managed.</p>
+
+<p>When started, I’ve tried using the AsyncTask solution, presented on that blog, and just extend it to write my own doInBackground() logic. Unfortunately, there was some AsyncTask internal problem with that approach; It’s too long to start explaining here, so I’ll pass. My solution includes this interface:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ProgressDlgHandlingActivity</span> <span class="o">{</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">startProgressDialog</span><span class="o">(</span><span class="nc">String</span> <span class="n">title</span><span class="o">);</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dismissProgressDialog</span><span class="o">();</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stopProgressDialog</span><span class="o">();</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>Every activity that runs a progress bar should implement it, and it’s fairly easy:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**
+ * Starts the progress dialog
+ * @param title
+ */</span>
+ <span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">startProgressDialog</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">showDialog</span><span class="o">(</span><span class="nc">AnydoProgressDialog</span><span class="o">.</span><span class="na">DIALOG_ID</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+ <span class="o">}</span>
+<span class="cm">/**
+ * Stopping a currently active progress dialog
+ */</span>
+ <span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stopProgressDialog</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Detaching the currently showing dialog from the activity.</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mCurrProgressDlg</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+       <span class="n">mCurrProgressDlg</span><span class="o">.</span><span class="na">detachFromActivity</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="cm">/**
+ * Dismissing the progress dialog. In use by the dialog itself!
+ * In order to dismiss a progress dialog - use the #stopProgressDialog
+ */</span>
+ <span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dismissProgressDialog</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">isDialogShown</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">dismissDialog</span><span class="o">(</span><span class="nc">AnydoProgressDialog</span><span class="o">.</span><span class="na">DIALOG_ID</span><span class="o">);</span>
+    <span class="o">}</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>As you can see, I keep the current displayed dialog (mCurrProgressDlg), and dismiss it only if it’s shown. On the activity, all I need to know about is the startProgressDialog() and the stopProgressDialog() functions. How do I know that the dialog is shown? And what is that “detach” thing? On the progress dialog itself I save the calling activity as a field from type ProgressDlgHandlingActivity (as our interface), and accessing it with those 2 methods:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**
+ * Attaches the dialog to the argumented activity.
+ * @param activity
+ */</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">attachToActivity</span><span class="o">(</span><span class="nc">ProgressDlgHandlingActivity</span> <span class="n">activity</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">mActivity</span> <span class="o">=</span> <span class="n">activity</span><span class="o">;</span>
+ <span class="o">}</span>
+<span class="cm">/**
+ * Removing the dialog from the activity
+ */</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">detachFromActivity</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">if</span> <span class="o">(</span><span class="n">mActivity</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">mActivity</span><span class="o">.</span><span class="na">dismissProgressDialog</span><span class="o">();</span>
+    <span class="o">}</span>
+   <span class="n">mActivity</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>Notice that the detach function also dismisses the dialog if there’s an activity currently attached to. Back to our activity, we need to add the code to create the dialog when calling the showDialog() function, I’ve implemented it like this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="nc">Dialog</span> <span class="nf">onCreateDialog</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="nc">Bundle</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">switch</span> <span class="o">(</span><span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">case</span> <span class="o">(</span><span class="nc">AnydoProgressDialog</span><span class="o">.</span><span class="na">DIALOG_ID</span><span class="o">):</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">mCurrProgressDlg</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+             <span class="n">mCurrProgressDlg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnydoProgressDialog</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+             <span class="k">return</span> <span class="n">mCurrProgressDlg</span><span class="o">;</span>
+       <span class="k">default</span><span class="o">:</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onCreateDialog</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="o">}</span>
+ <span class="o">}</span>
+<span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPrepareDialog</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="nc">Dialog</span> <span class="n">dialog</span><span class="o">,</span> <span class="nc">Bundle</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onPrepareDialog</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">dialog</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">id</span> <span class="o">==</span> <span class="nc">AnydoProgressDialog</span><span class="o">.</span><span class="na">DIALOG_ID</span><span class="o">)</span> <span class="o">{</span>
+       <span class="nc">AnydoProgressDialog</span> <span class="n">dlg</span> <span class="o">=</span> <span class="o">((</span><span class="nc">AnydoProgressDialog</span><span class="o">)</span><span class="n">dialog</span><span class="o">);</span>
+       <span class="n">dlg</span><span class="o">.</span><span class="na">attachToActivity</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+       <span class="n">isDialogShown</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>The create function is pretty straightforward and just create the dialog if not exist. On the prepare dialog, we attach the current activity to the dialog and set the isDialogShown flag, which we saw earlier. The most important part, is to close the dialog when the activity closes (or killed); For that, I’ve added the stopProgressDialog() to the onDestroy() function of the activity.</p>
+
+<p>That’s it! When I want to performs a long operation with a progress dialog running during it, I can do it like this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">new</span> <span class="nc">AsyncTask</span><span class="o">()</span> <span class="o">{</span>
+<span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPreExecute</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onPreExecute</span><span class="o">();</span>
+    <span class="n">startProgressDialog</span><span class="o">();</span>
+ <span class="o">}</span>
+<span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="nc">Void</span> <span class="nf">doInBackground</span><span class="o">(</span><span class="nc">Void</span><span class="o">...</span> <span class="n">voids</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">calculateSomething</span><span class="o">(</span><span class="s">"udinic"</span><span class="o">);</span>
+   <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+ <span class="o">}</span>
+<span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPostExecute</span><span class="o">(</span><span class="nc">Void</span> <span class="n">aVoid</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onPostExecute</span><span class="o">(</span><span class="n">aVoid</span><span class="o">);</span>
+    <span class="n">stopProgressDialog</span><span class="o">();</span>
+ <span class="o">}</span>
+
+<span class="o">}.</span><span class="na">execute</span><span class="o">();</span></code></pre></figure>
+
+<p>When the activity will finish, the dialog will do so too. Now I know what you’re probably thinking - why did I go all this trouble just to dismiss a dialog in the end of the activity? Well, this solution also combines a solution to the orientation problem. In order to support that as well, you need to override this method on the activity:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">onRetainNonConfigurationInstance</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mCurrProgressDlg</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">return</span> <span class="n">mCurrProgressDlg</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onRetainNonConfigurationInstance</span><span class="o">();</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>And add this to the activity’s onCreate() method:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// In case we created after a rotation has occurred, we'll reload any running progress dialog</span>
+ <span class="nc">Object</span> <span class="n">retained</span> <span class="o">=</span> <span class="n">getLastNonConfigurationInstance</span><span class="o">();</span>
+ <span class="k">if</span> <span class="o">(</span><span class="n">retained</span> <span class="k">instanceof</span> <span class="nc">AnydoProgressDialog</span><span class="o">)</span>
+    <span class="n">mCurrProgressDlg</span> <span class="o">=</span> <span class="o">(</span><span class="nc">AnydoProgressDialog</span><span class="o">)</span><span class="n">retained</span><span class="o">;</span></code></pre></figure>
+
+<p>Congrats! Now you have safe to use Progress dialog, with no need to extend AsyncTask with particular results types. Hope this will help someone, I know It did the job for me. If I’ll get any requests for it - I’ll also upload an example project to my GitHub account.</p>
+
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    November
+    21st,
+    
+    2011
+  </span>
+
+  <h2>
+    <a href="/2011/11/21/errors-in-the-error-reporter/">Errors in the Error Reporter</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>I’m working a lot with open source libraries, some of them just give you a source, short explanation, and…good luck! The others are well documented and their developers are active. On this post I’m bringing a nice story about integrating an Error reporting mechanism to <a href="http://any.do">Any.DO</a> . After doing some investigation, <a href="http://code.google.com/p/acra/">ACRA</a> was found as the best solution. And yes…it’s open sourced, and from the second kind I’ve presented here.</p>
+
+<p>ACRA integrates as the default exception handler in the program, and reports to a Google spreadsheet (on Google Docs), Email or to any place you’d like. It also presents the user with a friendlier dialog when a crash occurs. In each report you can define the data to send from a wide variety of information, starting with the stack trace and the LogCat of the last 2 minutes prior to the crash and up to the system’s dumpsys and the saved shared preferences. If the user doesn’t have internet connection at the time of the crash, or the reporting process failed from some reason, the report is saved on the device and is sent later. And it’s really easy to use!</p>
+
+<p>Anyway, we decided to send the crash reports to a Google spreadsheet along to our DB, making it easy to query for statistical information about the users’ crashes. In the spreadsheet we kept almost all the information we can get, and on the DB we kept only the most important info, like the stack trace and the version information. We  also saved the AcraReportId on our DB, which helped us track down the extended information in the spreadsheet (if needed..). THE PROBLEM WAS that we got over 20,000 users on the first 48 hours to our launch (Hooray!), and some of our debug reports (reports intentionally sent to check issues raised on our beta stage)  made our spreadsheet fatter than Apple’s bank account. At some point all the reports sent to the spreadsheet got IOException-ed (very few requests were successful), and we couldn’t even open the spreadsheet nor download it! “At least we have that information on our DB..” I thought, but what I didn’t know was that ACRA didn’t send the reports to our DB as well!! Hmmmm….now it began interesting…</p>
+
+<p>We were blind. The users count is getting bigger and bigger, and we didn’t know why our DB gets only 3-5 new reports a day (I know our app is perfect, but not that perfect!). Since ACRA is open sourced, finding the cause for the problem was pretty easy. I’ve looked at the code responsible to send the reports:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sendCrashReport</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">CrashReportData</span> <span class="n">errorContent</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ReportSenderException</span> <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">sentAtLeastOnce</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">ReportSender</span> <span class="n">sender</span> <span class="o">:</span> <span class="n">mReportSenders</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">sender</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">errorContent</span><span class="o">);</span>
+                <span class="c1">// If at least one sender worked, don't re-send the report</span>
+                <span class="c1">// later.</span>
+                <span class="n">sentAtLeastOnce</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">ReportSenderException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(!</span><span class="n">sentAtLeastOnce</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">throw</span> <span class="n">e</span><span class="o">;</span> <span class="c1">// Don't log here because we aren't dealing with the Exception here.</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="nc">Log</span><span class="o">.</span><span class="na">w</span><span class="o">(</span><span class="no">LOG_TAG</span><span class="o">,</span> <span class="s">"ReportSender of class "</span> <span class="o">+</span> <span class="n">sender</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span>
+                            <span class="o">+</span> <span class="s">" failed but other senders completed their task. ACRA will not send this report again."</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span></code></pre></figure>
+
+<p>The problem was obvious, if the first sender throws an exception - the next ones on the array will be ignored! Since the Google spreadsheet sender is one of the internal report senders, it precedes any custom sender made (like our beloved DB report sender). The report will be sent again later, but as long as there’s a problem with the spreadsheet - it’s doomed to fail. According to the code here, if the order of the array was different, our report would’ve been sent, and ACRA will not send the report again to the spreadsheet, since it was successfully sent already through other report sender. I filed an <a href="http://code.google.com/p/acra/issues/detail?id=92&amp;sort=-id&amp;colspec=ID%20Stars%20Type%20Status%20Priority%20Milestone%20Owner%20Summary">Issue</a> about that behavior on the ACRA’s project site, suggesting to try and send the report through ALL the report senders, before giving up. Hope it’ll be fixed in future versions.</p>
+
+<p>In order to overcome such issue until it’ll be fixed, I found a little trick to make my custom report sender be the first on the array. Since the array is maintained on the ErrorReporter class, and it’s a singleton, I just called the ErrorReporter.getInstance().addReportSender() BEFORE calling the ACRA.init(), which also calls the addReportSender() with the default report senders, as the Google spreadsheet for example.</p>
+
+<p>Problem solved! And now…we wait for all the users to update to the new version. My DB and I will be waiting for all those pending error reports, failed to be sent on the previous version, to flood our DB with might-be-irrelevant error reports. I’ll go make some coffee…</p>
+
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    November
+    18th,
+    
+    2011
+  </span>
+
+  <h2>
+    <a href="/2011/11/18/the-source-for-all-goodness/">The source of all Goodness</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>We have 2 reasons to celebrate this week!</p>
+
+<p>The first one - Any.DO, my baby, the Android app I’ve been working on for the past 9 months, has launched with great success! Over 50K users in a week, rating of 4.5, numerous articles on <a href="http://techcrunch.com/2011/11/10/any-do-launches-a-social-to-do-list-app-with-1-million-in-funding/">famous websites</a> and awesome feedback! If you have an Android device - come and join the party! <a href="https://market.android.com/details?id=com.anydo">Market Link</a> or <a href="http://any.do">Any.DO website</a>. Give us a feedback!</p>
+
+<p>The second reason - The source code for Android 4.0, IceCreamSandwich (or ICS), was released! After a long wait for the new Android versions’ source code, we finally get it. As you might recall, Google refused to release the Honeycomb’s source code, due to that fact it’s designed for large screen devices. As far as I know, they didn’t want people to take the code and build a modified version for small screen devices, as mobile phones, hurting their brand.</p>
+
+<p>The source code is very useful for debugging purposes. You can access the lower parts of the Stack-Trace, and get a better understanding of the situation. However, downloading the source-code under Windows is not trivial, as all the scripts to do that are designed to work under Linux or Mac OS. I’ve tried modifying the scripts to work under windows using Cygwin. I’ve managed to get pass a few obstacles on the way, but after that I just couldn’t make it work. I decided to try a different approach.</p>
+
+<p>Since I don’t have Linux installed on my computer, I’ve downloaded <a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu 11</a> and used it as a live CD. That way, I don’t need to install new operation system solely for the purpose of downloading source files. Since the amount of space needed is a few GBs, I decided to mount my NTFS drive, and download everything there. In order to do that, I’ve opened the Terminal, and unleashed some bash commands. First, we’ll get the device name for the partition we want to mount. Its name should be “sdaX”, where X is some number. In order to retrieve the correct name, you need to run:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>fdisk <span class="nt">-l</span></code></pre></figure>
+
+<p>and you’ll get a list like that:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Device Boot      Start         End      Blocks   Id  System
+/dev/sda1              63       80324       40131   de  Dell Utility
+/dev/sda2   <span class="k">*</span>       81920    23670783    11794432    7  HPFS/NTFS/exFAT
+/dev/sda3        23670784   238710783   107520000    7  HPFS/NTFS/exFAT
+/dev/sda4       238710784   625139711   193214464    7  HPFS/NTFS/exFAT</code></pre></figure>
+
+<p>These are all the partitions on the system. Don’t know which one is drive D on your Windows? Look at the number of blocks and a little trial and error to get the right one.</p>
+
+<p>Now, armed with the device name, we’ll start the magic:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Entering god-mode</span>
+<span class="nb">sudo </span>su
+
+<span class="nb">mkdir</span> /media/udinic
+
+<span class="c"># Mounting the partition to be accessed from /media/udinic</span>
+mount /dev/sdaX /media/udinic <span class="nt">-o</span> <span class="nb">exec</span></code></pre></figure>
+
+<p>Note that I’ve used the “exec” option for the mount command. This is because one of the downloaded scripts will be executed as part of the process, and Ubuntu by default doesn’t mount devices with the option to execute files (That is due to lots of complaints by new Linux users, started with Ubuntu, who got into a mess by that).</p>
+
+<p>Now, go to /media/udinic, which directs you to your windows partition, and create your own folder for this process. From here you can just follow the <a href="http://source.android.com/source/downloading.html">instructions</a> on the Android site. You’ll need to use the “apt-get” command to install a few missing components, but you’ll be given the exact command for that when needed. You can download a specific branch, as the Gingerbread branch instead of the ICS branch. After some downloading time (6 GB of download), you’ll have a nice folder with all the source code for that Android version. You’ll also get all the tools for building your own Android version.</p>
+
+<p>Most devices run a custom ROM, which is a modified version of Android. Popular ROMs as <a href="http://www.cyanogenmod.com/">CyanogenMod</a>, publish their source code, and gives you the ability to download it. If the device you’re working on is running CM, you’ll probably want that more than the
+original Android source code. The instructions for downloading the CM source code are <a href="http://wiki.cyanogenmod.com/wiki/Building_from_source">here</a>, and they are similar to the Google’s instructions.</p>
+
+<p>After the download is complete, you can restart your computer back into Windows, and attach to source (positioned in the partition you’ve selected, in the folder you’ve created, using Ubuntu) to your favorite IDE. Happy debugging for us all!</p>
+
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    November
+    2nd,
+    
+    2011
+  </span>
+
+  <h2>
+    <a href="/2011/11/02/android-performance-optimization/">Android: Speed up your app!</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>Last week I gave a talk about Android performance optimization in a Google’s GTUG convention. The subject was “Android: Speed up your app”, which is about optimizing your app’s performance. I decided to focus on explaining the tools that’ll help you find performance problems, instead of just throwing some random tips found on the Internet.</p>
+
+<p>The lecture was videotaped, but of course my bad luck had to intervene. The battery was dead halfway to the lecture, so no recording of that (but I have witnesses!). I decided to write a post, to treasure all that vital/interesting/lost information I gave that day. I wrote that post on my company’s blog for a change, so you’re all welcome to go there and check it out yourself. The link is: <a href="http://tech.any.do/android-performance-optimization/">http://tech.any.do/android-performance-optimization/</a></p>
+
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    October
+    23rd,
+    
+    2011
+  </span>
+
+  <h2>
+    <a href="/2011/10/23/fat32-sorter/">FAT32 Sorter</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>Hey all,</p>
+
+<p>This post will actually be a reference to an article I wrote about a year ago. Android is not the subject on this case, but it’s a very interesting C++ solution for a more interesting (and common) problem. Back then, I bought a new car stereo which was capable of playing music from USB flash drives. CD burning age was over for me! I dragged LOTS of songs to one of my available USB sticks, played a few songs, and when I tried to randomize the songs’ order - I’ve noticed that didn’t work as I expected!</p>
+
+<p>Don’t you worry! As a dedicated software developer, I found a good solution to make everything work as I wanted it to be. To read more about the problem and the solution I designed for it, you are welcome to read my article in The CodeProject:  <a href="http://www.codeproject.com/KB/files/FAT-32-Sorter.aspx">http://www.codeproject.com/KB/files/FAT-32-Sorter.aspx</a>.</p>
+
+<p>Hope you’ll find it interesting.</p>
+
+<p>Udi.</p>
+
+
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    October
+    3rd,
+    
+    2011
+  </span>
+
+  <h2>
+    <a href="/2011/10/03/package-name-changer/">Package name changer</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>Sorry for the long wait, I was on a small vacation lately with with my love. But don’t you worry! All those nice views got me thinking about some other great posts I can write here. And yes, “my love” = “Girlfriend”, and not “Galaxy S”.</p>
+
+<p>The post today will be about something not directly related to Android code, but to a very useful utility I wrote recently. Whether you develop at home, or for some people in suits, you don’t always have enough phones to test your apps. I think that the best way to find bugs - is to actually USE IT. If you’re using the same phone to develop and as your primary phone, you’ll need to install and uninstall the app lots of times, making it hard to use it for personal purposes (with all the data in it been trashed or deleted). You can try and use that awful emulator that comes with the SDK, or the cool <a href="http://www.android-x86.org/">Android x86 VM</a>, but working on the real thing is always the best way to see performance/convenience issues. Unfortunately, The Android system won’t allow 2 apps with the same package name. I tried to find some automated way to change the package name for a whole project - but got nothing. So as a good engineer - I just wrote one!</p>
+
+<!-- more -->
+
+<p>Changing the package name is not as simple as it may seem. It’s not just ordinary find&amp;replace. There’re lots of places where the package name is written in a different way than we used to (e.g. “com.blabla” can be found as “com_blabla”). After some trial and error, I got all the places where the package name needed be to changed (at least for my project, which is pretty big).</p>
+
+<p>The script I wrote is in Python, and the only stuff you need to change is the package names you want to switch between, the base folder for your project and the app name that you’ll probably want to change as well (how else will you know how to distinguish between those versions?). If you have a big project, with sub modules, no problem! Just call the handleModule for each one.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">handleModule</span><span class="p">(</span><span class="n">moduleBaseFolder</span><span class="p">,</span> <span class="n">codeFolder</span><span class="p">)</span></code></pre></figure>
+
+<p>This will rename the appropriate code folders with the new package name. For example:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">handleModule</span><span class="p">(</span><span class="n">basePath</span> <span class="o">+</span> <span class="s">"\server-side</span><span class="se">\\</span><span class="s">"</span><span class="p">,</span> <span class="s">"src</span><span class="se">\\</span><span class="s">main</span><span class="se">\\</span><span class="s">java</span><span class="se">\\</span><span class="s">com</span><span class="se">\\</span><span class="s">"</span><span class="p">)</span>
+<span class="n">handleModule</span><span class="p">(</span><span class="n">basePath</span> <span class="o">+</span> <span class="s">"</span><span class="se">\a</span><span class="s">ndroid-client</span><span class="se">\\</span><span class="s">"</span><span class="p">,</span> <span class="s">"src</span><span class="se">\\</span><span class="s">com</span><span class="se">\\</span><span class="s">"</span><span class="p">)</span></code></pre></figure>
+
+<p>After that, just run the script with the desired package name as an argument, refresh your project on the IDE to recognize the changed files’ tree, and rebuild the app, that’s it! To revert back, just pass the other package name as an argument to the script. This can be also used for ordinary java project, though I haven’t tested it for that purpose.</p>
+
+<p>The script can be improved to take any package name as an argument, or to identify all the sub modules on its own. Feel free to fork my git project and add more functionality. Also, corrections will be welcomed as well.</p>
+
+<p>You can find the full code in here:</p>
+
+<p><a href="https://github.com/Udinic/SmallExamples/tree/master/PackageNameChanger">https://github.com/Udinic/SmallExamples/tree/master/PackageNameChanger</a></p>
+
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    September
+    3rd,
+    
+    2011
+  </span>
+
+  <h2>
+    <a href="/2011/09/03/expanding-listview-items/">Cool toolbar for ListView items</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>If you ever wrote an Android app, there’s a 90% chance that you used the ListView component at least once.</p>
+
+<p>In the app that I wrote, I needed to give the user some options he can perform on each one of the list items. I thought about sliding a toolbar from the side, which will replace the list item, like they do on twitter, but it’s less convenient due to the fact that you hide the data that list item presents. A better approach, for me at least, was to slide <strong>out</strong> a toolbar. In that way - you can see the list item and get the option to perform some commands on it. And basically getting from this:</p>
+
+<p><img src="/assets/images/2011-09-03-expanding-listview-items/device-2011-09-03-184810.png" alt="Before" /></p>
+
+<p>To this:</p>
+
+<p><img src="/assets/images/2011-09-03-expanding-listview-items/device-2011-09-03-184835.png" alt="After" /></p>
+
+
+       
+          <a class="btn-default btn" href="/2011/09/03/expanding-listview-items/">Read more --> </a>
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    August
+    17th,
+    
+    2011
+  </span>
+
+  <h2>
+    <a href="/2011/08/17/dress-up-your-preferenceactivity/">Dress up your PreferenceActivity</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>Does your Android app support themes?</p>
+
+<p>Even if the answer is “No”, lots of apps are built using colors other than the default black. For instance, using a white background for all the screens. In that case, you’re getting yourself into a journey of properties changing, widgets extending and XML modifying. BUT, it’s not as difficult as you might think! Sure, there’s a need to extend a UI component once in a while, just because it doesn’t have a “setBackgroundColor()” or something like that, but besides that - it’s mostly just XML attributes needed to be adjusted.</p>
+
+<p>I had the chance to write that kind of app, and I ran into quite a lot of issues in the process, and luckily for you - I’m here to share! I’ll start talking about the PreferenceActivity, and if there will be requests - I’ll add more posts on that subject.</p>
+
+
+       
+          <a class="btn-default btn" href="/2011/08/17/dress-up-your-preferenceactivity/">Read more --> </a>
+       
+    
+    
+  </div>
+
+</article>
+
+
+<ul class="pager"> 
+
+  
+  <li class="previous">
+    
+    <a href="/page2">&larr; Newer</a>
+    
+  </li>
+  
+  
+  <li>
+    <span class="page_number">Page: 3 of 4</span>
+  </li>
+
+  
+  <li class="next">
+    <a href="/page4">Older &rarr;</a>
+  </li>
+  
+
+</ul>
+
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+
