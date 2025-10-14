@@ -1,6 +1,7 @@
 Udi Cohen's blog
 ==================
 
+## Config
 Install Jekyll
 https://jekyllrb.com/docs/
 
@@ -14,6 +15,3 @@ bundle exec jekyll serve --livereload
 ```
 
 Browse to http://localhost:4000 to view
-
-
-ddend
