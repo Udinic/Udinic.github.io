@@ -1,0 +1,5 @@
+_site/*
+*Thumbs.db
+.bundle
+bin/
+.jekyll-cache/

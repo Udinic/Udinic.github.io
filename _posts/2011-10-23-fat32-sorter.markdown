@@ -1,0 +1,38 @@
+---
+author: udinic
+comments: true
+date: 2011-10-23 21:11:26+00:00
+layout: post
+slug: fat32-sorter
+title: FAT32 Sorter
+wordpress_id: 120
+categories:
+- C++
+- FAT32
+tags:
+- C++
+- FAT32
+---
+
+Hey all,
+
+
+This post will actually be a reference to an article I wrote about a year ago. Android is not the subject on this case, but it's a very interesting C++ solution for a more interesting (and common) problem. Back then, I bought a new car stereo which was capable of playing music from USB flash drives. CD burning age was over for me! I dragged LOTS of songs to one of my available USB sticks, played a few songs, and when I tried to randomize the songs' order - I've noticed that didn't work as I expected!
+
+
+
+
+Don't you worry! As a dedicated software developer, I found a good solution to make everything work as I wanted it to be. To read more about the problem and the solution I designed for it, you are welcome to read my article in The CodeProject:  [http://www.codeproject.com/KB/files/FAT-32-Sorter.aspx](http://www.codeproject.com/KB/files/FAT-32-Sorter.aspx).
+
+
+
+
+Hope you'll find it interesting.
+
+
+
+
+Udi.
+
+
+
