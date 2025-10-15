@@ -1,0 +1,474 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>SelectableListView - Make selection work!</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>SelectableListView - Make selection work! </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   July 
+	   1st,
+	     
+	   2011
+	 </span>
+	  <div class="article_body">
+	  <p>The touch screens brought simplicity to our lives. We can scroll, zoom and click with just a simple gesture, using our fingers. Showing it to me 15 years ago, would’ve make me think that’s an act of pure magic!</p>
+
+<p>However, it brought lots of issues regarding the handling of touch events with other inputs, like keyboard or trackball. With keyboard, we can just press the Up and Down keys to select different items, and afterward hit “Enter” to click on the selected item, making it our “final” pick. How can we do that in a touch screen? If pressing an item on the list perform a “Click” action, how can we perform a “Select” action? The Android OS developers thought about that, and decided to create a mode, called “Touch Mode”, which handles focus and selection of items differently. More about it on the <a href="http://developer.android.com/resources/articles/touch-mode.html">Android Documentation</a>. Long story short - they chose to ignore the “selection” of list items in touch mode!</p>
+
+<p>Their decision to make touch interaction simpler for the developer, limits the power of ListView (The old “Simplicity &lt;-&gt; Control” trade-off. Apple is well known for choosing the first approach most of the times). As I needed to make such Selectable-List, I had to find the right way, using the components given to me. The user-experience I was looking for, was that each click on a list item will “select” it, and there will be a different button to press in order to finalize my selection, like a “Set” button under the list itself.</p>
+
+<!--break-->
+
+<p>The idea is simple.</p>
+
+<ul>
+  <li>
+    <p>Use the <em>setOnItemClickListener</em> of ListView to set a “Selected Flag” for the current item</p>
+  </li>
+  <li>
+    <p>Refresh the list</p>
+  </li>
+  <li>
+    <p>Make sure the selected item is painted differently than the other list items.</p>
+  </li>
+</ul>
+
+<p>The flag representation must be for each item in the list, whether it’s a Cursor-Based adapter or an Array-Adapter, we need to make sure to have a field for that information. On a cursor-based adapter, we can add a column to the DB table, making it in charge of that function. In an Array-Adapter, we can make data-structure, Keeping our information aside to a selected-state information. A good example to such data-structure is this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">StateListItem</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="n">itemTitle</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kt">long</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="nc">Boolean</span> <span class="n">isItemSelected</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">StateListItem</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">itemTitle</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">isItemSelected</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">itemTitle</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>With the ID, Title and the selected state (<em>isItemSelected</em>), we have all the data we need to make this work.</p>
+
+<p>Now, in order to make the list item look different when it’s selected, we’ll just override the adapter’s getView() function, like this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="nc">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="nc">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nc">View</span> <span class="n">currView</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">getView</span><span class="o">(</span><span class="n">position</span><span class="o">,</span> <span class="n">convertView</span><span class="o">,</span> <span class="n">parent</span><span class="o">);</span>
+	<span class="nc">StateListItem</span> <span class="n">currItem</span> <span class="o">=</span> <span class="n">getItem</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">currItem</span><span class="o">.</span><span class="na">isItemSelected</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">currView</span><span class="o">.</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">RED</span><span class="o">);</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="n">currView</span><span class="o">.</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">BLACK</span><span class="o">);</span>
+	<span class="o">}</span>
+	<span class="k">return</span> <span class="n">currView</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>We don’t care about the logic of <em>getView</em>, we just want to change the view’s background to Red when selected, and keep it Black when not. That’s why we’re calling the <em>super</em>’s <em>getView</em> first, and then making our adjustments.
+You’re probably wondering why do I need to set the default color for each item, and not relying it to be the default color unless I change it to Red. Well, that’s due to the ListView’s recycling mechanism (Info on that can be found <a href="http://www.google.com/events/io/2010/sessions/world-of-listview-android.html">here</a>). The ListView is recycling views, which makes us reset any visual property every time we populate them, otherwise - we’ll get a strange behavior of the items’ appearance.</p>
+
+<p>After knowing how to mark the selected item, and use that to change its looks, we can finish the rest of our customized list adapter, handling the way we want to change and keep the list’s current selected item. That’s the how it looks:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SelectableListAdapter</span> <span class="kd">extends</span> <span class="nc">ArrayAdapter</span> <span class="o">{</span>
+
+	<span class="c1">// Keeping the currently selected item</span>
+	<span class="kt">int</span> <span class="n">mCurrSelected</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+
+	<span class="c1">// Since most of the actions gets the id but needs the position,</span>
+	<span class="c1">// we'll map Ids to Positions</span>
+	<span class="kd">private</span> <span class="nc">HashMap</span> <span class="n">mIdToPosition</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">SelectableListAdapter</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="kt">int</span> <span class="n">textViewResourceId</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">textViewResourceId</span><span class="o">);</span>
+		<span class="n">init</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">mIdToPosition</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="nc">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="nc">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="nc">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">View</span> <span class="n">currView</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">getView</span><span class="o">(</span><span class="n">position</span><span class="o">,</span> <span class="n">convertView</span><span class="o">,</span> <span class="n">parent</span><span class="o">);</span>
+		<span class="nc">StateListItem</span> <span class="n">currItem</span> <span class="o">=</span> <span class="n">getItem</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">currItem</span><span class="o">.</span><span class="na">isItemSelected</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">currView</span><span class="o">.</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">RED</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+			<span class="n">currView</span><span class="o">.</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">BLACK</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">currView</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">String</span> <span class="n">object</span><span class="o">,</span> <span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">StateListItem</span> <span class="n">newItem</span> <span class="o">=</span><span class="k">new</span> <span class="nc">StateListItem</span><span class="o">(</span><span class="n">object</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+		<span class="c1">// Adding the new item to the Id-&amp;gt;Position HashMap</span>
+		<span class="n">mIdToPosition</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">getCount</span><span class="o">());</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newItem</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="nc">StateListItem</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">object</span><span class="o">);</span>
+		<span class="n">mIdToPosition</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">object</span><span class="o">.</span><span class="na">id</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="cm">/**
+	 * Setting the item in the argumented position - as selected.
+	 * @param position
+	 * @return
+	 */</span>
+	<span class="kd">public</span> <span class="kt">long</span> <span class="nf">setSelectable</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// The -1 value means that no item is selected</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">mCurrSelected</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">getItem</span><span class="o">(</span><span class="n">mCurrSelected</span><span class="o">).</span><span class="na">isItemSelected</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="o">}</span>
+
+		<span class="c1">// Selecting the item in the position we got as an argument</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">getItem</span><span class="o">(</span><span class="n">position</span><span class="o">).</span><span class="na">isItemSelected</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+			<span class="n">mCurrSelected</span> <span class="o">=</span> <span class="n">position</span><span class="o">;</span>
+		<span class="o">}</span>
+
+		<span class="c1">// Making the list redraw</span>
+		<span class="n">notifyDataSetChanged</span><span class="o">();</span>
+
+		<span class="k">return</span> <span class="nf">getSelectedId</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kt">long</span> <span class="nf">setSelectableId</span><span class="o">(</span><span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// First, we need to get the position for our item's id</span>
+		<span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">mIdToPosition</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+		<span class="k">return</span> <span class="nf">setSelectable</span><span class="o">(</span><span class="n">pos</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">long</span> <span class="nf">getItemId</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">getItem</span><span class="o">(</span><span class="n">position</span><span class="o">).</span><span class="na">id</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="cm">/**
+	 * Needed to notify the ListView's system that the IDs we use here are unique to each item
+	 */</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasStableIds</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kt">long</span> <span class="nf">getSelectedId</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">mCurrSelected</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+			<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="nf">getItemId</span><span class="o">(</span><span class="n">mCurrSelected</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>A cursor-based adapter will be similar to that, just with a different approach to the data - as described before.
+This adapter can also be used with any ListView and can easily be adapted to fit ExpandableListView as well!.</p>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#Android-ref">
+					Android</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#ListView-ref">
+					ListView</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+		
+		<ul class="tag_box list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#Android-ref">
+					Android
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#ListView-ref">
+					ListView
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#selectable adapter-ref">
+					selectable adapter
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#selectable list-ref">
+					selectable list
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+
+	<div align="center" class="author-container">
+		<figure class="author-img-post">
+			<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a" class="img-circle author-image" />			
+		</figure>
+        <h4 class="section-title">Written by Udi Cohen</h4>
+	</div>
+	<div class="share-container">					
+      <section class="share" align="center">
+        <p class="section-title">Share this post:</p>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=SelectableListView - Make selection work!&via=udinic"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" 
+           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm reddit"
+           onclick="window.open('http://www.reddit.com/submit?url='+window.location.href+'&title=SelectableListView - Make selection work!', 'reddit-share', 'width=580,height=530');return false;">
+          <i class="fa fa-reddit fa-lg"></i>
+          Reddit
+        </a>
+      </section>
+
+    </div>
+
+    <!-- <div class="clearfix"></div> -->
+
+	<!-- <hr> -->
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'udinic-blog';
+    var disqus_identifier = '/2011/07/01/selectablelistview-make-selection-work/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	</div>
+	
+
+
+
+
+
+
+
+
+</article>
+<div class="clearfix"></div>
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+

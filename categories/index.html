@@ -1,0 +1,887 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Categories</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>Categories </h1>
+</div>
+
+<div class="col-sm-3 col-xs-6">
+    <ul class="nav nav-tabs-vertical">
+      
+      
+        
+            <li>
+                <a href="/categories.html#off-topic-ref" data-toggle="tab">
+                    Off-topic <span class="badge pull-right">3</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Android-ref" data-toggle="tab">
+                    Android <span class="badge pull-right">22</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#ListView-ref" data-toggle="tab">
+                    Listview <span class="badge pull-right">2</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Preferences-ref" data-toggle="tab">
+                    Preferences <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Themes-ref" data-toggle="tab">
+                    Themes <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Animation-ref" data-toggle="tab">
+                    Animation <span class="badge pull-right">4</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Java-ref" data-toggle="tab">
+                    Java <span class="badge pull-right">3</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#C++-ref" data-toggle="tab">
+                    C++ <span class="badge pull-right">2</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#FAT32-ref" data-toggle="tab">
+                    Fat32 <span class="badge pull-right">2</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Performance-ref" data-toggle="tab">
+                    Performance <span class="badge pull-right">4</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#AOSP-ref" data-toggle="tab">
+                    Aosp <span class="badge pull-right">5</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Libraries-ref" data-toggle="tab">
+                    Libraries <span class="badge pull-right">2</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Widget-ref" data-toggle="tab">
+                    Widget <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Database-ref" data-toggle="tab">
+                    Database <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Security-ref" data-toggle="tab">
+                    Security <span class="badge pull-right">2</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#General-ref" data-toggle="tab">
+                    General <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#android-ref" data-toggle="tab">
+                    Android <span class="badge pull-right">2</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#performance-ref" data-toggle="tab">
+                    Performance <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#grabag-ref" data-toggle="tab">
+                    Grabag <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Home-Automation-ref" data-toggle="tab">
+                    Home automation <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="/categories.html#Electronics-ref" data-toggle="tab">
+                    Electronics <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+      
+      
+    </ul>
+</div>
+<!-- Tab panes -->
+<div class="tab-content col-sm-9 col-xs-6">
+  
+    <div class="tab-pane" id="off-topic-ref">
+      <h2 style="margin-top: 0px">Posts in Off-topic</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/10/09/compiling-some-memories/">Compiling some memories</a> <span class="text-muted">- October 09, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/03/02/experiences-from-mobile-world-congress-2012/">Experiences from Mobile World Congress 2012</a> <span class="text-muted">- March 02, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/07/01/pilot/">Boot</a> <span class="text-muted">- July 01, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Android-ref">
+      <h2 style="margin-top: 0px">Posts in Android</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2014/07/24/aosp-part-3-developing-efficiently/">AOSP Part 3: Developing Efficiently</a> <span class="text-muted">- July 24, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2014/06/04/aosp-part-2-build-variants/">AOSP Part 2: Build variants</a> <span class="text-muted">- June 04, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2014/05/24/aosp-part-1-get-the-code-using-the-manifest-and-repo/">AOSP Part 1: Get the code using the Manifest and Repo tool</a> <span class="text-muted">- May 24, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/09/16/viewpager-and-hardware-acceleration/">ViewPager and Hardware acceleration</a> <span class="text-muted">- September 16, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/07/24/write-your-own-android-sync-adapter/">Write your own Android Sync Adapter</a> <span class="text-muted">- July 24, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/05/16/create-a-secret-doorway-to-your-app/">Create a secret doorway to your app</a> <span class="text-muted">- May 16, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/04/24/write-your-own-android-authenticator/">Write your own Android Authenticator</a> <span class="text-muted">- April 24, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/03/13/activity-split-animation/">Activity Split Animation</a> <span class="text-muted">- March 13, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/03/03/android-app-to-the-challenge/">Android app to the Challenge</a> <span class="text-muted">- March 03, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/10/24/android-scripts/">Android Scripts</a> <span class="text-muted">- October 24, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/07/30/a-festivus-for-the-rest-of-us/">A Festivus for the REST of us!</a> <span class="text-muted">- July 30, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/07/23/adding-more-actions-to-jellybean-notifications/">Adding more actions to JellyBean Notifications</a> <span class="text-muted">- July 23, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/07/21/upgrade-your-galaxy-nexus-to-jellybean/">Upgrade your Galaxy Nexus to JellyBean</a> <span class="text-muted">- July 21, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/05/08/sqlite-drop-column-support/">SQLite DROP COLUMN support</a> <span class="text-muted">- May 08, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/03/02/experiences-from-mobile-world-congress-2012/">Experiences from Mobile World Congress 2012</a> <span class="text-muted">- March 02, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/01/04/problem-solving-using-the-android-source-code/">Problem solving using the Android source code</a> <span class="text-muted">- January 04, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/12/29/the-widgets-strikes-back/">The widgets strikes back</a> <span class="text-muted">- December 29, 2011</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/12/08/progressive-problem/">Progressive Problem</a> <span class="text-muted">- December 08, 2011</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/11/21/errors-in-the-error-reporter/">Errors in the Error Reporter</a> <span class="text-muted">- November 21, 2011</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/11/18/the-source-for-all-goodness/">The source of all Goodness</a> <span class="text-muted">- November 18, 2011</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/11/02/android-performance-optimization/">Android: Speed up your app!</a> <span class="text-muted">- November 02, 2011</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/07/01/selectablelistview-make-selection-work/">SelectableListView - Make selection work!</a> <span class="text-muted">- July 01, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="ListView-ref">
+      <h2 style="margin-top: 0px">Posts in Listview</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/09/03/expanding-listview-items/">Cool toolbar for ListView items</a> <span class="text-muted">- September 03, 2011</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/07/01/selectablelistview-make-selection-work/">SelectableListView - Make selection work!</a> <span class="text-muted">- July 01, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Preferences-ref">
+      <h2 style="margin-top: 0px">Posts in Preferences</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/08/17/dress-up-your-preferenceactivity/">Dress up your PreferenceActivity</a> <span class="text-muted">- August 17, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Themes-ref">
+      <h2 style="margin-top: 0px">Posts in Themes</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/08/17/dress-up-your-preferenceactivity/">Dress up your PreferenceActivity</a> <span class="text-muted">- August 17, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Animation-ref">
+      <h2 style="margin-top: 0px">Posts in Animation</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/09/16/viewpager-and-hardware-acceleration/">ViewPager and Hardware acceleration</a> <span class="text-muted">- September 16, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/03/13/activity-split-animation/">Activity Split Animation</a> <span class="text-muted">- March 13, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/03/03/android-app-to-the-challenge/">Android app to the Challenge</a> <span class="text-muted">- March 03, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/09/03/expanding-listview-items/">Cool toolbar for ListView items</a> <span class="text-muted">- September 03, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Java-ref">
+      <h2 style="margin-top: 0px">Posts in Java</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/10/09/compiling-some-memories/">Compiling some memories</a> <span class="text-muted">- October 09, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/07/30/a-festivus-for-the-rest-of-us/">A Festivus for the REST of us!</a> <span class="text-muted">- July 30, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/10/03/package-name-changer/">Package name changer</a> <span class="text-muted">- October 03, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="C++-ref">
+      <h2 style="margin-top: 0px">Posts in C++</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/10/09/compiling-some-memories/">Compiling some memories</a> <span class="text-muted">- October 09, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/10/23/fat32-sorter/">FAT32 Sorter</a> <span class="text-muted">- October 23, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="FAT32-ref">
+      <h2 style="margin-top: 0px">Posts in Fat32</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/10/09/compiling-some-memories/">Compiling some memories</a> <span class="text-muted">- October 09, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/10/23/fat32-sorter/">FAT32 Sorter</a> <span class="text-muted">- October 23, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Performance-ref">
+      <h2 style="margin-top: 0px">Posts in Performance</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/09/16/viewpager-and-hardware-acceleration/">ViewPager and Hardware acceleration</a> <span class="text-muted">- September 16, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/07/24/write-your-own-android-sync-adapter/">Write your own Android Sync Adapter</a> <span class="text-muted">- July 24, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/03/03/android-app-to-the-challenge/">Android app to the Challenge</a> <span class="text-muted">- March 03, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/11/02/android-performance-optimization/">Android: Speed up your app!</a> <span class="text-muted">- November 02, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="AOSP-ref">
+      <h2 style="margin-top: 0px">Posts in Aosp</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2014/07/24/aosp-part-3-developing-efficiently/">AOSP Part 3: Developing Efficiently</a> <span class="text-muted">- July 24, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2014/06/04/aosp-part-2-build-variants/">AOSP Part 2: Build variants</a> <span class="text-muted">- June 04, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2014/05/24/aosp-part-1-get-the-code-using-the-manifest-and-repo/">AOSP Part 1: Get the code using the Manifest and Repo tool</a> <span class="text-muted">- May 24, 2014</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/01/04/problem-solving-using-the-android-source-code/">Problem solving using the Android source code</a> <span class="text-muted">- January 04, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/11/18/the-source-for-all-goodness/">The source of all Goodness</a> <span class="text-muted">- November 18, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Libraries-ref">
+      <h2 style="margin-top: 0px">Posts in Libraries</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/07/30/a-festivus-for-the-rest-of-us/">A Festivus for the REST of us!</a> <span class="text-muted">- July 30, 2012</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/11/21/errors-in-the-error-reporter/">Errors in the Error Reporter</a> <span class="text-muted">- November 21, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Widget-ref">
+      <h2 style="margin-top: 0px">Posts in Widget</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2011/12/29/the-widgets-strikes-back/">The widgets strikes back</a> <span class="text-muted">- December 29, 2011</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Database-ref">
+      <h2 style="margin-top: 0px">Posts in Database</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/05/08/sqlite-drop-column-support/">SQLite DROP COLUMN support</a> <span class="text-muted">- May 08, 2012</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Security-ref">
+      <h2 style="margin-top: 0px">Posts in Security</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/07/24/write-your-own-android-sync-adapter/">Write your own Android Sync Adapter</a> <span class="text-muted">- July 24, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2013/04/24/write-your-own-android-authenticator/">Write your own Android Authenticator</a> <span class="text-muted">- April 24, 2013</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="General-ref">
+      <h2 style="margin-top: 0px">Posts in General</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2015/06/04/yet-another-blog-setup-post/">Yet another blog setup post</a> <span class="text-muted">- June 04, 2015</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="android-ref">
+      <h2 style="margin-top: 0px">Posts in Android</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2015/10/29/introducing-grabag/">Introducing "Grabag" - a simple way to watch TV.</a> <span class="text-muted">- October 29, 2015</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2015/09/15/speed-up-your-app/">Speed up your app</a> <span class="text-muted">- September 15, 2015</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="performance-ref">
+      <h2 style="margin-top: 0px">Posts in Performance</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2015/09/15/speed-up-your-app/">Speed up your app</a> <span class="text-muted">- September 15, 2015</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="grabag-ref">
+      <h2 style="margin-top: 0px">Posts in Grabag</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2015/10/29/introducing-grabag/">Introducing "Grabag" - a simple way to watch TV.</a> <span class="text-muted">- October 29, 2015</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Home-Automation-ref">
+      <h2 style="margin-top: 0px">Posts in Home automation</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2021/01/13/automating-balcony-shade-with-nfc/">Automating my balcony shade... with NFC!</a> <span class="text-muted">- January 13, 2021</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Electronics-ref">
+      <h2 style="margin-top: 0px">Posts in Electronics</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2021/01/13/automating-balcony-shade-with-nfc/">Automating my balcony shade... with NFC!</a> <span class="text-muted">- January 13, 2021</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+</div>
+
+<div class="clearfix"></div>
+
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+

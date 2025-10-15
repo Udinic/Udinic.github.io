@@ -20,8 +20,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <meta http-equiv="refresh" content="10; url=/">
-
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 	<!--[if lt IE 9]>
@@ -168,56 +166,104 @@
   <h1>Udi Cohen's blog </h1>
 </div>
 
-<!----------------------------------------------------------------
-     _ _           _ _          
-  __| | |__  _   _| | |         Ascii arts included in this page:
- / _` | '_ \| | | | | |         - R2D2, provided by: http://www.chris.com/
-| (_| | |_) | |_| | | |         - Texts, generated from: http://www.network-science.de/ascii/
- \__,_|_.__/ \__, |_|_|         http://github.com/dbtek/dbyll
--------------|___/------------------------------------------------>
 
-  <style>
-    pre {
-          background: none;
-          border: none;
-          color: #507B67
-    }
-  </style>
+  
+<article class="home">
 
-  <pre>
+  <span class="post-date">
+    
+    July
+    1st,
+    
+    2011
+  </span>
 
-                       444444444       000000000            444444444   
-                      4::::::::4     00:::::::::00         4::::::::4  
-                     4:::::::::4   00:::::::::::::00      4:::::::::4  
-                    4::::44::::4  0:::::::000:::::::0    4::::44::::4  
-                   4::::4 4::::4  0::::::0   0::::::0   4::::4 4::::4  
-                  4::::4  4::::4  0:::::0     0:::::0  4::::4  4::::4  
-                 4::::4   4::::4  0:::::0     0:::::0 4::::4   4::::4  
-                4::::444444::::4440:::::0 000 0:::::04::::444444::::444
-                4::::::::::::::::40:::::0 000 0:::::04::::::::::::::::4
-                4444444444:::::4440:::::0     0:::::04444444444:::::444
-                          4::::4  0:::::0     0:::::0          4::::4  
-                          4::::4  0::::::0   0::::::0          4::::4  
-                          4::::4  0:::::::000:::::::0          4::::4  
-                        44::::::44 00:::::::::::::00         44::::::44
-                        4::::::::4   00:::::::::00           4::::::::4
-                        4444444444     000000000             4444444444
+  <h2>
+    <a href="/2011/07/01/selectablelistview-make-selection-work/">SelectableListView - Make selection work!</a>
+  </h2>
 
-         ,-----.             _   _     _           _                 _     _               _   
-       ,'_/_|_\_`.          | |_| |__ (_)___   ___| |__   ___  _   _| | __| |  _ __   ___ | |_ 
-      /<<::8[O]::>\         | __| '_ \| / __| / __| '_ \ / _ \| | | | |/ _` | | '_ \ / _ \| __|
-     _|-----------|_        | |_| | | | \__ \ \__ \ | | | (_) | |_| | | (_| | | | | | (_) | |_ 
- :::|  | ====-=- |  |:::     \__|_| |_|_|___/ |___/_| |_|\___/ \__,_|_|\__,_| |_| |_|\___/ \__|
- :::|  | -=-==== |  |:::                                                                         
- :::\  | ::::|()||  /:::     _                                                          
- ::::| | ....|()|| |::::    | |__   __ _ _ __  _ __   ___ _ __       _____   _____ _ __ 
-     | |_________| |        | '_ \ / _` | '_ \| '_ \ / _ \ '_ \     / _ \ \ / / _ \ '__|
-     | |\_______/| |        | | | | (_| | |_) | |_) |  __/ | | |_  |  __/\ V /  __/ |   
-    /   \ /   \ /   \       |_| |_|\__,_| .__/| .__/ \___|_| |_( )  \___| \_/ \___|_|   
-    `---' `---' `---'                   |_|   |_|              |/                       
+  <div>
+    
+    
+       <p>The touch screens brought simplicity to our lives. We can scroll, zoom and click with just a simple gesture, using our fingers. Showing it to me 15 years ago, would’ve make me think that’s an act of pure magic!</p>
+
+<p>However, it brought lots of issues regarding the handling of touch events with other inputs, like keyboard or trackball. With keyboard, we can just press the Up and Down keys to select different items, and afterward hit “Enter” to click on the selected item, making it our “final” pick. How can we do that in a touch screen? If pressing an item on the list perform a “Click” action, how can we perform a “Select” action? The Android OS developers thought about that, and decided to create a mode, called “Touch Mode”, which handles focus and selection of items differently. More about it on the <a href="http://developer.android.com/resources/articles/touch-mode.html">Android Documentation</a>. Long story short - they chose to ignore the “selection” of list items in touch mode!</p>
+
+<p>Their decision to make touch interaction simpler for the developer, limits the power of ListView (The old “Simplicity &lt;-&gt; Control” trade-off. Apple is well known for choosing the first approach most of the times). As I needed to make such Selectable-List, I had to find the right way, using the components given to me. The user-experience I was looking for, was that each click on a list item will “select” it, and there will be a different button to press in order to finalize my selection, like a “Set” button under the list itself.</p>
 
 
-    </pre>
+       
+          <a class="btn-default btn" href="/2011/07/01/selectablelistview-make-selection-work/">Read more --> </a>
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
+    July
+    1st,
+    
+    2011
+  </span>
+
+  <h2>
+    <a href="/2011/07/01/pilot/">Boot</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>Hello! And welcome to my blog!</p>
+
+<p>Here I’ll share some of my adventures as a software developer.</p>
+
+<p>If you want to know more about me, you are welcome to enter my “About” page, here on this blog.</p>
+
+<p>On this blog, I’ll present all kind of stuff that I did, during all my years as a programmer. Comments are MORE than welcomed! I believe that software engineers should never stop learning, so I’d like to hear if you have found problems or even have better solutions than those I’ll post here. It can be a learning experience for all of us.</p>
+
+<p>I’m sure the posts here will benefit both beginners and advanced developers. Initially,
+I’ll mainly write stuff for the Android platform, because that’s my job, but that’s not all. I have lots of side projects on other platforms, so…stick around!</p>
+
+<p>Follow me on Twitter @udinic, to get updated about new posts, and read my interpretation to life.</p>
+
+<p>C ya ;)</p>
+
+       
+    
+    
+  </div>
+
+</article>
+
+
+<ul class="pager"> 
+
+  
+  <li class="previous">
+    
+    <a href="/page3">&larr; Newer</a>
+    
+  </li>
+  
+  
+  <li>
+    <span class="page_number">Page: 4 of 4</span>
+  </li>
+
+  
+  <li class="next disabled">
+    <a>Older &rarr;</a>        
+  </li>
+  
+
+</ul>
+
 
 
 

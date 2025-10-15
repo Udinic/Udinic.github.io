@@ -1,0 +1,407 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cool toolbar for ListView items</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>Cool toolbar for ListView items </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   September 
+	   3rd,
+	     
+	   2011
+	 </span>
+	  <div class="article_body">
+	  <p>If you ever wrote an Android app, there’s a 90% chance that you used the ListView component at least once.</p>
+
+<p>In the app that I wrote, I needed to give the user some options he can perform on each one of the list items. I thought about sliding a toolbar from the side, which will replace the list item, like they do on twitter, but it’s less convenient due to the fact that you hide the data that list item presents. A better approach, for me at least, was to slide <strong>out</strong> a toolbar. In that way - you can see the list item and get the option to perform some commands on it. And basically getting from this:</p>
+
+<p><img src="/assets/images/2011-09-03-expanding-listview-items/device-2011-09-03-184810.png" alt="Before" /></p>
+
+<p>To this:</p>
+
+<p><img src="/assets/images/2011-09-03-expanding-listview-items/device-2011-09-03-184835.png" alt="After" /></p>
+
+<!--break-->
+
+<p>The problem with that approach is that the ListView component doesn’t have any built-in option for that, nor an easy way to add new views to the list, and not to mention adding new views <strong>with</strong> a cool animation! To do that, I had to pull some tricks up my sleeves.</p>
+
+<p>First, I’ve added another view for the list item’s layout, just below the one handling the data itself (In this case - the text item), and I gave it a negative bottom margin as the size of its height. That’s a neat trick to hide the toolbar view completely!</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+              <span class="na">android:orientation=</span><span class="s">"vertical"</span>
+              <span class="na">android:layout_width=</span><span class="s">"fill_parent"</span>
+              <span class="na">android:layout_height=</span><span class="s">"fill_parent"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TextView</span> <span class="na">android:id=</span><span class="s">"@+id/title"</span>
+              <span class="err">...</span>
+              <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!--***********************--&gt;</span>
+    <span class="c">&lt;!--*** TOOLBAR LAYOUT ****--&gt;</span>
+    <span class="c">&lt;!--***********************--&gt;</span>
+
+    <span class="nt">&lt;LinearLayout</span> <span class="na">android:id=</span><span class="s">"@+id/toolbar"</span>
+          <span class="na">android:layout_marginBottom=</span><span class="s">"-50dip"</span>
+          <span class="na">android:visibility=</span><span class="s">"gone"</span>
+          <span class="na">android:layout_height=</span><span class="s">"50dip"</span>
+          <span class="na">android:layout_width=</span><span class="s">"fill_parent"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">android:id=</span><span class="s">"@+id/doSomething1"</span>
+                <span class="na">android:layout_height=</span><span class="s">"50dip"</span>
+                <span class="err">...</span>
+                <span class="na">android:text=</span><span class="s">"Harder"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">android:id=</span><span class="s">"@+id/doSomething2"</span>
+                <span class="na">android:layout_height=</span><span class="s">"50dip"</span>
+                <span class="err">...</span>
+                <span class="na">android:text=</span><span class="s">"Better"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">android:id=</span><span class="s">"@+id/doSomething3"</span>
+                <span class="na">android:layout_height=</span><span class="s">"50dip"</span>
+                <span class="err">...</span>
+                <span class="na">android:text=</span><span class="s">"Faster"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">android:id=</span><span class="s">"@+id/doSomething4"</span>
+                <span class="na">android:layout_height=</span><span class="s">"50dip"</span>
+                <span class="err">...</span>
+                <span class="na">android:text=</span><span class="s">"Stronger"</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;/LinearLayout&gt;</span>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></figure>
+
+<p>Secondly, I wrote an animation class that changes the value of that bottom margin, getting the toolbar revealed/hidden.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExpandAnimation</span> <span class="kd">extends</span> <span class="nc">Animation</span> <span class="o">{</span>
+<span class="o">...</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">applyTransformation</span><span class="o">(</span><span class="kt">float</span> <span class="n">interpolatedTime</span><span class="o">,</span> <span class="nc">Transformation</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">applyTransformation</span><span class="o">(</span><span class="n">interpolatedTime</span><span class="o">,</span> <span class="n">t</span><span class="o">);</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">interpolatedTime</span> <span class="o">&lt;</span> <span class="mf">1.0f</span><span class="o">)</span> <span class="o">{</span>
+
+            <span class="c1">// Calculating the new bottom margin, and setting it</span>
+            <span class="n">mViewLayoutParams</span><span class="o">.</span><span class="na">bottomMargin</span> <span class="o">=</span> <span class="n">mMarginStart</span>
+                    <span class="o">+</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">((</span><span class="n">mMarginEnd</span> <span class="o">-</span> <span class="n">mMarginStart</span><span class="o">)</span> <span class="o">*</span> <span class="n">interpolatedTime</span><span class="o">);</span>
+
+            <span class="c1">// Invalidating the layout, making us seeing the changes we made</span>
+            <span class="n">mAnimatedView</span><span class="o">.</span><span class="na">requestLayout</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>And finally, I got the ListView’s OnItemClickListener to toggle the toolbar state, using the above animation class.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Creating an item click listener, to open/close our toolbar for each item</span>
+<span class="n">list</span><span class="o">.</span><span class="na">setOnItemClickListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">AdapterView</span><span class="o">.</span><span class="na">OnItemClickListener</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onItemClick</span><span class="o">(</span><span class="nc">AdapterView</span><span class="o">&lt;?&gt;</span> <span class="n">parent</span><span class="o">,</span> <span class="kd">final</span> <span class="nc">View</span> <span class="n">view</span><span class="o">,</span> <span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="nc">View</span> <span class="n">toolbar</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">toolbar</span><span class="o">);</span>
+
+        <span class="c1">// Creating the expand animation for the item</span>
+        <span class="nc">ExpandAnimation</span> <span class="n">expandAni</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ExpandAnimation</span><span class="o">(</span><span class="n">toolbar</span><span class="o">,</span> <span class="mi">500</span><span class="o">);</span>
+
+        <span class="c1">// Start the animation on the toolbar</span>
+        <span class="n">toolbar</span><span class="o">.</span><span class="na">startAnimation</span><span class="o">(</span><span class="n">expandAni</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">});</span></code></pre></figure>
+
+<p>Combining all together, got me a cool ListView, with a sweet animation for opening/closing the toolbar!</p>
+
+<p>This is just a demo for my ExpandAnimation, There’s a lot more you can do. For instance - if the list item is on the bottom of the list, we can scroll the list and then show the toolbar. It’ll give a better user experience than having to scroll down manually. You can also use it for any view, not only ListView items. For instance, animating the visibility of some Activity’s title.</p>
+
+<p>As always, the full source code is on my <a href="https://github.com/Udinic/SmallExamples/tree/master/ExpandAnimationExample">GitHub</a>.</p>
+
+<p>If you have any ideas how to improve this method - please send me feedback here!</p>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#Animation-ref">
+					Animation</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#ListView-ref">
+					ListView</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+		
+		<ul class="tag_box list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#Android-ref">
+					Android
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#animatiion-ref">
+					animatiion
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#ListView-ref">
+					ListView
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+
+	<div align="center" class="author-container">
+		<figure class="author-img-post">
+			<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a" class="img-circle author-image" />			
+		</figure>
+        <h4 class="section-title">Written by Udi Cohen</h4>
+	</div>
+	<div class="share-container">					
+      <section class="share" align="center">
+        <p class="section-title">Share this post:</p>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Cool toolbar for ListView items&via=udinic"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" 
+           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm reddit"
+           onclick="window.open('http://www.reddit.com/submit?url='+window.location.href+'&title=Cool toolbar for ListView items', 'reddit-share', 'width=580,height=530');return false;">
+          <i class="fa fa-reddit fa-lg"></i>
+          Reddit
+        </a>
+      </section>
+
+    </div>
+
+    <!-- <div class="clearfix"></div> -->
+
+	<!-- <hr> -->
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'udinic-blog';
+    var disqus_identifier = '/2011/09/03/expanding-listview-items/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	</div>
+	
+
+
+
+
+
+
+
+
+</article>
+<div class="clearfix"></div>
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+

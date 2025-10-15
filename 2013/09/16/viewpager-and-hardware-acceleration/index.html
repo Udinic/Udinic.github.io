@@ -1,0 +1,467 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ViewPager and Hardware acceleration</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>ViewPager and Hardware acceleration </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   September 
+	   16th,
+	   
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p>Last week, Romain Guy posted about <a href="http://www.curious-creature.org/2013/09/13/optimizing-hardware-layers/">Optimizing hardware layers</a>. He explained how hardware layers are a great way to boost the performance of your animations, but can also degrade it.</p>
+
+<p>When your view is backed by a hardware layer, that layer will get updated every time the view itself will update, and after that the layer will be drawn to the screen. Meaning, if your view is altered during an animation – more work is done per frame and you’ll get a drop in your frame-rate. That’s why it’s not wise to change your animated view while it’s backed by a HW layer.</p>
+
+<p>On his post, Romain suggested an easy way to spot such problems, using the “Show hardware layers updates” under the Developer Options. Every time a HW layer is updated – it’ll be highlighted in green.</p>
+
+<p>So I tried it.</p>
+
+<!--break-->
+
+<p>I played with one of the apps I’m currently working on, and saw that when scrolling my ViewPager to the sides – its pages are highlighted in green for the **entire **scrolling phase. Since i don’t back any of the pages there with HW layer, I was trying to find who does. For that, I used a small trick – I used DDMS to run TraceView for the time I scroll the ViewPager, sorted the methods calls by name, searched for “android/view/View.setLayerType” and then followed its parents until I found the cause – ViewPager#enableLayers():</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">enableLayers</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">enable</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="kt">int</span> <span class="n">childCount</span> <span class="o">=</span> <span class="n">getChildCount</span><span class="o">();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">childCount</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">layerType</span> <span class="o">=</span> <span class="n">enable</span> <span class="o">?</span>
+                <span class="nc">ViewCompat</span><span class="o">.</span><span class="na">LAYER_TYPE_HARDWARE</span> <span class="o">:</span> <span class="nc">ViewCompat</span><span class="o">.</span><span class="na">LAYER_TYPE_NONE</span><span class="o">;</span>
+        <span class="nc">ViewCompat</span><span class="o">.</span><span class="na">setLayerType</span><span class="o">(</span><span class="n">getChildAt</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">layerType</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>This method is in charge of enabling/disabling HW layer for the ViewPager’s children. It’s called once from ViewPaper#setScrollState():</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">setScrollState</span><span class="o">(</span><span class="kt">int</span> <span class="n">newState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mScrollState</span> <span class="o">==</span> <span class="n">newState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="n">mScrollState</span> <span class="o">=</span> <span class="n">newState</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mPageTransformer</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// PageTransformers can do complex things that benefit from hardware layers.</span>
+        <span class="n">enableLayers</span><span class="o">(</span><span class="n">newState</span> <span class="o">!=</span> <span class="no">SCROLL_STATE_IDLE</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mOnPageChangeListener</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mOnPageChangeListener</span><span class="o">.</span><span class="na">onPageScrollStateChanged</span><span class="o">(</span><span class="n">newState</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>As we can see, the HW is disabled when the scroll state is IDLE and enabled otherwise, on DRAGGING or SETTLING. This is a good thing do to, especially when the ViewPager uses a PageTransformer. A PageTransformer meant to “apply a custom transformation to the page views using animation properties” (<a href="http://developer.android.com/reference/android/support/v4/view/ViewPager.PageTransformer.html">Source</a>), and since we’re doing animations when we scroll our pages, we can understand why it’s a good thing to use HW layers.</p>
+
+<p>But, what if the PageTransformer **changes **the view as it animates it?</p>
+
+<p>Maybe our PageTransformer changes the page’s background color to become darker as the page scroll? Or maybe it moves some items inside the page? In that case, the HW layer will get updated for **every frame. **This is the reason my app was showing green when I scrolled the pager – I applied View changes during the page transformation.</p>
+
+<p>So now that we have found the problem – how do we solve it? Well, I thought about overriding one of the ViewPager’s methods I showed above, but since they are private – it’s not possible. But I was able to workaround the problem in a different approach: Notice that on ViewPage#setScrollState(), after calling enableLayers(), we also call OnPageChangeListener#onPageScrollStateChanged(), in case such listener was set. So what I did was to set a listener that reset the layer type of all the ViewPager’s children to NONE when its scroll state is different than IDLE:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPageScrollStateChanged</span><span class="o">(</span><span class="kt">int</span> <span class="n">scrollState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// A small hack to remove the HW layer that the viewpager add to each page when scrolling.</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">scrollState</span> <span class="o">!=</span> <span class="nc">ViewPager</span><span class="o">.</span><span class="na">SCROLL_STATE_IDLE</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">childCount</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">your_viewpager</span><span class="o">&gt;.</span><span class="na">getChildCount</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">childCount</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+            <span class="o">&lt;</span><span class="n">your_viewpager</span><span class="o">&gt;.</span><span class="na">getChildAt</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">setLayerType</span><span class="o">(</span><span class="nc">View</span><span class="o">.</span><span class="na">LAYER_TYPE_NONE</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>That way, after ViewPager#setScrollState() set a HW layer for the pages – I set them back to NONE, which disables the use of HW layers. The major difference was shown on the Nexus 7, since the screen is bigger and so was the area my ViewPager was covering.</p>
+
+<p>Problem solved! No green is now shown when scrolling through my ViewPager.</p>
+
+<p>After solving this problem, I decided to report it to Google, since there must be a better way. Maybe some kind of a setter in ViewPager to disable the use of HW layers when scrolling through the pages. That’s why I <a href="https://code.google.com/p/android/issues/detail?id=60094">reported this</a> on Google’s Issue tracker. Hopefully someone will see it and maybe even fix it.</p>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#Android-ref">
+					Android</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#Animation-ref">
+					Animation</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#Performance-ref">
+					Performance</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+		
+		<ul class="tag_box list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#Android-ref">
+					Android
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#enableLayers-ref">
+					enableLayers
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#gpu-ref">
+					gpu
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#hardware acceleration-ref">
+					hardware acceleration
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#hardware layer-ref">
+					hardware layer
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#HW layers-ref">
+					HW layers
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#OnPageChangeListener-ref">
+					OnPageChangeListener
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#optimizing hardware layers-ref">
+					optimizing hardware layers
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#PageTransformer-ref">
+					PageTransformer
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#performance-ref">
+					performance
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#romain guy-ref">
+					romain guy
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#setLayerType-ref">
+					setLayerType
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#setScrollState-ref">
+					setScrollState
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Show hardware layers updates-ref">
+					Show hardware layers updates
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#traceview-ref">
+					traceview
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#ViewPager-ref">
+					ViewPager
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+
+	<div align="center" class="author-container">
+		<figure class="author-img-post">
+			<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a" class="img-circle author-image" />			
+		</figure>
+        <h4 class="section-title">Written by Udi Cohen</h4>
+	</div>
+	<div class="share-container">					
+      <section class="share" align="center">
+        <p class="section-title">Share this post:</p>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=ViewPager and Hardware acceleration&via=udinic"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" 
+           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm reddit"
+           onclick="window.open('http://www.reddit.com/submit?url='+window.location.href+'&title=ViewPager and Hardware acceleration', 'reddit-share', 'width=580,height=530');return false;">
+          <i class="fa fa-reddit fa-lg"></i>
+          Reddit
+        </a>
+      </section>
+
+    </div>
+
+    <!-- <div class="clearfix"></div> -->
+
+	<!-- <hr> -->
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'udinic-blog';
+    var disqus_identifier = '/2013/09/16/viewpager-and-hardware-acceleration/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	</div>
+	
+
+
+
+
+
+
+
+
+</article>
+<div class="clearfix"></div>
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+

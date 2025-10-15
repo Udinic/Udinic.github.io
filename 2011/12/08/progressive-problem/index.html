@@ -1,0 +1,488 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Progressive Problem</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>Progressive Problem </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   December 
+	   8th,
+	   
+	   2011
+	 </span>
+	  <div class="article_body">
+	  <p>On my last post I was talking about the integration of ACRA, error reporting library, which sends us crash reports from the users of <a href="https://market.android.com/details?id=com.anydo">Any.DO</a>. We’ve got some very interesting errors from the users, some exceptions were a matter of minutes to resolve, and others took more time, as the one I’m about to share here.</p>
+
+<p>One of the most repeatable exceptions was an IllegalArgumentException. The stack trace was something like this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalArgumentException</span><span class="o">:</span> <span class="nc">View</span> <span class="n">not</span> <span class="n">attached</span> <span class="n">to</span> <span class="n">window</span> <span class="n">manager</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">WindowManagerImpl</span><span class="o">.</span><span class="na">findViewLocked</span><span class="o">(</span><span class="nc">WindowManagerImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">355</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">WindowManagerImpl</span><span class="o">.</span><span class="na">removeView</span><span class="o">(</span><span class="nc">WindowManagerImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">200</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">Window</span><span class="n">$LocalWindowManager</span><span class="o">.</span><span class="na">removeView</span><span class="o">(</span><span class="nc">Window</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">432</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">Dialog</span><span class="o">.</span><span class="na">dismissDialog</span><span class="o">(</span><span class="nc">Dialog</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">278</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">Dialog</span><span class="o">.</span><span class="na">access</span><span class="err">$</span><span class="mo">000</span><span class="o">(</span><span class="nc">Dialog</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">71</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">Dialog</span><span class="err">$</span><span class="mi">1</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">Dialog</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">111</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">handleCallback</span><span class="o">(</span><span class="nc">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">587</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">dispatchMessage</span><span class="o">(</span><span class="nc">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">92</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Looper</span><span class="o">.</span><span class="na">loop</span><span class="o">(</span><span class="nc">Looper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">123</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">ActivityThread</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="nc">ActivityThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">4627</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invokeNative</span><span class="o">(</span><span class="nc">Native</span> <span class="nc">Method</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="nc">Method</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">521</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="n">$MethodAndArgsCaller</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">876</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="nc">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">634</span><span class="o">)</span>
+ <span class="n">at</span> <span class="n">dalvik</span><span class="o">.</span><span class="na">system</span><span class="o">.</span><span class="na">NativeStart</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="nc">Native</span> <span class="nc">Method</span><span class="o">)</span></code></pre></figure>
+
+<table>
+  <tbody>
+    <tr>
+      <td>It’s easy to see that the cause of it is a dismissed dialog, which its window doesn’t belong to the current Window Manager. In a nutshell, the Window Manager is a service, designated to create all the drawing surfaces on which your application (and all other applications) draw their components. I won’t elaborate on this subject on this post, maybe on a future one; in the mean time, you can Google it for more information. But why is that happening? The <strong>common</strong> reason for that is the notorious <a href="http://stackoverflow.com/questions/1111980/how-to-handle-screen-orientation-change-when-progress-dialog-and-background-thre">orientation problem</a>. We couldn’t come across that issue, because we simply applied the magic attribute of __android:configChanges=”keyboardHidden</td>
+      <td>orientation”__ to almost all of our Activities. Without this configuration, the default behavior for all the activities is to be destroyed and recreated whenever the user bend his arm by 90 degrees.  This configuration is doing what I believe should be the default behavior - leaving the activity be. Actually it means that you, the developer, takes responsibility to handle those orientation changes, so it’s actually suppose to generate more work by declaring that. In fact, for inexperienced developers it can cause more harm than good, as on that demonic orientation problem. But, again, this is not the issue here.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After lots of playing around, I’ve managed to reproduce the problem on my device. That’s how I did it:</p>
+
+<ul>
+  <li>
+    <p>Go to some activity other than the main</p>
+  </li>
+  <li>
+    <p>Created <a href="http://developer.android.com/reference/android/os/AsyncTask.html">AsyncTask </a>that <strong>starts</strong> and <strong>dismisses</strong> a progress dialog, and <strong>sleeps</strong> for 5 seconds in between</p>
+  </li>
+  <li>
+    <p>While the AsyncTask was taking a nap, I’ve pressed on the** HOME** <strong>button</strong></p>
+  </li>
+  <li>
+    <p>When the home screen appeared, I quickly pressed on the** app’s shortcut**</p>
+  </li>
+  <li>
+    <p>BOOM!</p>
+  </li>
+</ul>
+
+<p>Why is that? Well, The AsyncTask was created on one of the sub-activities of the app, let’s call it Activity B, and the main activity will be A. When it was time to dismiss the dialog, I’ve already pressed the HOME key and Activity B was no longer visible (HOME key -&gt; Home screen). This is <strong>not</strong> suppose to be an issue, because the activity remains on the memory until killed by an over-excited Task Killer app or by the operation system, if it needs to clear some memory. The <strong>problem</strong> is that I’ve also pressed on the app’s home screen shortcut, and it has the flag “Intent.FLAG_ACTIVITY_CLEAR_TOP”, which practically saying that it’ll kill all the other activities on the task’s activities stack. You can read more about that stack, and how it operates, here: <a href="http://developer.android.com/guide/topics/fundamentals/tasks-and-back-stack.html">http://developer.android.com/guide/topics/fundamentals/tasks-and-back-stack.html</a>. Since I’ve killed Activity B (with all its dialog), and the app’s shortcut is starting activity A, the AsyncTask was trying to dismiss a a dialog that’s no longer exists! We get an IllegalArgumentException. Hooray! Now what?</p>
+
+<p>On a this <a href="http://blog.doityourselfandroid.com/2010/11/14/handling-progress-dialogs-and-screen-orientation-changes/">very comprehensive post</a> about the orientation problem, there’s a nice solution for that issue, but not entirely for my problem. That solution transfers the AsyncTask between the destroyed activity and the created one when screen orientation changes. Since I’m just killing the activity, I want the activity to ignore any dismissing command for dead dialogs! I’ve decided to build a solution on top of my progress dialog and activities, allowing me to start a progress dialog on any activity, and let this whole thing be managed.</p>
+
+<p>When started, I’ve tried using the AsyncTask solution, presented on that blog, and just extend it to write my own doInBackground() logic. Unfortunately, there was some AsyncTask internal problem with that approach; It’s too long to start explaining here, so I’ll pass. My solution includes this interface:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ProgressDlgHandlingActivity</span> <span class="o">{</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">startProgressDialog</span><span class="o">(</span><span class="nc">String</span> <span class="n">title</span><span class="o">);</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dismissProgressDialog</span><span class="o">();</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stopProgressDialog</span><span class="o">();</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>Every activity that runs a progress bar should implement it, and it’s fairly easy:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**
+ * Starts the progress dialog
+ * @param title
+ */</span>
+ <span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">startProgressDialog</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">showDialog</span><span class="o">(</span><span class="nc">AnydoProgressDialog</span><span class="o">.</span><span class="na">DIALOG_ID</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+ <span class="o">}</span>
+<span class="cm">/**
+ * Stopping a currently active progress dialog
+ */</span>
+ <span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stopProgressDialog</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Detaching the currently showing dialog from the activity.</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mCurrProgressDlg</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+       <span class="n">mCurrProgressDlg</span><span class="o">.</span><span class="na">detachFromActivity</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="cm">/**
+ * Dismissing the progress dialog. In use by the dialog itself!
+ * In order to dismiss a progress dialog - use the #stopProgressDialog
+ */</span>
+ <span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dismissProgressDialog</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">isDialogShown</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">dismissDialog</span><span class="o">(</span><span class="nc">AnydoProgressDialog</span><span class="o">.</span><span class="na">DIALOG_ID</span><span class="o">);</span>
+    <span class="o">}</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>As you can see, I keep the current displayed dialog (mCurrProgressDlg), and dismiss it only if it’s shown. On the activity, all I need to know about is the startProgressDialog() and the stopProgressDialog() functions. How do I know that the dialog is shown? And what is that “detach” thing? On the progress dialog itself I save the calling activity as a field from type ProgressDlgHandlingActivity (as our interface), and accessing it with those 2 methods:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**
+ * Attaches the dialog to the argumented activity.
+ * @param activity
+ */</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">attachToActivity</span><span class="o">(</span><span class="nc">ProgressDlgHandlingActivity</span> <span class="n">activity</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">mActivity</span> <span class="o">=</span> <span class="n">activity</span><span class="o">;</span>
+ <span class="o">}</span>
+<span class="cm">/**
+ * Removing the dialog from the activity
+ */</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">detachFromActivity</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">if</span> <span class="o">(</span><span class="n">mActivity</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">mActivity</span><span class="o">.</span><span class="na">dismissProgressDialog</span><span class="o">();</span>
+    <span class="o">}</span>
+   <span class="n">mActivity</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>Notice that the detach function also dismisses the dialog if there’s an activity currently attached to. Back to our activity, we need to add the code to create the dialog when calling the showDialog() function, I’ve implemented it like this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="nc">Dialog</span> <span class="nf">onCreateDialog</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="nc">Bundle</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">switch</span> <span class="o">(</span><span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">case</span> <span class="o">(</span><span class="nc">AnydoProgressDialog</span><span class="o">.</span><span class="na">DIALOG_ID</span><span class="o">):</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">mCurrProgressDlg</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+             <span class="n">mCurrProgressDlg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnydoProgressDialog</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+             <span class="k">return</span> <span class="n">mCurrProgressDlg</span><span class="o">;</span>
+       <span class="k">default</span><span class="o">:</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onCreateDialog</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="o">}</span>
+ <span class="o">}</span>
+<span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPrepareDialog</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="nc">Dialog</span> <span class="n">dialog</span><span class="o">,</span> <span class="nc">Bundle</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onPrepareDialog</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">dialog</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">id</span> <span class="o">==</span> <span class="nc">AnydoProgressDialog</span><span class="o">.</span><span class="na">DIALOG_ID</span><span class="o">)</span> <span class="o">{</span>
+       <span class="nc">AnydoProgressDialog</span> <span class="n">dlg</span> <span class="o">=</span> <span class="o">((</span><span class="nc">AnydoProgressDialog</span><span class="o">)</span><span class="n">dialog</span><span class="o">);</span>
+       <span class="n">dlg</span><span class="o">.</span><span class="na">attachToActivity</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+       <span class="n">isDialogShown</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>The create function is pretty straightforward and just create the dialog if not exist. On the prepare dialog, we attach the current activity to the dialog and set the isDialogShown flag, which we saw earlier. The most important part, is to close the dialog when the activity closes (or killed); For that, I’ve added the stopProgressDialog() to the onDestroy() function of the activity.</p>
+
+<p>That’s it! When I want to performs a long operation with a progress dialog running during it, I can do it like this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">new</span> <span class="nc">AsyncTask</span><span class="o">()</span> <span class="o">{</span>
+<span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPreExecute</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onPreExecute</span><span class="o">();</span>
+    <span class="n">startProgressDialog</span><span class="o">();</span>
+ <span class="o">}</span>
+<span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="nc">Void</span> <span class="nf">doInBackground</span><span class="o">(</span><span class="nc">Void</span><span class="o">...</span> <span class="n">voids</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">calculateSomething</span><span class="o">(</span><span class="s">"udinic"</span><span class="o">);</span>
+   <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+ <span class="o">}</span>
+<span class="nd">@Override</span>
+ <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPostExecute</span><span class="o">(</span><span class="nc">Void</span> <span class="n">aVoid</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onPostExecute</span><span class="o">(</span><span class="n">aVoid</span><span class="o">);</span>
+    <span class="n">stopProgressDialog</span><span class="o">();</span>
+ <span class="o">}</span>
+
+<span class="o">}.</span><span class="na">execute</span><span class="o">();</span></code></pre></figure>
+
+<p>When the activity will finish, the dialog will do so too. Now I know what you’re probably thinking - why did I go all this trouble just to dismiss a dialog in the end of the activity? Well, this solution also combines a solution to the orientation problem. In order to support that as well, you need to override this method on the activity:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">onRetainNonConfigurationInstance</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mCurrProgressDlg</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">return</span> <span class="n">mCurrProgressDlg</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onRetainNonConfigurationInstance</span><span class="o">();</span>
+ <span class="o">}</span></code></pre></figure>
+
+<p>And add this to the activity’s onCreate() method:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// In case we created after a rotation has occurred, we'll reload any running progress dialog</span>
+ <span class="nc">Object</span> <span class="n">retained</span> <span class="o">=</span> <span class="n">getLastNonConfigurationInstance</span><span class="o">();</span>
+ <span class="k">if</span> <span class="o">(</span><span class="n">retained</span> <span class="k">instanceof</span> <span class="nc">AnydoProgressDialog</span><span class="o">)</span>
+    <span class="n">mCurrProgressDlg</span> <span class="o">=</span> <span class="o">(</span><span class="nc">AnydoProgressDialog</span><span class="o">)</span><span class="n">retained</span><span class="o">;</span></code></pre></figure>
+
+<p>Congrats! Now you have safe to use Progress dialog, with no need to extend AsyncTask with particular results types. Hope this will help someone, I know It did the job for me. If I’ll get any requests for it - I’ll also upload an example project to my GitHub account.</p>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#Android-ref">
+					Android</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+		
+		<ul class="tag_box list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#ACRA-ref">
+					ACRA
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Any.DO-ref">
+					Any.DO
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#dialog-ref">
+					dialog
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#exception-ref">
+					exception
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+
+	<div align="center" class="author-container">
+		<figure class="author-img-post">
+			<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a" class="img-circle author-image" />			
+		</figure>
+        <h4 class="section-title">Written by Udi Cohen</h4>
+	</div>
+	<div class="share-container">					
+      <section class="share" align="center">
+        <p class="section-title">Share this post:</p>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Progressive Problem&via=udinic"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" 
+           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm reddit"
+           onclick="window.open('http://www.reddit.com/submit?url='+window.location.href+'&title=Progressive Problem', 'reddit-share', 'width=580,height=530');return false;">
+          <i class="fa fa-reddit fa-lg"></i>
+          Reddit
+        </a>
+      </section>
+
+    </div>
+
+    <!-- <div class="clearfix"></div> -->
+
+	<!-- <hr> -->
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'udinic-blog';
+    var disqus_identifier = '/2011/12/08/progressive-problem/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	</div>
+	
+
+
+
+
+
+
+
+
+</article>
+<div class="clearfix"></div>
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+

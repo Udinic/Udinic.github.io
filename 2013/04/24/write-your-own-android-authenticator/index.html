@@ -1,0 +1,771 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Write your own Android Authenticator</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>Write your own Android Authenticator </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   April 
+	   24th,
+	   
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p>When I wrote Any.DO’s sync system, about 18 months ago, I wanted to use the built in <em>AccountManager</em> API to authenticate and store the users’ credentials. When I used it to access Google accounts it seems a pretty simple experience, so I thought I should do that for Any.DO as well. It also goes very well with a sync mechanism (using a SyncAdapter), making it the perfect solution. The problem - no good documentation was out there. The developers community didn’t have much experience with that back then, and since we didn’t have much time to figure out issues that could arise from this “No man’s land”, a decision was made to use other methods.</p>
+
+<p>But times have changed..</p>
+
+<p>I recently studied that feature again for a project I’m working on, and saw there’s a huge improvement with the knowledge about it. Besides the better documentation on the <a href="http://developer.android.com/training/id-auth/custom_auth.html">Android.com</a> site, <a href="http://www.finalconcept.com.au/article/view/android-account-manager-step-by-step-2">more</a> and <a href="http://www.c99.org/2010/01/23/writing-an-android-sync-provider-part-1/">more</a> tutorials went out to the wild, feeding us with knowledge about the mysteries of the notorious Account Manager. Some tales were told about the road to create your own account. I read pretty much <strong>all of them. </strong></p>
+
+<p>But..they all still miss something.</p>
+
+<p>I didn’t feel that I actually know everything I wanted to know about the process, and some parts weren’t clear enough. So I did what I usually do when I want to know everything about something - investigate it “<a href="http://en.wikipedia.org/wiki/Jack_Bauer">Jack Bauer</a> style”! This post is the in-depth conclusion of my journey, with all the quirks and features that this service provides and I thought was important enough to find out. There will be a followup post about Sync Adapters as well, so I recommend RSS/Twitter subscribing to be notified…if you’re into this kind of stuff. I’ve been pretty thorough learning all those features, not just the basic stuff as all other tutorials did, but if I forgot something - please let me know by commenting this post.</p>
+
+<h2 id="why-account-manager">Why Account Manager?</h2>
+
+<p>Why really?</p>
+
+<p>Why not just write a simple sign-in form, implement a submit button that post the info to the server and return an auth token? The reason for that is the extra features you get and in the small details that you don’t always cover. All those “corners” that developers often miss when they need their users to sign-in, or dismiss by saying “This will happen to 1 out of 100000 users! It’s nothing!”. What happens if the user changes the password on another client? Has an expired auth-token? Runs a background service that doesn’t have a UI the user can interact with? Wants the convenience of logging-in once and get automatically authenticated on all account-related app (like all Google’s apps do)?</p>
+
+<p>Reading this article will probably make you think it’s complicated stuff, but it’s not! Using the Account Manager actually <strong>simplifies</strong> the authentication process for most cases, and since I’m already giving you a working code sample - why not use it :)</p>
+
+<p>So, to recap the benefits:</p>
+
+<p>Pros: Standard way to authenticate users. Simplifies the process for the developer. Handles access-denied scenarios for you. Can handle multiple token types for a single account (e.g. Read-only vs. Full-access). Easily shares auth-tokens between apps. Great support for background processes such as SyncAdapters. Plus, you get a cool entry for your account type on the phone’s settings:</p>
+
+<p><img src="/assets/images/2013-04-24-write-your-own-android-authenticator/accounts2.png" alt="accounts2" /></p>
+
+<p>Look mom, my name is on the settings screen!</p>
+
+<p><br /></p>
+
+<p>Cons: Requires learning it. But hey, that’s what you’re here for, isn’t it?</p>
+
+<p>The steps we’ll performs to get this done:</p>
+
+<ol>
+  <li>
+    <p>Creating our Authenticator - the brain behind this operation</p>
+  </li>
+  <li>
+    <p>Creating the Activities - in those the user will enter his credentials</p>
+  </li>
+  <li>
+    <p>Creating the Service - through it we can communicate with the authenticator</p>
+  </li>
+</ol>
+
+<p>But first, some definitions.</p>
+
+<!--break-->
+
+<h2 id="authentiwhat">Authenti..what?</h2>
+
+<p>Lets start with the basics - these are the main parts here:</p>
+
+<p><strong>Authentication Token (auth-token)</strong> -  A temporary access token (or <a href="http://en.wikipedia.org/wiki/Security_token">security-token</a>) given by the server. The user needs to identify to get such token and attach it to every request he sends to the server. On this post I’ll use <a href="http://en.wikipedia.org/wiki/OAuth">OAuth2</a> as the authentication standard, since it’s the most popular method there is.</p>
+
+<p><strong>Your authenticating server</strong> - The server that will manage all the users that use your product. It will generate an auth-token for any user that logs in and verify it for every request the user makes on your server. The auth-token can be time limited and expire after a period of time.</p>
+
+<p><strong>AccountManager</strong> - Managing all the accounts on the device and pretty much running the show. Apps can request auth-tokens from it and that’s its job to get it done. Whether it means it needs to open a new “Sign-in”/”Create account” activity, or retrieving a stored auth-token that was previously requested, the <em>AccountManager</em> knows who to call and what to do on each scenario to get the job done.</p>
+
+<p><strong>AccountAuthenticator</strong> - A module to handle a specific account type. The AccountManager find the appropriate AccountAuthenticator talks with it to perform all the actions on the account type. The AccountAuthenticator knows which activity to show the user for entering his credentials and where to find any stored auth-token that the server has returned previously. This can be common to many different services under a single account type. For instance, Google’s authenticator on Android is authenticating Google Mail service (Gmail) along with other Google services such as Google Calendar and Google Drive.</p>
+
+<p><strong>AccountAuthenticatorActivity</strong> - Base class for the “sign-in/create account” activity to be called by the authenticator when the user needs to identify himself. The activity is in charge of the sign-in or account creation process against the server and return an auth-token back to the calling authenticator.</p>
+
+<p>Whenever your app needs an auth-token, it only talks with one method, the <em>AccountManager#getAuthToken()</em>. The AccountManager will take it from there and jump through hoops to get you that token. Here’s a nice diagram of the process from Google’s documentation:</p>
+
+<p> <a href="/assets/images/2013-04-24-write-your-own-android-authenticator/oauth_dance1.png"><img src="/assets/images/2013-04-24-write-your-own-android-authenticator/oauth_dance1.png" alt="oauth_dance" /></a></p>
+
+<p>It may look a little cumbersome, but it’s fairly simple. I’ll explain the common case where we log-in to an account for the first time on the device.</p>
+
+<p><strong><em>First time logging-in</em></strong></p>
+
+<ul>
+  <li>
+    <p>The app asks the <strong>AccountManager</strong> for an auth-token.</p>
+  </li>
+  <li>
+    <p>The <strong>AccountManager</strong> asks the relevant <strong>AccountAuthenticator</strong> if it has a token for us.</p>
+  </li>
+  <li>
+    <p>Since it has none (there’s no logged-in user), it show us a <strong>AccountAuthenticatorActivity </strong>that will allow the user to log-in.</p>
+  </li>
+  <li>
+    <p>The user logs-in and auth-token is returned from the server.</p>
+  </li>
+  <li>
+    <p>The auth-token is stored for future use in the <strong>AccountManager.</strong></p>
+  </li>
+  <li>
+    <p>The app gets the auth-token it requested</p>
+  </li>
+  <li>
+    <p>Everyone’s happy!</p>
+  </li>
+</ul>
+
+<p>In case the user has already logged-in, we would get the auth-token back already on the second step. You can read more about authenticating using OAuth2 <a href="http://developer.android.com/training/id-auth/authenticate.html">here</a>.</p>
+
+<p>Now that we know the basics, let’s see how to create our own account type authenticator.</p>
+
+<h2 id="creating-our-authenticator">Creating our Authenticator</h2>
+
+<p>As written earlier, the Account Authenticator is the one that gets addressed by the <em>AccountManager</em> to fulfill all account relevant tasks: Getting stored auth-token, presenting the account log-in screen and handling the user authentication against the server.</p>
+
+<p>Creating our own Authenticator requires extending <a href="http://developer.android.com/reference/android/accounts/AbstractAccountAuthenticator.html"><em>AbstractAccountAuthenticator</em></a> and implementing some methods. Let’s focus for now on the 2 main methods:</p>
+
+<h3 id="addaccount">addAccount</h3>
+
+<p>Called when the user wants to log-in and add a new account to the device.</p>
+
+<p>We need to return a Bundle with the Intent to start our _AccountAuthenticatorActivity _(explained later). This method can be called by the app itself by calling <a href="http://developer.android.com/reference/android/accounts/AccountManager.html#addAccount(java.lang.String, java.lang.String, java.lang.String[], android.os.Bundle, android.app.Activity, android.accounts.AccountManagerCallback&lt;android.os.Bundle&gt;, android.os.Handler)">AccountManager#addAccount()</a> (requires a special permission for that) or from the phone’s settings screen, as seen here:</p>
+
+<p><img src="/assets/images/2013-04-24-write-your-own-android-authenticator/account_add_from_setting.png" alt="account_add_from_Setting" /></p>
+
+<p>Add an account from the device’s Settings</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">Bundle</span> <span class="nf">addAccount</span><span class="o">(</span><span class="nc">AccountAuthenticatorResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">String</span> <span class="n">accountType</span><span class="o">,</span> <span class="nc">String</span> <span class="n">authTokenType</span><span class="o">,</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">requiredFeatures</span><span class="o">,</span> <span class="nc">Bundle</span> <span class="n">options</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NetworkErrorException</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">(</span><span class="n">mContext</span><span class="o">,</span> <span class="nc">AuthenticatorActivity</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="nc">AuthenticatorActivity</span><span class="o">.</span><span class="na">ARG_ACCOUNT_TYPE</span><span class="o">,</span> <span class="n">accountType</span><span class="o">);</span>
+    <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="nc">AuthenticatorActivity</span><span class="o">.</span><span class="na">ARG_AUTH_TYPE</span><span class="o">,</span> <span class="n">authTokenType</span><span class="o">);</span>
+    <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="nc">AuthenticatorActivity</span><span class="o">.</span><span class="na">ARG_IS_ADDING_NEW_ACCOUNT</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+    <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_ACCOUNT_AUTHENTICATOR_RESPONSE</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+    <span class="kd">final</span> <span class="nc">Bundle</span> <span class="n">bundle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bundle</span><span class="o">();</span>
+    <span class="n">bundle</span><span class="o">.</span><span class="na">putParcelable</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_INTENT</span><span class="o">,</span> <span class="n">intent</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">bundle</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<h3 id="getauthtoken">getAuthToken</h3>
+
+<p>Explained by the diagram above. Gets a stored auth-token for the account type from a previous successful log-in on this device. If there’s no such thing - the user will be prompted to log-in. After a successful sign-in, the requesting app will get the long-awaited auth-token. To do all that, we need to check the <em>AccountManager</em> if there’s an available auth-token by using <em><a href="http://developer.android.com/reference/android/accounts/AccountManager.html#peekAuthToken(android.accounts.Account, java.lang.String)">AccountManager#peekAuthToken()</a></em>. If there isn’t we return the same result as for <em>addAccount()</em>.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">Bundle</span> <span class="nf">getAuthToken</span><span class="o">(</span><span class="nc">AccountAuthenticatorResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">Account</span> <span class="n">account</span><span class="o">,</span> <span class="nc">String</span> <span class="n">authTokenType</span><span class="o">,</span> <span class="nc">Bundle</span> <span class="n">options</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NetworkErrorException</span> <span class="o">{</span>
+
+    <span class="c1">// Extract the username and password from the Account Manager, and ask</span>
+    <span class="c1">// the server for an appropriate AuthToken.</span>
+    <span class="kd">final</span> <span class="nc">AccountManager</span> <span class="n">am</span> <span class="o">=</span> <span class="nc">AccountManager</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">mContext</span><span class="o">);</span>
+
+    <span class="nc">String</span> <span class="n">authToken</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="na">peekAuthToken</span><span class="o">(</span><span class="n">account</span><span class="o">,</span> <span class="n">authTokenType</span><span class="o">);</span>
+
+    <span class="c1">// Lets give another try to authenticate the user</span>
+    <span class="k">if</span> <span class="o">(</span><span class="nc">TextUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">authToken</span><span class="o">))</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="nc">String</span> <span class="n">password</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="na">getPassword</span><span class="o">(</span><span class="n">account</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">password</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">authToken</span> <span class="o">=</span> <span class="n">sServerAuthenticate</span><span class="o">.</span><span class="na">userSignIn</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">name</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">authTokenType</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// If we get an authToken - we return it</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="nc">TextUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">authToken</span><span class="o">))</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="nc">Bundle</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bundle</span><span class="o">();</span>
+        <span class="n">result</span><span class="o">.</span><span class="na">putString</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_ACCOUNT_NAME</span><span class="o">,</span> <span class="n">account</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
+        <span class="n">result</span><span class="o">.</span><span class="na">putString</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_ACCOUNT_TYPE</span><span class="o">,</span> <span class="n">account</span><span class="o">.</span><span class="na">type</span><span class="o">);</span>
+        <span class="n">result</span><span class="o">.</span><span class="na">putString</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_AUTHTOKEN</span><span class="o">,</span> <span class="n">authToken</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// If we get here, then we couldn't access the user's password - so we</span>
+    <span class="c1">// need to re-prompt them for their credentials. We do that by creating</span>
+    <span class="c1">// an intent to display our AuthenticatorActivity.</span>
+    <span class="kd">final</span> <span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">(</span><span class="n">mContext</span><span class="o">,</span> <span class="nc">AuthenticatorActivity</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_ACCOUNT_AUTHENTICATOR_RESPONSE</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+    <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="nc">AuthenticatorActivity</span><span class="o">.</span><span class="na">ARG_ACCOUNT_TYPE</span><span class="o">,</span> <span class="n">account</span><span class="o">.</span><span class="na">type</span><span class="o">);</span>
+    <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="nc">AuthenticatorActivity</span><span class="o">.</span><span class="na">ARG_AUTH_TYPE</span><span class="o">,</span> <span class="n">authTokenType</span><span class="o">);</span>
+    <span class="kd">final</span> <span class="nc">Bundle</span> <span class="n">bundle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bundle</span><span class="o">();</span>
+    <span class="n">bundle</span><span class="o">.</span><span class="na">putParcelable</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_INTENT</span><span class="o">,</span> <span class="n">intent</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">bundle</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>If the auth-token we got from this method is not valid anymore, because of time expiration or changed password from a different client, you need to invalidate the current auth-token on the <em>AccountManager</em> and ask for a token once again. Invalidating the current token is done by calling <em><a href="http://developer.android.com/reference/android/accounts/AccountManager.html#invalidateAuthToken(java.lang.String, java.lang.String)">AccountManager#invalidateAuthToken()</a></em>. The next call to <em>getAuthToken()</em> will try to log-in with the stored password and if it fails - the user will have to enter his credentials again.</p>
+
+<p>So..where will the user enter his credentials? That’ll be in our derivation for <strong>AccountAuthenticatorActivity</strong></p>
+
+<h2 id="creating-the-activity">Creating the Activity</h2>
+
+<p>Our <a href="http://developer.android.com/reference/android/accounts/AccountAuthenticatorActivity.html"><em>AccountAuthenticatorActivity</em></a> is the only direct interaction that we have with the user.</p>
+
+<p>This activity will show the user a log-in form, authenticate him with our server, and return the result to the calling authenticator. The reason we extend from <em>AccountAuthenticatorActivity</em>, and not just from the regular Activity, is the <em>setAccountAuthenticatorResult()</em> method. This method is in charge of taking back the result from the authentication process on the activity and return it to the Authenticator, who called this activity in the first place. It saves us the need to keep a response interface to communicate with the Authenticator ourselves.</p>
+
+<p>I built a simple username/password form on my Activity. You can use the <a href="http://developer.android.com/tools/projects/templates.html#login-activity">Login Activity Template</a> suggested on the Android site. When submitting I call this method:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">submit</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="nc">String</span> <span class="n">userName</span> <span class="o">=</span> <span class="o">((</span><span class="nc">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">accountName</span><span class="o">)).</span><span class="na">getText</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+    <span class="kd">final</span> <span class="nc">String</span> <span class="n">userPass</span> <span class="o">=</span> <span class="o">((</span><span class="nc">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">accountPassword</span><span class="o">)).</span><span class="na">getText</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+    <span class="k">new</span> <span class="nc">AsyncTask</span><span class="o">&lt;</span><span class="nc">Void</span><span class="o">,</span> <span class="nc">Void</span><span class="o">,</span> <span class="nc">Intent</span><span class="o">&gt;()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="nc">Intent</span> <span class="nf">doInBackground</span><span class="o">(</span><span class="nc">Void</span><span class="o">...</span> <span class="n">params</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">authtoken</span> <span class="o">=</span> <span class="n">sServerAuthenticate</span><span class="o">.</span><span class="na">userSignIn</span><span class="o">(</span><span class="n">userName</span><span class="o">,</span> <span class="n">userPass</span><span class="o">,</span> <span class="n">mAuthTokenType</span><span class="o">);</span>
+            <span class="kd">final</span> <span class="nc">Intent</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+            <span class="n">res</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_ACCOUNT_NAME</span><span class="o">,</span> <span class="n">userName</span><span class="o">);</span>
+            <span class="n">res</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_ACCOUNT_TYPE</span><span class="o">,</span> <span class="no">ACCOUNT_TYPE</span><span class="o">);</span>
+            <span class="n">res</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_AUTHTOKEN</span><span class="o">,</span> <span class="n">authtoken</span><span class="o">);</span>
+            <span class="n">res</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="no">PARAM_USER_PASS</span><span class="o">,</span> <span class="n">userPass</span><span class="o">);</span>
+            <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPostExecute</span><span class="o">(</span><span class="nc">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">finishLogin</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}.</span><span class="na">execute</span><span class="o">();</span>
+<span class="o">}</span></code></pre></figure>
+
+<p><strong>sServerAuthenticate</strong> is the interface to our authenticating server. I implemented methods such as <strong>userSignIn</strong> and <strong>userSignUp</strong> that return the auth-token from the server, upon a successful log-in.</p>
+
+<p><strong>mAuthTokenType</strong> is the type of token that I request from the server. I can have the server give me different tokens for read-only or full access to an account, or even for different services within the same account. A good example is the Google account, which provides several auth-token types: “_Manage your calendars”, “Manage your _tasks”, “View your calendars” and more.. On this particular example I don’t do anything different for the various auth-token types.</p>
+
+<p>When I finish, I call <em>finishLogin()</em>:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">finishLogin</span><span class="o">(</span><span class="nc">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">accountName</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getStringExtra</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_ACCOUNT_NAME</span><span class="o">);</span>
+    <span class="nc">String</span> <span class="n">accountPassword</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getStringExtra</span><span class="o">(</span><span class="no">PARAM_USER_PASS</span><span class="o">);</span>
+    <span class="kd">final</span> <span class="nc">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Account</span><span class="o">(</span><span class="n">accountName</span><span class="o">,</span> <span class="n">intent</span><span class="o">.</span><span class="na">getStringExtra</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_ACCOUNT_TYPE</span><span class="o">));</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">getIntent</span><span class="o">().</span><span class="na">getBooleanExtra</span><span class="o">(</span><span class="no">ARG_IS_ADDING_NEW_ACCOUNT</span><span class="o">,</span> <span class="kc">false</span><span class="o">))</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">authtoken</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getStringExtra</span><span class="o">(</span><span class="nc">AccountManager</span><span class="o">.</span><span class="na">KEY_AUTHTOKEN</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">authtokenType</span> <span class="o">=</span> <span class="n">mAuthTokenType</span><span class="o">;</span>
+        <span class="c1">// Creating the account on the device and setting the auth token we got</span>
+        <span class="c1">// (Not setting the auth token will cause another call to the server to authenticate the user)</span>
+        <span class="n">mAccountManager</span><span class="o">.</span><span class="na">addAccountExplicitly</span><span class="o">(</span><span class="n">account</span><span class="o">,</span> <span class="n">accountPassword</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+        <span class="n">mAccountManager</span><span class="o">.</span><span class="na">setAuthToken</span><span class="o">(</span><span class="n">account</span><span class="o">,</span> <span class="n">authtokenType</span><span class="o">,</span> <span class="n">authtoken</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">mAccountManager</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="n">account</span><span class="o">,</span> <span class="n">accountPassword</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="n">setAccountAuthenticatorResult</span><span class="o">(</span><span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">());</span>
+    <span class="n">setResult</span><span class="o">(</span><span class="no">RESULT_OK</span><span class="o">,</span> <span class="n">intent</span><span class="o">);</span>
+    <span class="n">finish</span><span class="o">();</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>This method gets a fresh auth-token and do the following:</p>
+
+<ol>
+  <li>
+    <p>Existing account with an invalidated auth-token - in this case, we already have a record on the <em>AccountManager</em>. The new auth-token will replace the old one without any action by you, but if the user had changed his password for that, you need to update the <em>AccountManager</em> with the new password too. This can be seen in the code above.</p>
+  </li>
+  <li>
+    <p>You add a new account to the device - that’s a tricky part. When creating an account, the auth-token is NOT saved immediately to the <em>AccountManager</em>, it needs to be saved explicitly. That’s why I’m setting the auth-token explicitly after adding the new account to the <em>AccountManager</em>. Failing to do so, makes the <em>AccountManager</em> do another trip to the server, when the <em>getAuthToken</em> method is called, and authenticating the user again.</p>
+  </li>
+</ol>
+
+<p>Note: The third argument to <em>addAccountExplicitly()</em> is a “user data” <em>Bundle</em>, which can be used to store custom data, such as API key to your service, right with the other authentication related data on the <em>AccountManager</em>. This can also be set by using <em><a href="http://developer.android.com/reference/android/accounts/AccountManager.html#setUserData(android.accounts.Account, java.lang.String, java.lang.String)">setUserData()</a>.</em></p>
+
+<p>After the log-in process done by this Activity, we have the <em>AccountManager</em> all set up with our account. The call to <em>setAccountAuthenticatorResult()</em> returns the information back to the Authenticator.</p>
+
+<p>Now we have the process ready to go, but who will start it? How will it gain access to it? We need to make our Authenticator available for all the apps that want to use it, including the Android settings screen. Since we also want it to run in the background (The log-in screen is optional), using a <a href="http://developer.android.com/reference/android/app/Service.html">Service</a> is the obvious choice.</p>
+
+<h2 id="creating-the-service">Creating the Service</h2>
+
+<p>Our service will be very simple.</p>
+
+<p>All we want to do, is letting other processes bind with our service and communicate with our Authenticator. Luckily for us, the <em>AbstractAccountAuthenticator</em>, which our Authenticator extends, has a <em>getIBinder()</em> method that returns an implementation to <a href="http://developer.android.com/reference/android/os/IBinder.html">IBinder</a>. Our service needs to call it on its <a href="http://developer.android.com/reference/android/app/Service.html#onBind(android.content.Intent)">onBind()</a> method and that it! The basic implementation takes care of calling the appropriate methods on the Authenticator by the request of an outside process. To see how it’s actually done, you can take a look on <em>Transport</em>, an inner class of <em>AbstractAccountAuthenticator</em> and read about <a href="http://developer.android.com/guide/components/aidl.html">AIDL</a> for inter-process communication.</p>
+
+<p>Here’s how our service will look like:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UdinicAuthenticatorService</span> <span class="kd">extends</span> <span class="nc">Service</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">IBinder</span> <span class="nf">onBind</span><span class="o">(</span><span class="nc">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">UdinicAuthenticator</span> <span class="n">authenticator</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UdinicAuthenticator</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">authenticator</span><span class="o">.</span><span class="na">getIBinder</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>..and on the manifest we need to add our service with the</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;service</span> <span class="na">android:name=</span><span class="s">".authentication.UdinicAuthenticatorService"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;intent-filter&gt;</span>
+        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.accounts.AccountAuthenticator"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/intent-filter&gt;</span>
+    <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">"android.accounts.AccountAuthenticator"</span>
+               <span class="na">android:resource=</span><span class="s">"@xml/authenticator"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/service&gt;</span></code></pre></figure>
+
+<p>Simple, huh?</p>
+
+<p>The <em>authenticator.xml</em>, that we link as a resource, is used to define some attributes for our Authenticator. That’s how it looks:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;account-authenticator</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+                       <span class="na">android:accountType=</span><span class="s">"com.udinic.auth_example"</span>
+                       <span class="na">android:icon=</span><span class="s">"@drawable/ic_udinic"</span>
+                       <span class="na">android:smallIcon=</span><span class="s">"@drawable/ic_udinic"</span>
+                       <span class="na">android:label=</span><span class="s">"@string/label"</span>
+                       <span class="na">android:accountPreferences=</span><span class="s">"@xml/prefs"</span><span class="nt">/&gt;</span></code></pre></figure>
+
+<p>Let’s explain some of them:</p>
+
+<p><strong>accountType</strong> is a unique name to identify our account type. Whenever some app wants to authenticate with us, it needs to use this name when approaching the AccountManager.</p>
+
+<p><strong>icon</strong> and <strong>smallIcon</strong> are icons for the account to be seen on the device’s Settings page and on the account approve page (more on that later).</p>
+
+<p><strong>label</strong> is the string that represent our account when listed on the device’s Setting’s page.</p>
+
+<p><strong>accountPreferences</strong> is a reference to a <a href="http://developer.android.com/guide/topics/ui/settings.html#DefiningPrefs">Preferences XML</a>. This will be shown when accessing the account’s preferences from the device Settings screen, allowing the user more control over the account. You can check the stuff Google and Dropbox are letting you change about their account for some examples. Here’s an example of my own:</p>
+
+<p><img src="/assets/images/2013-04-24-write-your-own-android-authenticator/account_prefs.png" alt="account_prefs" /></p>
+
+<h2 id="random-stuff-you-may-want-to-know">Random stuff you may want to know</h2>
+
+<p>During my investigation I ran into some interesting scenarios that I thought I’d share, keeping your hair intact while working with this API.</p>
+
+<ol>
+  <li>Check existing account validity - If you want to get an auth-token for an account name that you stored yourself, check that this account still exist first by using the <em>AccountManager#getAccounts*()</em> methods. I’ll quote the AccountManager’s documentation:</li>
+</ol>
+
+<p>“Requesting an auth token for an account no longer on the device results in an undefined failure.”</p>
+
+<p>For me, the “undefined failure” was to bring the sign-in page and then do nothing after I submitted my credentials, so there you have it.</p>
+
+<ol>
+  <li>
+    <p> First in, first served - Let’s say you copied your authenticator’s code to 2 of your apps, thus sharing its logic, and altering the sign-in pages design on each app to fit the app it belongs to. In that case, the first installed app’s authenticator will be called for <strong>both</strong> apps when an auth-token will be requested. If you uninstall the first app, the second app’s authenticator will be called from now on (since it’s the only one now). A trick to overcome this will be to put both sign-in pages on the same authenticator, then use the <em>addAccountOptions</em> argument on the <em>addAccount()</em> method to pass your design requirment.</p>
+  </li>
+  <li>
+    <p>Sharing is caring..for security - If you try to get an auth-token from an authenticator that was created by a different app, which was signed using a <strong>different signing key</strong>, the user will have to explicitly approve this action. This is what the user will see:</p>
+  </li>
+</ol>
+
+<p><img src="/assets/images/2013-04-24-write-your-own-android-authenticator/access_request.png" alt="access_request" /></p>
+
+<p> The “Full access to..” string is retrieved from the our Authenticator’s _<a href="http://developer.android.com/reference/android/accounts/AbstractAccountAuthenticator.html#getAuthTokenLabel(java.lang.String)">getAuthTokenLabel()</a>. _You can specify different labels for each auth-token type, being more user friendly on cases like this.</p>
+
+<ol>
+  <li>Storing the password - The AccountManager is not secured by any encryption method. The passwords there are <strong>stored in plain text</strong>. You can’t <em>peekAuthToken()</em> to other Authenticators (You’ll get a “caller uid X is different than the authenticator’s uid”), but a root access and some <a href="http://developer.android.com/tools/help/adb.html">adb</a> commands will do the trick. In the sample code I’m storing the password for the convenience of auto-login the user in case of token expiration. It’s the ultimate trade-off between security and convenience. In most cases I would take the secure road, but for some it’s not worth the inconvenience caused to the user. If someone has a root access <strong>and</strong> can run adb commands on your device - he can do much more damage than accessing your user’s “high scores” table..</li>
+</ol>
+
+<h2 id="now-what">Now what?</h2>
+
+<p>Now that you got familiar with this great service, you can <a href="https://play.google.com/store/apps/details?id=com.udinic.accounts_example">download from Google Play the sample authenticator</a> that I wrote. It will allow you to create an “Udinic account” on your device. The authentication will be against a <a href="http://www.parse.com">Parse.com</a> account that I created for this cause. These are the options you get on the sample app:</p>
+
+<h2> <a href="/assets/images/2013-04-24-write-your-own-android-authenticator/sample-app.png"><img src="/assets/images/2013-04-24-write-your-own-android-authenticator/sample-app.png?w=576" alt="sample app" /></a></h2>
+
+<p>The <strong>getAuthToken</strong> button will query first all the Accounts from the type “Udinic” on the device. If there’s one, it’ll return its token by calling <em>AccountManager#getAuthToken()</em>. If there’s more than one, it’ll populate them on a dialog and let you choose which one you want.</p>
+
+<p>The <strong>getAuthTokenByFeatures</strong> calls a cool convenient method on the AccountManager by the same name, that do all the work for you. It’ll query the AccountManager for accounts with the requested type, “Udinic”, and its behavior is as follows:</p>
+
+<ul>
+  <li>
+    <p>There are no accounts: Starts_ addAccount()_ to allow the user to add a new account. After that, it will automatically call <em>getAuthToken()</em> on the created account to get the token for it.</p>
+  </li>
+  <li>
+    <p>There’s one account: Get its auth token.</p>
+  </li>
+  <li>
+    <p>There are 2 accounts or more: Create an account picker dialog and return the token of the account the user picked.</p>
+  </li>
+</ul>
+
+<p>If you want to invalidate the token, you can use the <strong>invalidateAuthToken</strong> button. Note: The Udinic authenticator knows how to recover from invalidated tokens, as seen previously on the sample code for <em>getAuthToken()</em>. Meaning, after invalidating the token the getAuthToken button will still return a token, but it’ll be only after he asks for it again from the server. You can confirm that by looking at the LogCat and see network communication to the server in that case. <strong>Removing the account</strong> is possible only through the device’s settings screen.</p>
+
+<p>You can download the source code from GitHub: <a href="https://github.com/Udinic/AccountAuthenticator">https://github.com/Udinic/AccountAuthenticator</a>. There are 2 sample apps in there, allowing to play around with them since they both share the same Authenticator. For example: Use different signing keys for them and see the different flow for the user when one is asking for auth-token created by the other sample app. You can also try to create an apklib for the authenticator and reuse it across different apps. If you have a fix or a suggestion - don’t hesitate posting it here or as a Pull Request on GitHub.</p>
+
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#Android-ref">
+					Android</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#Security-ref">
+					Security</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+		
+		<ul class="tag_box list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#AbstractAccountAuthenticator-ref">
+					AbstractAccountAuthenticator
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Account-ref">
+					Account
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Account Manager-ref">
+					Account Manager
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#AccountAuthenticator-ref">
+					AccountAuthenticator
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#AccountAuthenticatorActivity-ref">
+					AccountAuthenticatorActivity
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#AccountManager-ref">
+					AccountManager
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#addAccountExplicitly-ref">
+					addAccountExplicitly
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Android-ref">
+					Android
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#auth-token-ref">
+					auth-token
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#authentication-ref">
+					authentication
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#authenticator-ref">
+					authenticator
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#authenticator.xml-ref">
+					authenticator.xml
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#getAuthToken-ref">
+					getAuthToken
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#getAuthTokenByFeatures-ref">
+					getAuthTokenByFeatures
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#invalidateAuthToken-ref">
+					invalidateAuthToken
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#OAuth2-ref">
+					OAuth2
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#peekAuthToken-ref">
+					peekAuthToken
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#security-ref">
+					security
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#setAccountAuthenticatorResult-ref">
+					setAccountAuthenticatorResult
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+
+	<div align="center" class="author-container">
+		<figure class="author-img-post">
+			<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a" class="img-circle author-image" />			
+		</figure>
+        <h4 class="section-title">Written by Udi Cohen</h4>
+	</div>
+	<div class="share-container">					
+      <section class="share" align="center">
+        <p class="section-title">Share this post:</p>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Write your own Android Authenticator&via=udinic"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" 
+           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm reddit"
+           onclick="window.open('http://www.reddit.com/submit?url='+window.location.href+'&title=Write your own Android Authenticator', 'reddit-share', 'width=580,height=530');return false;">
+          <i class="fa fa-reddit fa-lg"></i>
+          Reddit
+        </a>
+      </section>
+
+    </div>
+
+    <!-- <div class="clearfix"></div> -->
+
+	<!-- <hr> -->
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'udinic-blog';
+    var disqus_identifier = '/2013/04/24/write-your-own-android-authenticator/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	</div>
+	
+
+
+
+
+
+
+
+
+</article>
+<div class="clearfix"></div>
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+
