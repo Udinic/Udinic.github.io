@@ -1,0 +1,852 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61317191-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Building CardFlix – A Modern Twist on the Old Movie Shelf</title>
+	
+	<meta name="author" content="Udi Cohen">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/udinic">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/udinic">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+ 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+<!-- 	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+ -->
+	<div class="col-sm-3 sidebar hidden-xs">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<i class="fa fa-cube" ></i>
+	</a>
+
+</header>
+
+<div class="text-center sidebar-title">
+	UDI COHEN
+</div>	
+
+
+<div class="text-center sidebar-bio">
+	My adventures
+</div>
+
+
+	<!-- <i class="fa fa-square"></i> -->
+
+<div class="text-center sidebar-links">
+	<a href="/">Home</a>
+	| 
+	<a href="/archives">Archives</a>	
+	|
+	<a href="/about">About</a>
+</div>
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm twitter" href="https://twitter.com/udinic">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm github" href="https://github.com/udinic">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm linkedin" href="https://linkedin.com/in/udinic">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm rss" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<! -- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3 main-content">
+		<div class="page-header">
+  <h1>Building CardFlix – A Modern Twist on the Old Movie Shelf </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   November 
+	   1st,
+	     
+	   2025
+	 </span>
+	  <div class="article_body">
+	  <p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image11.jpg"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image11.jpg" /></a></p>
+
+<p>Watching TV is one of my favorite activities, but I noticed it’s become too easy for kids (and adults) to fall into the endless loop of short, addictive YouTube videos instead of enjoying a thoughtful episode of a TV show or diving into an adventure movie. I got tired of seeing my kids glued to the screen watching yet another YouTuber attempt a ridiculous “Fast-Food Challenge.”</p>
+
+<p>So I decided to make good content more accessible - and fun to play. The result: watching content on the TV by scanning physical <strong>Movie Cards</strong> with NFC. I call it <strong>CardFlix</strong>.</p>
+
+<div class="media-center">
+<div class="embed-container">
+  <iframe src="https://www.youtube.com/embed/_sqxoAX3GW0" width="540" height="960" frameborder="0" allowfullscreen="">
+  </iframe>
+</div>
+</div>
+<div class="video-caption">
+	CardFlix in action
+</div>
+
+<p>This project was a great opportunity to involve my kids in electronics, showing them how to make something truly useful by building it together.</p>
+
+<p>The scanner runs on <a href="https://esphome.io/"><u>ESPHome</u></a> - a framework that makes creating custom smart devices surprisingly simple, and connects to my <a href="https://www.home-assistant.io/"><u>Home Assistant</u></a> smart home setup. With my kids’ help, we created <strong>over 50 cards</strong> covering all their favorite shows and movies, and the collection keeps growing. It was such a hit that I built a second scanner for another room in our house. To make the scanner blend in, I designed and 3D-printed a small enclosure that matches the décor of the room while keeping the scanner kid-friendly and accessible.</p>
+
+<p>Creating the initial version of this scanner was a fun weekend project. I was able to show my kids the process of bringing an idea to life, in addition to me gaining more confidence creating ESPHome projects, which became more useful for other projects that I’ll share soon.</p>
+
+<h2 id="building-the-electronics">Building the electronics</h2>
+
+<p>The circuit is straightforward: connecting an NFC reader module (<a href="https://amzn.to/3L6np34"><u>PN532</u></a>) to a microcontroller (<a href="https://amzn.to/43rh8oU"><u>ESP8266</u> <u>WeMos D1 mini</u></a>).</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image6.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image6.png" /></a></p>
+<div class="image-caption">
+	Circuit diagram showing the PN532 NFC reader connected to the microcontroller
+</div>
+
+<p>To connect a microcontroller, like the Wemos D1 Mini, to an NFC reader (or other peripherals such as sensors, displays etc.) there are 2 common methods: <strong>I²C</strong> or <strong>SPI</strong>. SPI can handle higher throughput than I²C and is generally faster, which is good if we connect an LCD display and need to move a lot of pixels quickly for it, but it’s not particularly useful for a simple tag scanner. I chose I²C because it’s simpler to hook up, it needs only 2 wires in compare to 4 wires we need to support SPI connection.</p>
+
+<p>One critical step to note here: <strong>set the PN532’s mode correctly</strong>. The board has tiny DIP switches to toggle between I²C and SPI. Make sure these match your chosen mode - otherwise you’ll be staring at a non-responsive scanner and wondering why nothing works. Let’s just say I learned that lesson the hard way…</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image10.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image10.png" /></a></p>
+<div class="image-caption">
+	Flipping the PN532 mode from SPI to I²C
+</div>
+
+<p>Once the correct mode is set, I wired the SDA and SCL pins from the PN532 to the Wemos D1 mini. You can map I²C lines to almost any pins on the microcontroller; I chose <strong>D8</strong> (for SDA) and <strong>D7</strong> (for SCL). These need to match what we’ll later declare in the ESPHome config:</p>
+
+<p>After confirming the wiring, I soldered everything together. A pair of <em>helping hands</em> was invaluable here - keeping the boards aligned so I could stack them neatly and compactly. That’s important, since they need to fit snugly inside the enclosure, as we’ll see later.</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image17.jpg"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image17.jpg" /></a></p>
+<div class="image-caption">
+	Soldered electronics stack help by the helping hands
+</div>
+
+<p>BTW, the reason I picked the <em>Wemos D1 mini</em> as the microcontroller for this project is because of its size. I knew I would need to eventually mount the device near the TV, so having a small form-factor is a useful feature. ESPHome, which we’ll talk about next, supports several other microcontroller types in different shapes and with varied capabilities. Even <a href="https://amzn.to/434jtWK"><u>this baby-chip</u></a> is supported.</p>
+
+<h2 id="smart-home-integration">Smart Home Integration</h2>
+
+<p>With the hardware stacked and soldered, it was ready for the fun part - bringing it to life through ESPHome and tying it into Home Assistant, where we’ll write an automation to make the scanner react to different cards.</p>
+
+<p>If you’re not already using <a href="https://www.home-assistant.io/">Home Assistant</a>, it’s an open-source smart-home platform that brings all your devices together - TVs, phones, sensors, air conditioners, and much more. You can easily run it on a Raspberry Pi, an old PC, or a virtual machine, so even if this is your first smart-home experiment, you can still install it just for this project</p>
+<h3 id="esphome-config-basics">ESPHome Config Basics</h3>
+
+<p>The scanner runs on <a href="https://esphome.io/"><u>ESPHome</u></a>, which makes connecting hardware like the PN532 reader almost trivial. Instead of writing firmware, you just declare the pins and components in YAML, and ESPHome takes care of the rest.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">esphome</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">cardflix_scanner</span>
+  <span class="na">platform</span><span class="pi">:</span> <span class="s">ESP8266</span>
+  <span class="na">board</span><span class="pi">:</span> <span class="s">d1_mini</span>
+
+<span class="na">i2c</span><span class="pi">:</span>
+  <span class="na">sda</span><span class="pi">:</span> <span class="s">D8</span>  <span class="c1"># The pins we connected earlier</span>
+  <span class="na">scl</span><span class="pi">:</span> <span class="s">D7</span>
+  <span class="na">scan</span><span class="pi">:</span> <span class="no">true</span>  <span class="c1"># optional, helps confirm wiring</span>
+
+<span class="na">pn532_i2c</span><span class="pi">:</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s">nfc_reader</span>
+</code></pre></div></div>
+
+<p>(<a href="https://gist.github.com/Udinic/dd0198f7b6b6fc5699ca6cc5079ad70f"><u>Full ESPSHome config yaml code</u></a>)</p>
+
+<p>“Installing” this config on our microcontroller involves connecting it to the computer and using 2 web tools that do everything. The first tool, <em>ESPHome Builder</em> (a Home Assistant Add-on), parses the yaml config and generates the firmware based on the info on that config. The second tool, <a href="https://web.esphome.io/?dashboard_wizard"><u>ESPHome Web</u></a>, connects to your device via USB cable and flashes the firmware onto it. There are plenty of good instructions for the process, such as <a href="https://www.youtube.com/watch?v=cfkW7ZmiMEw&amp;t=759s"><u>this youtube video</u></a> or the <a href="https://esphome.io/guides/getting_started_hassio/"><u>official ESPHome instructions</u></a>.</p>
+
+<h3 id="from-esphome--home-assistant">From ESPHome → Home Assistant</h3>
+
+<p>Once the firmware is loaded onto the Wemos D1 mini, Home Assistant automatically detects the device and prompts you to add it as an integration.</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image5.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image5.png" /></a></p>
+<div class="image-caption">
+	Home Assistant integration setup screen
+</div>
+
+<p>From there, the scanner can report any NFC tags it detects. Home Assistant has an Event Listening feature under Developer Tools, a quick scan of any card, while listening to “tag_scanned” events, will show some useful data for the card and the tag scanner. <em>tag_id</em> is the card’s unique ID and <em>device_id</em> is the tag scanner’s unique ID.</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image19.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image19.png" /></a></p>
+<div class="image-caption">
+	Event Listener showing tag_scanned event data
+</div>
+
+<p>We <em>could</em> also write data onto the cards, but we won’t do that here. There’s no need to complicate the process of onboarding new movie cards, since each card already has a permanent unique identifier (the <em>tag_id</em> we see above). We’ll design an automation that maps each card’s Tag ID to the content we need to play.</p>
+
+<h3 id="writing-the-automation">Writing the Automation</h3>
+
+<p>There are a few ways to set up the automation. I liked the structure Xavier at <a href="https://simplyexplained.com/blog/how-i-built-an-nfc-movie-library-for-my-kids/"><em><u>Simply Explained</u></em></a> shared, it keeps the mapping of Tag IDs to content easy to read and update.</p>
+
+<p>I made a few changes of my own:</p>
+
+<ul>
+  <li>
+    <p>Support for multiple scanners (so different rooms can have their own devices).</p>
+  </li>
+  <li>
+    <p>Some tweaks to handle different types of content (Plex, Netflix, etc.).</p>
+  </li>
+</ul>
+
+<p>Here’s how it works.</p>
+
+<p><strong>1. The automation’s trigger - scanning a card.</strong><br />
+The trigger is a <em>tag_scanned</em> event, the same one we saw earlier when testing the scanner using the Developer Tools. The automation will be triggered when such an event is fired.</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image7.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image7.png" /></a></p>
+<div class="image-caption">
+	The Automation's trigger configuration for tag_scanned events
+</div>
+
+<p><strong>2. Defining the variables we need.</strong><br />
+These are the variables the automation uses:</p>
+<ul>
+  <li><strong>SCANNER_MAPPING</strong> - A simple mapping between Scanner IDs to the TV entity they should operate on. This will ensure that the scanner in the bedroom will start any playback on the Bedroom TV and not other TVs. We can get the Scanner ID using the Event Listener tool we saw earlier.</li>
+  <li><strong>TARGET_TV</strong> - This variable resolves to the TV entity the automation needs to target, based on the Scanner ID that was provided by the <em>tag_scanned</em> event (<em>trigger.event.data.device_id</em> = The Scanner ID). This also defines the default TV in case the scanner is not mapped to any specific TV (In this case, the default is Living Room TV).</li>
+  <li><strong>CARD_MAPPING</strong> - Maps each card’s Tag ID to the content it should play.</li>
+</ul>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image2.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image2.png" /></a></p>
+<div class="image-caption">
+	The automation's variables, we'll mostly update CARD_MAPPING with Tag IDs and content IDs
+</div>
+
+<p>Each card mapping includes the Tag ID, a name (just for readability) and the Content ID. The automation supports a few content types, for several streaming services and Plex. We’ll see below how we deep link to open the content.</p>
+
+<p><strong>3. Turning on the TV, if needed</strong><br />
+The TARGET_TV variable holds the TV we’re targeting, we’ll check its status and turn it on if needed.</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image18.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image18.png" /></a></p>
+<div class="image-caption">
+	TV power control logic in the automation
+</div>
+
+<p><strong>4. Start the requested content using the content mapping defined in CARD_MAPPING</strong><br />
+Each streaming service has its own Deep Link format. For each content we’ll check the streaming service it’s using, retrieve the correct deep link format and use it with the content’s ID to start the playback.</p>
+
+<p>In the example below, looking up the Tag ID in CARD_MAPPING provided a “netflix_id”, which we used as part of the Netflix Deep Link URL, like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.netflix.com/watch/&lt; CARD_MAPPING[trigger.event.data.tag_id].netflix_id &gt;
+</code></pre></div></div>
+
+<p>The URL is sent to my Apple TV as a “Play Media” request.</p>
+
+<p>This URL works on an Apple TV, which is connected to my TV. It’s possible other media devices, such as Smart TVs, would have different requirements to deep link to a specific content.</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image20.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image20.png" /></a></p>
+<div class="image-caption">
+	The flow of playing a Netflix content in the automation
+</div>
+
+<p>These are the main logic of the automation, the full yaml code is <a href="https://gist.github.com/Udinic/5686171f45b45baca0a10299ac2c6852"><u>available here</u></a>.</p>
+
+<h4 id="deep-linking-to-content">Deep Linking to Content</h4>
+
+<p>Deep links are URLs that open a specific content on a specific streaming service. Not all of them are properly documented and some of them might not work on every streaming device (e.g. Apple TV, Smart TVs, Roku device). These are the Deep Link URLs that I found to be working on an Apple TV:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Service</strong></th>
+      <th><strong>URL Format</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Disney+</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">https://www.disneyplus.com/en-gb/play/&lt;Content ID&gt;</code></td>
+    </tr>
+    <tr>
+      <td><strong>Netflix</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">https://www.netflix.com/watch/&lt;Content ID&gt;</code></td>
+    </tr>
+    <tr>
+      <td><strong>Hulu</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">hulu://watch/&lt;Content ID&gt;</code></td>
+    </tr>
+    <tr>
+      <td><strong>Plex Movie/TV</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">plex://play/?metadataKey=%2Flibrary%2Fmetadata%2F&lt;Content ID&gt;&amp;server=&lt;Plex server ID&gt;</code></td>
+    </tr>
+    <tr>
+      <td><strong>Plex Playlist</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">plex://play/?metadataKey=%2Fplaylists%2F&lt;Content ID&gt;&amp;server=&lt;Plex server ID&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The Content ID can be retrieved by opening the content on your browser and checking the URL.</p>
+
+<p>Tip: Using a Plex playlist is a great way to watch random episodes of some TV Show(s), perfect for shows the kids have already watched a hundred times. <a href="https://forums.plex.tv/t/tip-how-to-create-an-autoplaylist-with-random-sort/472823"><u>Instructions on how to do that</u></a>.</p>
+
+<p>And here’s the automation in action:</p>
+
+<div class="media-center">
+<div class="embed-container">
+  <iframe src="https://www.youtube.com/embed/Z5VRNPnNeZE" width="540" height="960" frameborder="0" allowfullscreen="">
+  </iframe>
+</div>
+</div>
+<div class="video-caption">
+	Demo video testing the automation
+</div>
+
+<h2 id="creating-the-content-cards">Creating the Content Cards</h2>
+
+<p>The electronics and automations are only half the story — the real magic (and the part my kids loved most) was creating the movie cards themselves.</p>
+
+<p>Each card is laminated with the TV/Movie’s artwork. The laminate not only makes the cards sturdy enough for repeated use, but also gives them that satisfying “real card” feel</p>
+
+<p>We used <a href="https://fanart.tv/"><u>fanart.tv</u></a> as our main source for high-quality TV and movie artwork. It has a huge collection of posters, logos, and backgrounds that work perfectly for this kind of project. Once we picked the right art, we copied it into a Google Doc and resized it to the dimensions of a credit card (Tip: resize to Width 2.12 inch, Height: 3.36 inch, Ratio: 1.583333). We put a few posters on a single page and printed it.</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image12.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image12.png" /></a></p>
+<div class="image-caption">
+	Arranging the movie posters for printing
+</div>
+
+<p>The printed poster we put on top of the card, slipped into a <a href="https://amzn.to/4htrRoL"><u>Laminating Pouch</u></a> and from there straight to the laminating machine. The <a href="https://amzn.to/47kbCad"><u>one I got</u></a> is cheap (under $20) and it served us well in several projects, definitely nice to have around the house.</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image21.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image21.png" /></a></p>
+<div class="image-caption">
+	My daughter Emma is showing how we lamindate a movie card
+</div>
+
+<h3 id="onboarding-a-new-card">Onboarding a New Card</h3>
+
+<p>Once the physical card is ready, the final step is onboarding it into Home Assistant. To make things easier, I’ve added to the automation a fallback in case we scan a card that’s not assigned to any content, which prints the card’s Tag ID to Home Assistant’s Logbook.</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image1.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image1.png" /></a></p>
+<div class="image-caption">
+	The "Else" clause of the automation, printing the card's Tag ID to the Logbook
+</div>
+
+<p>This is how the Logbook entry looks like:</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image3.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image3.png" /></a></p>
+<div class="image-caption">
+	Home Assistant's Logbook entry detailing the Tag ID of a new card to onboard
+</div>
+
+<p>Then all we need is to add a new entry in the CARD_MAPPING variable inside our automation:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">CARD_MAPPING</span><span class="pi">:</span>
+    <span class="s">...</span>
+    <span class="s">3D-1A-D6-FD</span><span class="err">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s">Octonauts</span>
+        <span class="na">netflix_id</span><span class="pi">:</span> <span class="m">80023363</span>
+</code></pre></div></div>
+
+<p>By streamlining this process we made it very easy to grow the collection. Every time we want to add a few new TV Shows or Movies - I would search the content IDs in the streaming services, while my kids handle the card laminating step and we would meet at the end by scanning the cards and adding the new mapping for each new card. We don’t need to leave the house for a fun family activity.</p>
+
+<h2 id="3d-printing-the-enclosureand-more">3D Printing the Enclosure..and more</h2>
+
+<p>With the electronics and cards ready, the last step was giving the scanner a proper home. I wanted it to be accessible for the kids while being subtle enough to blend into the room’s décor.</p>
+
+<p>Instead of designing something from scratch, I started with an existing enclosure I found online and personalized it with a simple logo that ChatGPT helped create. The result was a clean, kid-friendly enclosure with a custom logo that makes it feel like a finished product.</p>
+
+<p><a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image4.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image4.png" /></a></p>
+<div class="image-caption">
+	Desgining a 3D printed enclosure with a custom CardFlix logo on the BambuLab Slicer
+</div>
+
+<p>I printed the design on my Bambu Lab printer, using standard PLA. The compact stack of the electronics fit snugly inside, with just enough room for the wires and solder joints.</p>
+
+<table class="side-by-side">
+  <tr>
+    <td>
+      <a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image15.jpg"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image15.jpg" /></a>
+    </td>
+    <td>
+      <a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image16.jpg"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image16.jpg" /></a>
+    </td>
+  </tr>
+</table>
+<div class="image-caption">
+	3D printed enclosure assembly and final mounted scanner
+</div>
+
+<p>You can download the enclosure from <a href="https://makerworld.com/en/models/1924849-cardflix-enclosure#profileId-2065641"><u>here</u></a>.</p>
+
+<p>To keep the cards organized and accessible I created 2 boxes - one to hold a large group of cards, another for holding a small group of “most favorite” cards next to the reader.</p>
+
+<table class="side-by-side">
+  <tr>
+    <td>
+      <a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image8.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image8.png" /></a>
+    </td>
+    <td>
+      <a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image9.png"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image9.png" /></a>
+    </td>
+  </tr>
+</table>
+<div class="image-caption">
+	Card storage boxes - large collection box and slim favorites box
+</div>
+<p>And in case you wonder, there are 4 Bluey cards in those boxes…</p>
+
+<p>Links to the 3D models: <a href="https://makerworld.com/en/models/1924938-card-box-for-cardflix#profileId-2065737"><u>Cards box</u></a> / <a href="https://makerworld.com/en/models/1924909-card-box-for-cardflix-slim#profileId-2065705"><u>Cards box (slim)</u></a></p>
+
+<h2 id="bringing-it-all-together">Bringing It All Together</h2>
+
+<p>With the hardware soldered, the enclosure printed, the Movie Cards laminated, and the automation wired into Home Assistant - it was time for the payoff.</p>
+
+<table class="side-by-side">
+  <tr>
+    <td>
+      <a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image13.jpg"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image13.jpg" /></a>
+    </td>
+    <td>
+      <a href="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image14.jpg"><img src="/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image14.jpg" /></a>
+    </td>
+  </tr>
+</table>
+<div class="image-caption">
+	Complete CardFlix setup showing scanner and card collection
+</div>
+
+<p>Here’s a short demo of the scanner in action:</p>
+
+<div class="media-center">
+<div class="embed-container">
+  <iframe src="https://www.youtube.com/embed/jGjedY8tdiY" width="540" height="960" frameborder="0" allowfullscreen="">
+  </iframe>
+</div>
+</div>
+<div class="video-caption">
+	Final demo video - this is how we usually play content, using the "most favorites" box.
+</div>
+
+<p>No menus, no remotes, no digging through apps. Just the card, the scanner, and the content.</p>
+
+<p>It’s been a huge success in our house - my kids love the ritual of picking a card and watching it come to life, and it gives them a healthier, more intentional way to choose what to watch.</p>
+
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+
+<p>This project started as a way to combine electronics tinkering with something useful for the family, and it turned into one of our favorite weekend builds. Between the hands-on soldering, designing the cards, and the 3D-printed enclosure, everyone got a part to play - and the end result is something truly useful.</p>
+
+<p>If you’d like to build your own, all the relevant links to get you through that are below. And if you do make one - I’d love to hear about it!</p>
+
+<h3 id="links">Links</h3>
+
+<p>Electronics:</p>
+
+<ul>
+  <li>
+    <p><a href="https://amzn.to/43rh8oU"><u>Microcontroller: WeMos D1 Mini</u></a></p>
+  </li>
+  <li>
+    <p><a href="https://amzn.to/3L6np34"><u>NFC Reader: PN532</u></a></p>
+  </li>
+</ul>
+
+<p>Code:</p>
+
+<ul>
+  <li>
+    <p><a href="https://gist.github.com/Udinic/dd0198f7b6b6fc5699ca6cc5079ad70f"><u>ESPHome config yaml</u></a></p>
+  </li>
+  <li>
+    <p><a href="https://gist.github.com/Udinic/5686171f45b45baca0a10299ac2c6852"><u>Home Assistant Automation yaml</u></a></p>
+  </li>
+</ul>
+
+<p>Lamination:</p>
+
+<ul>
+  <li>
+    <p><a href="https://amzn.to/47kbCad"><u>Crenova Laminator Machine</u></a></p>
+  </li>
+  <li>
+    <p><a href="https://amzn.to/4htrRoL"><u>Laminating Pouches, card-sized</u></a></p>
+  </li>
+</ul>
+
+<p>3D Print Models:</p>
+
+<ul>
+  <li>
+    <p><a href="https://makerworld.com/en/models/1924849-cardflix-enclosure#profileId-2065641"><u>Enclosure</u></a></p>
+  </li>
+  <li>
+    <p><a href="https://makerworld.com/en/models/1924938-card-box-for-cardflix#profileId-2065737"><u>Card Box (Large)</u></a></p>
+  </li>
+  <li>
+    <p><a href="https://makerworld.com/en/models/1924909-card-box-for-cardflix-slim#profileId-2065705"><u>Card Box (Slim)</u></a></p>
+  </li>
+</ul>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#Home Automation-ref">
+					Home Automation</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#Electronics-ref">
+					Electronics</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#3D Printing-ref">
+					3D Printing</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+		
+		<ul class="tag_box list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#electronics-ref">
+					electronics
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#NFC-ref">
+					NFC
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#PN532-ref">
+					PN532
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Wemos D1 Mini-ref">
+					Wemos D1 Mini
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#ESPHome-ref">
+					ESPHome
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Home Assistant-ref">
+					Home Assistant
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Arduino-ref">
+					Arduino
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#ESP32-ref">
+					ESP32
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#ESP8266-ref">
+					ESP8266
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Tag scanner-ref">
+					Tag scanner
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#RFID-ref">
+					RFID
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Plex-ref">
+					Plex
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#TV Shows-ref">
+					TV Shows
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Movies-ref">
+					Movies
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Kids-ref">
+					Kids
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Lamination-ref">
+					Lamination
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#3D Printing-ref">
+					3D Printing
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#i2c-ref">
+					i2c
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#SPI-ref">
+					SPI
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Deep linking-ref">
+					Deep linking
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Hulu-ref">
+					Hulu
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Netflix-ref">
+					Netflix
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Apple TV-ref">
+					Apple TV
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+
+	<div align="center" class="author-container">
+		<figure class="author-img-post">
+			<img src="http://www.gravatar.com/avatar/107169775092a3ef4ae94fad5695613a" class="img-circle author-image" />			
+		</figure>
+        <h4 class="section-title">Written by Udi Cohen</h4>
+	</div>
+	<div class="share-container">					
+      <section class="share" align="center">
+        <p class="section-title">Share this post:</p>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Building CardFlix – A Modern Twist on the Old Movie Shelf&via=udinic"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" 
+           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm reddit"
+           onclick="window.open('http://www.reddit.com/submit?url='+window.location.href+'&title=Building CardFlix – A Modern Twist on the Old Movie Shelf', 'reddit-share', 'width=580,height=530');return false;">
+          <i class="fa fa-reddit fa-lg"></i>
+          Reddit
+        </a>
+      </section>
+
+    </div>
+
+    <!-- <div class="clearfix"></div> -->
+
+	<!-- <hr> -->
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'udinic-blog';
+    var disqus_identifier = '/2025/11/01/building-cardflix-a-modern-twist-on-the-old-movie-shelf/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	</div>
+	
+
+
+
+
+
+
+
+
+</article>
+<div class="clearfix"></div>
+
+
+
+		<footer>
+			<p>
+				&copy; 2025 Udi Cohen with Jekyll. Theme: Customized (based of <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek).
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+

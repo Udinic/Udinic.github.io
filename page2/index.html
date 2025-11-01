@@ -172,6 +172,92 @@
 
   <span class="post-date">
     
+    May
+    16th,
+    
+    2013
+  </span>
+
+  <h2>
+    <a href="/2013/05/16/create-a-secret-doorway-to-your-app/">Create a secret doorway to your app</a>
+  </h2>
+
+  <div>
+    
+    
+       <p>This short post will be about creating a back-door to your app, giving you the option to provide more information or actions than you want end users to have. This will be using the Secret Code feature.</p>
+
+<p>I came across some articles with list of codes in order to access some phone’s data (i.e. Camera’s firmware spec.), run some tests (i.e. Vibration test) or even perform actions such as reset to factory settings. Some examples can be found <a href="http://www.redmondpie.com/hidden-android-secret-codes-for-samsung-htc-motorola-sony-lg-and-other-devices/">here</a> and <a href="http://www.itworld.com/consumerization-it/351248/debug-your-phone-these-hidden-android-secret-codes">here</a> and even as <a href="https://play.google.com/store/apps/details?id=cx.makaveli.androidsecretcodes&amp;hl=en">an app</a> that indexes all that information.</p>
+
+<h2 id="create-your-own">Create your own</h2>
+
+<p>Creating your own secret doorway for your app can help you get more information from users of your app in a time of need. Getting crash reports from end users can be done by several services such as ACRA or BugSense, but how about errors that are not crashes? How many times did your Mom/Spouse/Friend/Mailman showed you their phone, running your app, and said something like: “Why do I see duplicates on the list here?! Why can’t I sync??”. You probably can’t do anything without debugging the app or at least take a look at the app’s SharedPrefs/SQLiteDB. Using a backdoor can help you get more internal information that will help you find the cause for the problem, no computer is necessary!</p>
+
+<p>Another cool thing is providing more actions to do with your app. You want to keep the app clean for your users, but you might want more power to yourself. You can tweak your internal settings, whether for testing purposes or just to try out new features on your everyday use. Not needing to compile a new version after each change of internal setting, can help a lot in the task of identifying tricky problems.</p>
+
+<h2 id="examples">Examples</h2>
+
+<p>Before learning how you can create your own secret code to do some cool stuff, let’s review some use cases that you can use it for:</p>
+
+<ul>
+  <li>
+    <p>Diagnose information - Presenting technical details of you app, such as generated UUID that can be used to find relevant server data.</p>
+  </li>
+  <li>
+    <p>Send internal data outside - You can dump app information, such as the SharedPrefs/DB data, and send it to you via email. Since this code runs on the same process as your app - you have access to everything!</p>
+  </li>
+  <li>
+    <p>Change settings - You can change the internal settings of your app. Showing more debug logs, communicating with a different server or even change the sorting order of the list you present the user. Anything that can help you understand more about the current situation of the app.</p>
+  </li>
+  <li>
+    <p>Demo mode - Need to show your app to investors? Showoff to your Friends? You can create shortcuts to some app features that are relatively difficult to simulate. For example: Notification that triggers every morning or when the phone is idle for more than 30mins. Maybe a SMS/phone-call triggered action, QR code scan or a sensor’s incoming data. You can create a demo screen to start everything you want to show on the app, and with sample data to make a neat presentation.</p>
+  </li>
+</ul>
+
+<h2 id="how">How?</h2>
+
+<p>Let’s see how to create one of our own secret code:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;receiver</span> <span class="na">android:name=</span><span class="s">".receiver.DiagnoserReceiver"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;intent-filter&gt;</span>
+        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.provider.Telephony.SECRET_CODE"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;data</span> <span class="na">android:scheme=</span><span class="s">"android_secret_code"</span> <span class="na">android:host=</span><span class="s">"111222"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/receiver&gt;</span></code></pre></figure>
+
+<p>That’s what you put on your manifest. Looks simple right? All we do is provide a listener to a secret code, defined in a &lt;data&gt; tag as the “android:host” attribute, and declare a receiver for it. On the receiver, we can just run some code, open an Activity, run a Service etc. Here’s an example of a receiver that starts a new Activity:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DiagnoserReceiver</span> <span class="kd">extends</span> <span class="nc">BroadcastReceiver</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="s">"android.provider.Telephony.SECRET_CODE"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">intent</span><span class="o">.</span><span class="na">getAction</span><span class="o">()))</span> <span class="o">{</span>
+            <span class="nc">Intent</span> <span class="n">i</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">(</span><span class="nc">Intent</span><span class="o">.</span><span class="na">ACTION_MAIN</span><span class="o">);</span>
+            <span class="n">i</span><span class="o">.</span><span class="na">setClass</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="nc">Diagnoser</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+            <span class="n">i</span><span class="o">.</span><span class="na">setFlags</span><span class="o">(</span><span class="nc">Intent</span><span class="o">.</span><span class="na">FLAG_ACTIVITY_NEW_TASK</span><span class="o">);</span>
+            <span class="n">context</span><span class="o">.</span><span class="na">startActivity</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+	 <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>We create an intent with the Activity class, Diagnoser, and start it. That activity will run on the same process as our app, allowing us to access all the data that our app has, using all the permissions that our app has been granted with.</p>
+
+<h2 id="use-it">Use it</h2>
+
+<p>To start our diagnose screen, all you need to do is go to the phone’s <strong>stock</strong> dialer (third party dialers not always work with secret codes) and dial the secret code you defined in the “android:host” attribute on the manifest, in the following pattern: “<em>#</em>#<secret-code>#*#*. In our example, you'll need to dial *#*#111222#*#*, the DiagnoserReceiver will receive the intent and start the Diagnoser activity.</secret-code></p>
+
+<p>That’s it. I hope this post helped you get more from your app. If you have more ideas for use cases for this feature - write them on the comments to help us all exploit this nice feature.</p>
+
+       
+    
+    
+  </div>
+
+</article>
+
+  
+<article class="home">
+
+  <span class="post-date">
+    
     April
     24th,
     
@@ -1050,57 +1136,6 @@ The <strong>colsToRemove</strong> is an array of columns we want to remove from 
 <p>That’s it! Let the columns’ dropping frenzy begin! You can also use this method to support the missing RENAME COLUMN command. The badly-named columns days are over, no more columns like “task_title_which_is_shared_via_email”. Just rename them!</p>
 
 <p>On my next posts I’ll publish some of my useful scripts to help me develop and test more efficiently.</p>
-
-       
-    
-    
-  </div>
-
-</article>
-
-  
-<article class="home">
-
-  <span class="post-date">
-    
-    March
-    2nd,
-    
-    2012
-  </span>
-
-  <h2>
-    <a href="/2012/03/02/experiences-from-mobile-world-congress-2012/">Experiences from Mobile World Congress 2012</a>
-  </h2>
-
-  <div>
-    
-    
-       <p>I’ve decided to write my next post about my time at the Mobile World Congress in Barcelona. Google invited us, Any.DO, to present our product at the Android booth. We gladly accepted the invitation, getting 3 of us on the plane there, including yours truly.</p>
-
-<p>Any.DO had great success lately. We crossed the 1 Million users bar and got selected as one of the 10 best apps for Android by <a href="http://www.pcmag.com/slideshow_viewer/0,3253,l%3D258539%26a%3D258536%26po%3D1,00.asp?p=n">PC Magazine</a>, <a href="http://techcrunch.com/2011/12/24/top-30-android-apps-2011/">TechCrunch</a> and <a href="http://www.nytimes.com/2011/12/29/technology/personaltech/in-2011-app-developers-turned-attention-to-android.html">The New York Times</a>. Pretty impressive for an app exists for only 4 months. Any.DO also got featured (for the third time!) on the Android Market a day before the MWC began, which gave us lots of traffic and a simpler way to tell people how to download the app – just open the Android Market and it’s on the front page!</p>
-
-<p>The time on the Android booth was amazing! Google really put an effort getting this booth to be the coolest in the entire MWC, and it’s one big ass convention! They had a big slide, Android shaped ice cream sandwiches, 3 different flavors of shakes, Android collectable dolls and other fun stuff like the pins-mania – over 80 different Android shaped pins, scattered along the booth and Android’s partners booths.</p>
-
-<p><a href="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/img_20120227_102409.jpg"><img src="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/img_20120227_102409_thumb.jpg" alt="IMG_20120227_102409" /></a></p>
-
-<p>Collecting all of the Android shaped pins quickly became a game and created a free-market for pins trading. The craziest trade I was witness to was about 20 pins for only 1, the last pin that guy had needed to complete the whole collection. Now he’s probably logging in to eBay…</p>
-
-<p><a href="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/img_20120301_101849.jpg"><img src="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/img_20120301_101849_thumb.jpg" alt="IMG_20120301_101849" /></a></p>
-
-<p>Our time at the stand was fun, we met lots of Any.DO users who came to compliment us about the app, which is always fun to hear, aside to people who never heard about us and were amazed by its capabilities and interface. My demonstration got recorded for <a href="http://blog.laptopmag.com/any-do-app-beams-tasks-to-friends-follows-up-on-missed-calls">Laptop Magazine</a> for a piece they wrote about us, you’re welcome to <a href="http://blog.laptopmag.com/any-do-app-beams-tasks-to-friends-follows-up-on-missed-calls">check it out</a>. It was quite exhausting to explain the app for each one (By my calculations, I’ve done it for about 100 times!), but it was rewarding to see all those people get excited about Any.DO as we are.</p>
-
-<p><a href="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/img_20120227_093656.jpg"><img src="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/img_20120227_093656_thumb.jpg" alt="IMG_20120227_093656" /></a></p>
-
-<p>Android hosted a party for the exhibitors on the booth and Android’s partners booths. It was on a big club, with open bar and food (yep, even ice cream sandwiches were given out there). I had a great time, maybe it was the Jack Daniels I drank like water, and we also got some kind of Android shaped radio/speakers and a special pin that became the rarest pin on the convention 2 days later (the one that got traded for 20 pins – was from that type). Functioning on the next morning was a real challenge for us <img src="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/wlemoticon-smile.png" alt="Smile" />.</p>
-
-<p><a href="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/img_20120228_233827.jpg"><img src="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/img_20120228_233827_thumb.jpg" alt="IMG_20120228_233827" /></a></p>
-
-<p>We finished the convention with a toast with the Google team and all the other exhibitors on the booth, drank some beer and got some more freebies to take home.</p>
-
-<p><a href="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/img_20120301_172224.jpg"><img src="/assets/images/2012-03-02-experiences-from-mobile-world-congress-2012/img_20120301_172224_thumb.jpg" alt="IMG_20120301_172224" /></a></p>
-
-<p>Well, that’s about it. Now we’re back home, trying to divide the loot we collected. I know I didn’t write about tech issues for a long time, It’s due to the convention’s preparations and some big features coming to Any.DO, but the next one is coming, see you there!</p>
 
        
     

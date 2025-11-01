@@ -7,6 +7,411 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Building CardFlix – A Modern Twist on the Old Movie Shelf</title>
+				<description>&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image11.jpg&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image11.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Watching TV is one of my favorite activities, but I noticed it’s become too easy for kids (and adults) to fall into the endless loop of short, addictive YouTube videos instead of enjoying a thoughtful episode of a TV show or diving into an adventure movie. I got tired of seeing my kids glued to the screen watching yet another YouTuber attempt a ridiculous “Fast-Food Challenge.”&lt;/p&gt;
+
+&lt;p&gt;So I decided to make good content more accessible - and fun to play. The result: watching content on the TV by scanning physical &lt;strong&gt;Movie Cards&lt;/strong&gt; with NFC. I call it &lt;strong&gt;CardFlix&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;media-center&quot;&gt;
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/_sqxoAX3GW0&quot; width=&quot;540&quot; height=&quot;960&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;video-caption&quot;&gt;
+	CardFlix in action
+&lt;/div&gt;
+
+&lt;p&gt;This project was a great opportunity to involve my kids in electronics, showing them how to make something truly useful by building it together.&lt;/p&gt;
+
+&lt;p&gt;The scanner runs on &lt;a href=&quot;https://esphome.io/&quot;&gt;&lt;u&gt;ESPHome&lt;/u&gt;&lt;/a&gt; - a framework that makes creating custom smart devices surprisingly simple, and connects to my &lt;a href=&quot;https://www.home-assistant.io/&quot;&gt;&lt;u&gt;Home Assistant&lt;/u&gt;&lt;/a&gt; smart home setup. With my kids’ help, we created &lt;strong&gt;over 50 cards&lt;/strong&gt; covering all their favorite shows and movies, and the collection keeps growing. It was such a hit that I built a second scanner for another room in our house. To make the scanner blend in, I designed and 3D-printed a small enclosure that matches the décor of the room while keeping the scanner kid-friendly and accessible.&lt;/p&gt;
+
+&lt;p&gt;Creating the initial version of this scanner was a fun weekend project. I was able to show my kids the process of bringing an idea to life, in addition to me gaining more confidence creating ESPHome projects, which became more useful for other projects that I’ll share soon.&lt;/p&gt;
+
+&lt;h2 id=&quot;building-the-electronics&quot;&gt;Building the electronics&lt;/h2&gt;
+
+&lt;p&gt;The circuit is straightforward: connecting an NFC reader module (&lt;a href=&quot;https://amzn.to/3L6np34&quot;&gt;&lt;u&gt;PN532&lt;/u&gt;&lt;/a&gt;) to a microcontroller (&lt;a href=&quot;https://amzn.to/43rh8oU&quot;&gt;&lt;u&gt;ESP8266&lt;/u&gt; &lt;u&gt;WeMos D1 mini&lt;/u&gt;&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image6.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image6.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	Circuit diagram showing the PN532 NFC reader connected to the microcontroller
+&lt;/div&gt;
+
+&lt;p&gt;To connect a microcontroller, like the Wemos D1 Mini, to an NFC reader (or other peripherals such as sensors, displays etc.) there are 2 common methods: &lt;strong&gt;I²C&lt;/strong&gt; or &lt;strong&gt;SPI&lt;/strong&gt;. SPI can handle higher throughput than I²C and is generally faster, which is good if we connect an LCD display and need to move a lot of pixels quickly for it, but it’s not particularly useful for a simple tag scanner. I chose I²C because it’s simpler to hook up, it needs only 2 wires in compare to 4 wires we need to support SPI connection.&lt;/p&gt;
+
+&lt;p&gt;One critical step to note here: &lt;strong&gt;set the PN532’s mode correctly&lt;/strong&gt;. The board has tiny DIP switches to toggle between I²C and SPI. Make sure these match your chosen mode - otherwise you’ll be staring at a non-responsive scanner and wondering why nothing works. Let’s just say I learned that lesson the hard way…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image10.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image10.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	Flipping the PN532 mode from SPI to I²C
+&lt;/div&gt;
+
+&lt;p&gt;Once the correct mode is set, I wired the SDA and SCL pins from the PN532 to the Wemos D1 mini. You can map I²C lines to almost any pins on the microcontroller; I chose &lt;strong&gt;D8&lt;/strong&gt; (for SDA) and &lt;strong&gt;D7&lt;/strong&gt; (for SCL). These need to match what we’ll later declare in the ESPHome config:&lt;/p&gt;
+
+&lt;p&gt;After confirming the wiring, I soldered everything together. A pair of &lt;em&gt;helping hands&lt;/em&gt; was invaluable here - keeping the boards aligned so I could stack them neatly and compactly. That’s important, since they need to fit snugly inside the enclosure, as we’ll see later.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image17.jpg&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image17.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	Soldered electronics stack help by the helping hands
+&lt;/div&gt;
+
+&lt;p&gt;BTW, the reason I picked the &lt;em&gt;Wemos D1 mini&lt;/em&gt; as the microcontroller for this project is because of its size. I knew I would need to eventually mount the device near the TV, so having a small form-factor is a useful feature. ESPHome, which we’ll talk about next, supports several other microcontroller types in different shapes and with varied capabilities. Even &lt;a href=&quot;https://amzn.to/434jtWK&quot;&gt;&lt;u&gt;this baby-chip&lt;/u&gt;&lt;/a&gt; is supported.&lt;/p&gt;
+
+&lt;h2 id=&quot;smart-home-integration&quot;&gt;Smart Home Integration&lt;/h2&gt;
+
+&lt;p&gt;With the hardware stacked and soldered, it was ready for the fun part - bringing it to life through ESPHome and tying it into Home Assistant, where we’ll write an automation to make the scanner react to different cards.&lt;/p&gt;
+
+&lt;p&gt;If you’re not already using &lt;a href=&quot;https://www.home-assistant.io/&quot;&gt;Home Assistant&lt;/a&gt;, it’s an open-source smart-home platform that brings all your devices together - TVs, phones, sensors, air conditioners, and much more. You can easily run it on a Raspberry Pi, an old PC, or a virtual machine, so even if this is your first smart-home experiment, you can still install it just for this project&lt;/p&gt;
+&lt;h3 id=&quot;esphome-config-basics&quot;&gt;ESPHome Config Basics&lt;/h3&gt;
+
+&lt;p&gt;The scanner runs on &lt;a href=&quot;https://esphome.io/&quot;&gt;&lt;u&gt;ESPHome&lt;/u&gt;&lt;/a&gt;, which makes connecting hardware like the PN532 reader almost trivial. Instead of writing firmware, you just declare the pins and components in YAML, and ESPHome takes care of the rest.&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;esphome&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cardflix_scanner&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;platform&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ESP8266&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;d1_mini&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;i2c&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;sda&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;D8&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# The pins we connected earlier&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;scl&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;D7&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;scan&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# optional, helps confirm wiring&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;pn532_i2c&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nfc_reader&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(&lt;a href=&quot;https://gist.github.com/Udinic/dd0198f7b6b6fc5699ca6cc5079ad70f&quot;&gt;&lt;u&gt;Full ESPSHome config yaml code&lt;/u&gt;&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;“Installing” this config on our microcontroller involves connecting it to the computer and using 2 web tools that do everything. The first tool, &lt;em&gt;ESPHome Builder&lt;/em&gt; (a Home Assistant Add-on), parses the yaml config and generates the firmware based on the info on that config. The second tool, &lt;a href=&quot;https://web.esphome.io/?dashboard_wizard&quot;&gt;&lt;u&gt;ESPHome Web&lt;/u&gt;&lt;/a&gt;, connects to your device via USB cable and flashes the firmware onto it. There are plenty of good instructions for the process, such as &lt;a href=&quot;https://www.youtube.com/watch?v=cfkW7ZmiMEw&amp;amp;t=759s&quot;&gt;&lt;u&gt;this youtube video&lt;/u&gt;&lt;/a&gt; or the &lt;a href=&quot;https://esphome.io/guides/getting_started_hassio/&quot;&gt;&lt;u&gt;official ESPHome instructions&lt;/u&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;from-esphome--home-assistant&quot;&gt;From ESPHome → Home Assistant&lt;/h3&gt;
+
+&lt;p&gt;Once the firmware is loaded onto the Wemos D1 mini, Home Assistant automatically detects the device and prompts you to add it as an integration.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image5.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image5.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	Home Assistant integration setup screen
+&lt;/div&gt;
+
+&lt;p&gt;From there, the scanner can report any NFC tags it detects. Home Assistant has an Event Listening feature under Developer Tools, a quick scan of any card, while listening to “tag_scanned” events, will show some useful data for the card and the tag scanner. &lt;em&gt;tag_id&lt;/em&gt; is the card’s unique ID and &lt;em&gt;device_id&lt;/em&gt; is the tag scanner’s unique ID.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image19.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image19.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	Event Listener showing tag_scanned event data
+&lt;/div&gt;
+
+&lt;p&gt;We &lt;em&gt;could&lt;/em&gt; also write data onto the cards, but we won’t do that here. There’s no need to complicate the process of onboarding new movie cards, since each card already has a permanent unique identifier (the &lt;em&gt;tag_id&lt;/em&gt; we see above). We’ll design an automation that maps each card’s Tag ID to the content we need to play.&lt;/p&gt;
+
+&lt;h3 id=&quot;writing-the-automation&quot;&gt;Writing the Automation&lt;/h3&gt;
+
+&lt;p&gt;There are a few ways to set up the automation. I liked the structure Xavier at &lt;a href=&quot;https://simplyexplained.com/blog/how-i-built-an-nfc-movie-library-for-my-kids/&quot;&gt;&lt;em&gt;&lt;u&gt;Simply Explained&lt;/u&gt;&lt;/em&gt;&lt;/a&gt; shared, it keeps the mapping of Tag IDs to content easy to read and update.&lt;/p&gt;
+
+&lt;p&gt;I made a few changes of my own:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Support for multiple scanners (so different rooms can have their own devices).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Some tweaks to handle different types of content (Plex, Netflix, etc.).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here’s how it works.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. The automation’s trigger - scanning a card.&lt;/strong&gt;&lt;br /&gt;
+The trigger is a &lt;em&gt;tag_scanned&lt;/em&gt; event, the same one we saw earlier when testing the scanner using the Developer Tools. The automation will be triggered when such an event is fired.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image7.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image7.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	The Automation&apos;s trigger configuration for tag_scanned events
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Defining the variables we need.&lt;/strong&gt;&lt;br /&gt;
+These are the variables the automation uses:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;SCANNER_MAPPING&lt;/strong&gt; - A simple mapping between Scanner IDs to the TV entity they should operate on. This will ensure that the scanner in the bedroom will start any playback on the Bedroom TV and not other TVs. We can get the Scanner ID using the Event Listener tool we saw earlier.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;TARGET_TV&lt;/strong&gt; - This variable resolves to the TV entity the automation needs to target, based on the Scanner ID that was provided by the &lt;em&gt;tag_scanned&lt;/em&gt; event (&lt;em&gt;trigger.event.data.device_id&lt;/em&gt; = The Scanner ID). This also defines the default TV in case the scanner is not mapped to any specific TV (In this case, the default is Living Room TV).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CARD_MAPPING&lt;/strong&gt; - Maps each card’s Tag ID to the content it should play.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image2.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image2.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	The automation&apos;s variables, we&apos;ll mostly update CARD_MAPPING with Tag IDs and content IDs
+&lt;/div&gt;
+
+&lt;p&gt;Each card mapping includes the Tag ID, a name (just for readability) and the Content ID. The automation supports a few content types, for several streaming services and Plex. We’ll see below how we deep link to open the content.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Turning on the TV, if needed&lt;/strong&gt;&lt;br /&gt;
+The TARGET_TV variable holds the TV we’re targeting, we’ll check its status and turn it on if needed.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image18.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image18.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	TV power control logic in the automation
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Start the requested content using the content mapping defined in CARD_MAPPING&lt;/strong&gt;&lt;br /&gt;
+Each streaming service has its own Deep Link format. For each content we’ll check the streaming service it’s using, retrieve the correct deep link format and use it with the content’s ID to start the playback.&lt;/p&gt;
+
+&lt;p&gt;In the example below, looking up the Tag ID in CARD_MAPPING provided a “netflix_id”, which we used as part of the Netflix Deep Link URL, like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://www.netflix.com/watch/&amp;lt; CARD_MAPPING[trigger.event.data.tag_id].netflix_id &amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The URL is sent to my Apple TV as a “Play Media” request.&lt;/p&gt;
+
+&lt;p&gt;This URL works on an Apple TV, which is connected to my TV. It’s possible other media devices, such as Smart TVs, would have different requirements to deep link to a specific content.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image20.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image20.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	The flow of playing a Netflix content in the automation
+&lt;/div&gt;
+
+&lt;p&gt;These are the main logic of the automation, the full yaml code is &lt;a href=&quot;https://gist.github.com/Udinic/5686171f45b45baca0a10299ac2c6852&quot;&gt;&lt;u&gt;available here&lt;/u&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;deep-linking-to-content&quot;&gt;Deep Linking to Content&lt;/h4&gt;
+
+&lt;p&gt;Deep links are URLs that open a specific content on a specific streaming service. Not all of them are properly documented and some of them might not work on every streaming device (e.g. Apple TV, Smart TVs, Roku device). These are the Deep Link URLs that I found to be working on an Apple TV:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Service&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;URL Format&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Disney+&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://www.disneyplus.com/en-gb/play/&amp;lt;Content ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Netflix&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://www.netflix.com/watch/&amp;lt;Content ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hulu&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hulu://watch/&amp;lt;Content ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Plex Movie/TV&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plex://play/?metadataKey=%2Flibrary%2Fmetadata%2F&amp;lt;Content ID&amp;gt;&amp;amp;server=&amp;lt;Plex server ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Plex Playlist&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plex://play/?metadataKey=%2Fplaylists%2F&amp;lt;Content ID&amp;gt;&amp;amp;server=&amp;lt;Plex server ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The Content ID can be retrieved by opening the content on your browser and checking the URL.&lt;/p&gt;
+
+&lt;p&gt;Tip: Using a Plex playlist is a great way to watch random episodes of some TV Show(s), perfect for shows the kids have already watched a hundred times. &lt;a href=&quot;https://forums.plex.tv/t/tip-how-to-create-an-autoplaylist-with-random-sort/472823&quot;&gt;&lt;u&gt;Instructions on how to do that&lt;/u&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And here’s the automation in action:&lt;/p&gt;
+
+&lt;div class=&quot;media-center&quot;&gt;
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/Z5VRNPnNeZE&quot; width=&quot;540&quot; height=&quot;960&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;video-caption&quot;&gt;
+	Demo video testing the automation
+&lt;/div&gt;
+
+&lt;h2 id=&quot;creating-the-content-cards&quot;&gt;Creating the Content Cards&lt;/h2&gt;
+
+&lt;p&gt;The electronics and automations are only half the story — the real magic (and the part my kids loved most) was creating the movie cards themselves.&lt;/p&gt;
+
+&lt;p&gt;Each card is laminated with the TV/Movie’s artwork. The laminate not only makes the cards sturdy enough for repeated use, but also gives them that satisfying “real card” feel&lt;/p&gt;
+
+&lt;p&gt;We used &lt;a href=&quot;https://fanart.tv/&quot;&gt;&lt;u&gt;fanart.tv&lt;/u&gt;&lt;/a&gt; as our main source for high-quality TV and movie artwork. It has a huge collection of posters, logos, and backgrounds that work perfectly for this kind of project. Once we picked the right art, we copied it into a Google Doc and resized it to the dimensions of a credit card (Tip: resize to Width 2.12 inch, Height: 3.36 inch, Ratio: 1.583333). We put a few posters on a single page and printed it.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image12.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image12.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	Arranging the movie posters for printing
+&lt;/div&gt;
+
+&lt;p&gt;The printed poster we put on top of the card, slipped into a &lt;a href=&quot;https://amzn.to/4htrRoL&quot;&gt;&lt;u&gt;Laminating Pouch&lt;/u&gt;&lt;/a&gt; and from there straight to the laminating machine. The &lt;a href=&quot;https://amzn.to/47kbCad&quot;&gt;&lt;u&gt;one I got&lt;/u&gt;&lt;/a&gt; is cheap (under $20) and it served us well in several projects, definitely nice to have around the house.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image21.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image21.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	My daughter Emma is showing how we lamindate a movie card
+&lt;/div&gt;
+
+&lt;h3 id=&quot;onboarding-a-new-card&quot;&gt;Onboarding a New Card&lt;/h3&gt;
+
+&lt;p&gt;Once the physical card is ready, the final step is onboarding it into Home Assistant. To make things easier, I’ve added to the automation a fallback in case we scan a card that’s not assigned to any content, which prints the card’s Tag ID to Home Assistant’s Logbook.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image1.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image1.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	The &quot;Else&quot; clause of the automation, printing the card&apos;s Tag ID to the Logbook
+&lt;/div&gt;
+
+&lt;p&gt;This is how the Logbook entry looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image3.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image3.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	Home Assistant&apos;s Logbook entry detailing the Tag ID of a new card to onboard
+&lt;/div&gt;
+
+&lt;p&gt;Then all we need is to add a new entry in the CARD_MAPPING variable inside our automation:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;CARD_MAPPING&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;3D-1A-D6-FD&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Octonauts&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;netflix_id&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;80023363&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;By streamlining this process we made it very easy to grow the collection. Every time we want to add a few new TV Shows or Movies - I would search the content IDs in the streaming services, while my kids handle the card laminating step and we would meet at the end by scanning the cards and adding the new mapping for each new card. We don’t need to leave the house for a fun family activity.&lt;/p&gt;
+
+&lt;h2 id=&quot;3d-printing-the-enclosureand-more&quot;&gt;3D Printing the Enclosure..and more&lt;/h2&gt;
+
+&lt;p&gt;With the electronics and cards ready, the last step was giving the scanner a proper home. I wanted it to be accessible for the kids while being subtle enough to blend into the room’s décor.&lt;/p&gt;
+
+&lt;p&gt;Instead of designing something from scratch, I started with an existing enclosure I found online and personalized it with a simple logo that ChatGPT helped create. The result was a clean, kid-friendly enclosure with a custom logo that makes it feel like a finished product.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image4.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image4.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	Desgining a 3D printed enclosure with a custom CardFlix logo on the BambuLab Slicer
+&lt;/div&gt;
+
+&lt;p&gt;I printed the design on my Bambu Lab printer, using standard PLA. The compact stack of the electronics fit snugly inside, with just enough room for the wires and solder joints.&lt;/p&gt;
+
+&lt;table class=&quot;side-by-side&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image15.jpg&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image15.jpg&quot; /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+      &lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image16.jpg&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image16.jpg&quot; /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	3D printed enclosure assembly and final mounted scanner
+&lt;/div&gt;
+
+&lt;p&gt;You can download the enclosure from &lt;a href=&quot;https://makerworld.com/en/models/1924849-cardflix-enclosure#profileId-2065641&quot;&gt;&lt;u&gt;here&lt;/u&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To keep the cards organized and accessible I created 2 boxes - one to hold a large group of cards, another for holding a small group of “most favorite” cards next to the reader.&lt;/p&gt;
+
+&lt;table class=&quot;side-by-side&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image8.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image8.png&quot; /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+      &lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image9.png&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image9.png&quot; /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	Card storage boxes - large collection box and slim favorites box
+&lt;/div&gt;
+&lt;p&gt;And in case you wonder, there are 4 Bluey cards in those boxes…&lt;/p&gt;
+
+&lt;p&gt;Links to the 3D models: &lt;a href=&quot;https://makerworld.com/en/models/1924938-card-box-for-cardflix#profileId-2065737&quot;&gt;&lt;u&gt;Cards box&lt;/u&gt;&lt;/a&gt; / &lt;a href=&quot;https://makerworld.com/en/models/1924909-card-box-for-cardflix-slim#profileId-2065705&quot;&gt;&lt;u&gt;Cards box (slim)&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;bringing-it-all-together&quot;&gt;Bringing It All Together&lt;/h2&gt;
+
+&lt;p&gt;With the hardware soldered, the enclosure printed, the Movie Cards laminated, and the automation wired into Home Assistant - it was time for the payoff.&lt;/p&gt;
+
+&lt;table class=&quot;side-by-side&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image13.jpg&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image13.jpg&quot; /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+      &lt;a href=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image14.jpg&quot;&gt;&lt;img src=&quot;/assets/images/2025-11-01-building-cardflix-a-modern-twist-on-the-old-movie-shelf/media/image14.jpg&quot; /&gt;&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	Complete CardFlix setup showing scanner and card collection
+&lt;/div&gt;
+
+&lt;p&gt;Here’s a short demo of the scanner in action:&lt;/p&gt;
+
+&lt;div class=&quot;media-center&quot;&gt;
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/jGjedY8tdiY&quot; width=&quot;540&quot; height=&quot;960&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;video-caption&quot;&gt;
+	Final demo video - this is how we usually play content, using the &quot;most favorites&quot; box.
+&lt;/div&gt;
+
+&lt;p&gt;No menus, no remotes, no digging through apps. Just the card, the scanner, and the content.&lt;/p&gt;
+
+&lt;p&gt;It’s been a huge success in our house - my kids love the ritual of picking a card and watching it come to life, and it gives them a healthier, more intentional way to choose what to watch.&lt;/p&gt;
+
+&lt;h2 id=&quot;closing-thoughts&quot;&gt;Closing Thoughts&lt;/h2&gt;
+
+&lt;p&gt;This project started as a way to combine electronics tinkering with something useful for the family, and it turned into one of our favorite weekend builds. Between the hands-on soldering, designing the cards, and the 3D-printed enclosure, everyone got a part to play - and the end result is something truly useful.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to build your own, all the relevant links to get you through that are below. And if you do make one - I’d love to hear about it!&lt;/p&gt;
+
+&lt;h3 id=&quot;links&quot;&gt;Links&lt;/h3&gt;
+
+&lt;p&gt;Electronics:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://amzn.to/43rh8oU&quot;&gt;&lt;u&gt;Microcontroller: WeMos D1 Mini&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://amzn.to/3L6np34&quot;&gt;&lt;u&gt;NFC Reader: PN532&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Code:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://gist.github.com/Udinic/dd0198f7b6b6fc5699ca6cc5079ad70f&quot;&gt;&lt;u&gt;ESPHome config yaml&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://gist.github.com/Udinic/5686171f45b45baca0a10299ac2c6852&quot;&gt;&lt;u&gt;Home Assistant Automation yaml&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lamination:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://amzn.to/47kbCad&quot;&gt;&lt;u&gt;Crenova Laminator Machine&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://amzn.to/4htrRoL&quot;&gt;&lt;u&gt;Laminating Pouches, card-sized&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3D Print Models:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://makerworld.com/en/models/1924849-cardflix-enclosure#profileId-2065641&quot;&gt;&lt;u&gt;Enclosure&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://makerworld.com/en/models/1924938-card-box-for-cardflix#profileId-2065737&quot;&gt;&lt;u&gt;Card Box (Large)&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://makerworld.com/en/models/1924909-card-box-for-cardflix-slim#profileId-2065705&quot;&gt;&lt;u&gt;Card Box (Slim)&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Sat, 01 Nov 2025 00:00:00 -0400</pubDate>
+				<link>/2025/11/01/building-cardflix-a-modern-twist-on-the-old-movie-shelf/</link>
+				<guid isPermaLink="true">/2025/11/01/building-cardflix-a-modern-twist-on-the-old-movie-shelf/</guid>
+			</item>
+		
+			<item>
 				<title>Automating my balcony shade... with NFC!</title>
 				<description>&lt;p&gt;These past few months I spent mostly at home, as everyone else, and decided to take on a project to improve my time there. With three kids at our cozy apartment, it’s no wonder I loved spending a lot of time on our balcony. While I like the breeze and the view, I hated lowering and raising the sun shade. It’s a heavy shade, so it took more effort and time to operate than a regular bedroom window shade/blinds. I challenged myself to automate this shade by any means necessary!&lt;/p&gt;
 
@@ -17,6 +422,9 @@
 		&lt;img src=&quot;/assets/images/automating-balcony-shade-with-nfc/intro-circuit.jpg&quot; /&gt; 
 	&lt;/a&gt;
 &lt;/div&gt;
+&lt;div class=&quot;image-caption&quot;&gt;
+	The complete smart shade controller circuit
+&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -26,7 +434,7 @@
   &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;image-caption&quot;&gt;
+&lt;div class=&quot;video-caption&quot;&gt;
 	Demo of the smart shade controller
 &lt;/div&gt;
 
@@ -109,8 +517,8 @@
   &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;image-caption&quot;&gt;
-	blabla
+&lt;div class=&quot;video-caption&quot;&gt;
+	Testing the motor
 &lt;/div&gt;
 
 &lt;p&gt;A successful mount of the motor needs to produce a smooth crank rotation while the motor spins, any misalignment between the rotation planes of the motor and the crank could cause friction that damages the shade’s mechanism or the motor. Getting this alignment right was found to be quite challenging.&lt;/p&gt;
@@ -285,7 +693,7 @@
   &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;image-caption&quot;&gt;
+&lt;div class=&quot;video-caption&quot;&gt;
 	Testing the prototype
 &lt;/div&gt;
 
@@ -507,7 +915,7 @@
   &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;image-caption&quot;&gt;
+&lt;div class=&quot;video-caption&quot;&gt;
 	Testing the new NFC-based auto-stop mechanism
 &lt;/div&gt;
 
@@ -521,7 +929,7 @@
   &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;image-caption&quot;&gt;
+&lt;div class=&quot;video-caption&quot;&gt;
 	Testing the shade controller auto-stops when reaching the end.
 &lt;/div&gt;
 
@@ -738,7 +1146,7 @@
   &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;image-caption&quot;&gt;
+&lt;div class=&quot;video-caption&quot;&gt;
 	Testing voice command from Google Assistant.
 &lt;/div&gt;
 
@@ -827,7 +1235,7 @@
 		
 			<item>
 				<title>Introducing "Grabag" - a simple way to watch TV.</title>
-				<description>&lt;p&gt;UPDATE (09/2020): While I discontinued working on Grabag, this might still worth the read as the idea still lives on. To this day, I keep seeing this type of product being requested by people.&lt;/p&gt;
+				<description>&lt;p&gt;&lt;em&gt;UPDATE (09/2020): While I discontinued working on Grabag, this might still worth the read as the idea still lives on. To this day, I keep seeing this type of product being requested by people.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;About a year ago, I cut the cords and canceled my cable subscription. I watch a lot of TV shows, but I stream everything anyway, and avoiding all the commercial breaks is a bliss.&lt;/p&gt;
 
@@ -891,7 +1299,7 @@
 			</item>
 		
 			<item>
-				<title>Speed up your app</title>
+				<title>Speed up your app (DroidCon Talk)</title>
 				<description>&lt;p&gt;A few weeks ago, I gave a talk about Android Performance Optimization, at Droidcon NYC.&lt;/p&gt;
 
 &lt;p&gt;I invested a lot of time in this presentation, since I wanted to show real examples for performance issues, and how to identify them with the available tools. I had to cut down about a half of my slides because I didn’t have enough time to show everything. In this post, I’ll summarize everything I was talking about, and show examples I didn’t have time to go over.&lt;/p&gt;
@@ -2619,74 +3027,6 @@ READ_SYNC_STATS – Helps us get the sync state, if it’s currently syncing, pe
 				<pubDate>Wed, 24 Jul 2013 06:57:18 -0400</pubDate>
 				<link>/2013/07/24/write-your-own-android-sync-adapter/</link>
 				<guid isPermaLink="true">/2013/07/24/write-your-own-android-sync-adapter/</guid>
-			</item>
-		
-			<item>
-				<title>Create a secret doorway to your app</title>
-				<description>&lt;p&gt;This short post will be about creating a back-door to your app, giving you the option to provide more information or actions than you want end users to have. This will be using the Secret Code feature.&lt;/p&gt;
-
-&lt;p&gt;I came across some articles with list of codes in order to access some phone’s data (i.e. Camera’s firmware spec.), run some tests (i.e. Vibration test) or even perform actions such as reset to factory settings. Some examples can be found &lt;a href=&quot;http://www.redmondpie.com/hidden-android-secret-codes-for-samsung-htc-motorola-sony-lg-and-other-devices/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://www.itworld.com/consumerization-it/351248/debug-your-phone-these-hidden-android-secret-codes&quot;&gt;here&lt;/a&gt; and even as &lt;a href=&quot;https://play.google.com/store/apps/details?id=cx.makaveli.androidsecretcodes&amp;amp;hl=en&quot;&gt;an app&lt;/a&gt; that indexes all that information.&lt;/p&gt;
-
-&lt;h2 id=&quot;create-your-own&quot;&gt;Create your own&lt;/h2&gt;
-
-&lt;p&gt;Creating your own secret doorway for your app can help you get more information from users of your app in a time of need. Getting crash reports from end users can be done by several services such as ACRA or BugSense, but how about errors that are not crashes? How many times did your Mom/Spouse/Friend/Mailman showed you their phone, running your app, and said something like: “Why do I see duplicates on the list here?! Why can’t I sync??”. You probably can’t do anything without debugging the app or at least take a look at the app’s SharedPrefs/SQLiteDB. Using a backdoor can help you get more internal information that will help you find the cause for the problem, no computer is necessary!&lt;/p&gt;
-
-&lt;p&gt;Another cool thing is providing more actions to do with your app. You want to keep the app clean for your users, but you might want more power to yourself. You can tweak your internal settings, whether for testing purposes or just to try out new features on your everyday use. Not needing to compile a new version after each change of internal setting, can help a lot in the task of identifying tricky problems.&lt;/p&gt;
-
-&lt;h2 id=&quot;examples&quot;&gt;Examples&lt;/h2&gt;
-
-&lt;p&gt;Before learning how you can create your own secret code to do some cool stuff, let’s review some use cases that you can use it for:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Diagnose information - Presenting technical details of you app, such as generated UUID that can be used to find relevant server data.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Send internal data outside - You can dump app information, such as the SharedPrefs/DB data, and send it to you via email. Since this code runs on the same process as your app - you have access to everything!&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Change settings - You can change the internal settings of your app. Showing more debug logs, communicating with a different server or even change the sorting order of the list you present the user. Anything that can help you understand more about the current situation of the app.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Demo mode - Need to show your app to investors? Showoff to your Friends? You can create shortcuts to some app features that are relatively difficult to simulate. For example: Notification that triggers every morning or when the phone is idle for more than 30mins. Maybe a SMS/phone-call triggered action, QR code scan or a sensor’s incoming data. You can create a demo screen to start everything you want to show on the app, and with sample data to make a neat presentation.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;how&quot;&gt;How?&lt;/h2&gt;
-
-&lt;p&gt;Let’s see how to create one of our own secret code:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;receiver&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.receiver.DiagnoserReceiver&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;intent-filter&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;action&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.provider.Telephony.SECRET_CODE&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;data&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:scheme=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android_secret_code&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:host=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;111222&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/intent-filter&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/receiver&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;That’s what you put on your manifest. Looks simple right? All we do is provide a listener to a secret code, defined in a &amp;lt;data&amp;gt; tag as the “android:host” attribute, and declare a receiver for it. On the receiver, we can just run some code, open an Activity, run a Service etc. Here’s an example of a receiver that starts a new Activity:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DiagnoserReceiver&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BroadcastReceiver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onReceive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Intent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;intent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.provider.Telephony.SECRET_CODE&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;intent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAction&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;Intent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Intent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Intent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACTION_MAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Diagnoser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFlags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Intent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;FLAG_ACTIVITY_NEW_TASK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;startActivity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-	 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;We create an intent with the Activity class, Diagnoser, and start it. That activity will run on the same process as our app, allowing us to access all the data that our app has, using all the permissions that our app has been granted with.&lt;/p&gt;
-
-&lt;h2 id=&quot;use-it&quot;&gt;Use it&lt;/h2&gt;
-
-&lt;p&gt;To start our diagnose screen, all you need to do is go to the phone’s &lt;strong&gt;stock&lt;/strong&gt; dialer (third party dialers not always work with secret codes) and dial the secret code you defined in the “android:host” attribute on the manifest, in the following pattern: “&lt;em&gt;#&lt;/em&gt;#&lt;secret-code&gt;#*#*. In our example, you&apos;ll need to dial *#*#111222#*#*, the DiagnoserReceiver will receive the intent and start the Diagnoser activity.&lt;/secret-code&gt;&lt;/p&gt;
-
-&lt;p&gt;That’s it. I hope this post helped you get more from your app. If you have more ideas for use cases for this feature - write them on the comments to help us all exploit this nice feature.&lt;/p&gt;
-</description>
-				<pubDate>Thu, 16 May 2013 20:07:09 -0400</pubDate>
-				<link>/2013/05/16/create-a-secret-doorway-to-your-app/</link>
-				<guid isPermaLink="true">/2013/05/16/create-a-secret-doorway-to-your-app/</guid>
 			</item>
 		
 	</channel>
