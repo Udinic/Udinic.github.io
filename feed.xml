@@ -368,6 +368,9 @@ Each streaming service has its own Deep Link format. For each content we’ll ch
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://amzn.to/3L6np34&quot;&gt;&lt;u&gt;NFC Reader: PN532&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://amzn.to/4nU79jk&quot;&gt;&lt;u&gt;NFC Cards&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Code:&lt;/p&gt;
